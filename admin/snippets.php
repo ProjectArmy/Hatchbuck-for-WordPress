@@ -57,14 +57,15 @@ id="system_notice_area_dismiss">Dismiss</span>
 }
 ?>
 
+<div id="poststuff">
+<div id="postbody" class="metabox-holder columns-2">
 
-<div >
-
+<div class="postbox">
 
 	<form method="post">
-		<fieldset
-			style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">
-			<legend><h3>Forms</h3></legend>
+		<!--<fieldset
+			style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">-->
+			<!--<legend><h3>Forms</h3></legend>-->
 			<?php 
 			global $wpdb;
 			$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
@@ -188,9 +189,11 @@ id="system_notice_area_dismiss">Dismiss</span>
 
 			?>
 
-		</fieldset>
+		<!--</fieldset>-->
 
 	</form>
 
 </div>
 
+</div>
+</div>

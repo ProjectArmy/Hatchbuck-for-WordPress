@@ -1,15 +1,12 @@
 <?php
-
-	add_action('admin_menu', 'hatchbuck_menu');
-
-
+add_action('admin_menu', 'hatchbuck_menu');
 function hatchbuck_menu(){
 	
-	add_menu_page('hatchbuck', 'Hatchbuck', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets',plugins_url('hatchbuck/images/logo.png'));
+	add_menu_page('hatchbuck', 'Hatchbuck', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets',plugins_url(basename(dirname(dirname(__FILE__))).'/images/logo.png'));
 
 	add_submenu_page('hatchbuck-manage', 'Forms', 'Forms', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets');
 	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Manage settings', 'Settings', 'manage_options', 'hatchbuck-settings' ,'hatchbuck_settings');	
-	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'manage_options', 'hatchbuck-about' ,'hatchbuck_about');
+	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'manage_options', 'hatchbuck-help' ,'hatchbuck_help');
 	
 }
 
@@ -54,7 +51,7 @@ function hatchbuck_settings()
 	
 }
 
-function hatchbuck_about(){
+function hatchbuck_help(){
 	require( dirname( __FILE__ ) . '/header.php' );
 	require( dirname( __FILE__ ) . '/about.php' );
 	require( dirname( __FILE__ ) . '/footer.php' );

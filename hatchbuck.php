@@ -34,7 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 ob_start();
 
 // error_reporting(E_ALL);
-
+define('PLUGIN_NAME','Hatchbuck for WordPress');
 define('HATCHBUCK_PLUGIN_FILE',__FILE__);
 define('HATCHBUCK_VERSION','1.0');
 define('HATCHBUCK_TABLE','hatchbuck_shortcode');
