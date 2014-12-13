@@ -62,12 +62,12 @@ function hatchbuck_add_style_script(){
 
 	wp_enqueue_script('jquery');
 	
-	wp_register_script( 'hatchbuck_notice_script', plugins_url('hatchbuck/js/notice.js'),'',HATCHBUCK_VERSION);
+	wp_register_script( 'hatchbuck_notice_script', plugins_url(basename(dirname(dirname(__FILE__))).'/js/notice.js'),'',HATCHBUCK_VERSION);
 	wp_enqueue_script( 'hatchbuck_notice_script' );
 	
 	
 	// Register stylesheets
-	wp_register_style('hatchbuck_style', plugins_url('hatchbuck/css/hatchbuck_styles.css'),'',HATCHBUCK_VERSION);
+	wp_register_style('hatchbuck_style', plugins_url(basename(dirname(dirname(__FILE__))).'/css/hatchbuck_styles.css'),'',HATCHBUCK_VERSION);
 	wp_enqueue_style('hatchbuck_style');
 }
 add_action('admin_enqueue_scripts', 'hatchbuck_add_style_script');

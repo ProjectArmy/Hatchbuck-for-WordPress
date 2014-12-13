@@ -76,3 +76,4 @@ function verify_fields()
 
 </div>
     <p style="clear: both;"></p>
+</div>

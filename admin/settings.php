@@ -33,14 +33,18 @@ $_POST = stripslashes_deep($_POST);
 
 ?>
 
-<div>
 
-	
+<div id="poststuff">
+<div id="post-body" class="metabox-holder columns-2">
+
+<div id="postbox-container-2" class="postbox-container">
+<div class="postbox">
+
+	<h3 class="hndle"><span>Settings</span></h3>
+    <div class="inside">
+    
 	<form method="post">
-	<div style="float: left;width: 98%">
-	<fieldset style=" width:100%; border:1px solid #F7F7F7; padding:10px 0px 15px 10px;">
-	<legend ><h3>Settings</h3></legend>
-	<table class="widefat"  style="width:99%;">
+	<table style="width:99%;">
 						
 			<tr valign="top">
 				<td scope="row" class=" settingInput" id=""><label for="hatchbuck_limit">Pagination limit</label></td>
@@ -57,9 +61,14 @@ $_POST = stripslashes_deep($_POST);
 			</tr>
 			
 	</table>
-	</fieldset>
-	
-	</div>
 
 	</form>
-</div>
+  </div><!-- inside -->
+  </div><!-- postbox -->
+</div><!-- postbox-container-2 -->
+
+
+<?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
+
+</div><!-- postbody -->
+</div><!-- poststuff -->

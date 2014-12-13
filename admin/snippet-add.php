@@ -59,20 +59,18 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 
 ?>
 
-<div >
-	<fieldset
-		style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">
-		<legend>
-			<b>Add Hatchbuck Form</b>
-		</legend>
+<div id="poststuff">
+<div id="post-body" class="metabox-holder columns-2">
+
+<div id="postbox-container-2" class="postbox-container">
+  <div class="postbox">
+    <h3 class="hndle"><span>Add Hatchbuck Form</span></h3>
+    <div class="inside">
 		<form name="frmmainForm" id="frmmainForm" method="post">
 			
 			<div>
 				<table
-					style="width: 99%; background-color: #F9F9F9; border: 1px solid #E4E4E4; border-width: 1px;margin: 0 auto">
-					<tr><td><br/>
-					<div id="shortCode"></div>
-					<br/></td></tr>
+					style="width: 99%; margin: 0 auto">
 					<tr valign="top">
 						<td style="border-bottom: none;width:20%;">&nbsp;&nbsp;&nbsp;Form Name&nbsp;<font color="red">*</font></td>
 						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
@@ -90,7 +88,7 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 
 				<tr>
 				<td></td><td></td>
-					<td><input class="button" style="cursor: pointer;"
+					<td><input class="button button-primary" style="cursor: pointer;"
 							type="submit" name="addSubmit" value="Create Your Form"></td>
 				</tr>
 				<tr><td><br/></td></tr>
@@ -98,6 +96,11 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 			</div>
 
 		</form>
-	</fieldset>
+    </div><!-- inside -->
+  </div><!-- postbox -->
+</div><!-- postbox-container-2 -->
 
-</div>
+<?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
+
+</div><!-- postbody -->
+</div><!-- poststuff -->

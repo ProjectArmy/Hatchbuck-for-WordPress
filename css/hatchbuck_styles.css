@@ -93,3 +93,6 @@ i.hatchbuck-own-icon {
 #ttbot {display:block; height:5px; margin-left:5px; }
 
 /*new theme*/
+#poststuff h3{
+  cursor:auto !important;
+}

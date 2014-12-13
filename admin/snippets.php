@@ -58,10 +58,12 @@ id="system_notice_area_dismiss">Dismiss</span>
 ?>
 
 <div id="poststuff">
-<div id="postbody" class="metabox-holder columns-2">
+<div id="post-body" class="metabox-holder columns-2">
 
-<div class="postbox">
-
+<div id="postbox-container-2" class="postbox-container">
+  <div class="postbox">
+  <h3 class="hndle"><span>Title Sidebar 1</span></h3>
+  <div class="inside">
 	<form method="post">
 		<!--<fieldset
 			style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">-->
@@ -80,7 +82,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 				style="cursor: pointer; margin-bottom:10px; margin-left:8px;" type="button"
 				name="textFieldButton2" value="Add New Form"
 				 onClick='document.location.href="<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-add');?>"'>
-			<table class="widefat" style="width: 99%; margin: 0 auto; border-bottom:none;">
+			<table class="widefat" style="width: 99%; margin: 0 auto; ">
 				<thead>
 					<tr>
 						<th scope="col" >Form Name</th>
@@ -122,7 +124,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 						<td style="text-align: center;"><a
 							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=1&pageno='.$pagenum); ?>'><img
 								id="img" title="Activate"
-								src="<?php echo plugins_url('hatchbuck/images/activate.png')?>">
+								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/activate.png')?>">
 						</a>
 						</td>
 							<?php 
@@ -131,7 +133,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 						<td style="text-align: center;"><a
 							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=2&pageno='.$pagenum); ?>'><img
 								id="img" title="Deactivate"
-								src="<?php echo plugins_url('hatchbuck/images/pause.png')?>">
+								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/pause.png')?>">
 						</a>
 						</td>		
 								<?php 	
@@ -142,14 +144,14 @@ id="system_notice_area_dismiss">Dismiss</span>
 						<td style="text-align: center;"><a
 							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-edit&snippetId='.$entry->id.'&pageno='.$pagenum); ?>'><img
 								id="img" title="Edit Snippet"
-								src="<?php echo plugins_url('hatchbuck/images/edit.png')?>">
+								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/edit.png')?>">
 						</a>
 						</td>
 						<td style="text-align: center;" ><a
 							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-delete&snippetId='.$entry->id.'&pageno='.$pagenum); ?>'
 							onclick="javascript: return confirm('Please click \'OK\' to confirm ');"><img
 								id="img" title="Delete Snippet"
-								src="<?php echo plugins_url('hatchbuck/images/delete.png')?>">
+								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/delete.png')?>">
 						</a></td>
 					</tr>
 					<?php
@@ -192,8 +194,11 @@ id="system_notice_area_dismiss">Dismiss</span>
 		<!--</fieldset>-->
 
 	</form>
-
+  </div><!-- inside -->
+  </div><!-- postbox -->
 </div>
 
-</div>
-</div>
+<?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
+
+</div><!-- postbody -->
+</div><!-- poststuff -->

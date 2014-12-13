@@ -74,12 +74,13 @@ $snippetDetails = $snippetDetails[0];
 
 ?>
 
-<div >
-	<fieldset
-		style="width: 99%; border: 1px solid #F7F7F7; padding: 10px 0px;">
-		<legend>
-			<b>Edit Hatchbuck Form</b>
-		</legend>
+<div id="poststuff">
+<div id="post-body" class="metabox-holder columns-2">
+
+<div id="postbox-container-2" class="postbox-container">
+<div class="postbox">
+	<h3 class="hndle"><span>Edit Hatchbuck Form</span></h3>
+    <div class="inside">
 		<form name="frmmainForm" id="frmmainForm" method="post">
 			<input type="hidden" id="snippetId" name="snippetId"
 				value="<?php if(isset($_POST['snippetId'])){ echo esc_attr($_POST['snippetId']);}else{ echo esc_attr($snippetDetails->id); }?>">
@@ -114,6 +115,12 @@ $snippetDetails = $snippetDetails[0];
 			</div>
 
 		</form>
-	</fieldset>
+    </div><!-- inside -->
+</div><!-- postbox -->
+</div><!-- postbox-container-2 -->
 
-</div>
+
+<?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
+
+</div><!-- postbody -->
+</div><!-- poststuff -->
