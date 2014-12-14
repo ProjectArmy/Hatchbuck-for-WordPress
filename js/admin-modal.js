@@ -1,7 +1,8 @@
 jQuery( document ).ready( function () {
-
+  
+  
 	//setup the tooltip
-	jQuery( '#itsec_intro_modal' ).dialog(
+	/*jQuery( '#itsec_intro_modal' ).dialog(
 		{
 			dialogClass   : 'wp-dialog itsec-setup-dialog',
 			modal         : true,
@@ -33,7 +34,7 @@ jQuery( document ).ready( function () {
 
 
 		}
-	);
+	);*/
 
 	jQuery( '.ui-dialog a' ).blur();
 

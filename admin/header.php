@@ -1,8 +1,64 @@
+<?php
+wp_enqueue_script( 'itsec_modal', plugins_url(basename(dirname(dirname(__FILE__)))) . '/js/admin-modal.js', array( 'jquery' ), '', true );
+require( dirname( __FILE__ ) . '/modal_marketing_help.php' );
+wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
+      'nonce'    => '',
+      'messages' => $messages,
+      'title'    => 'Title Modal 1',
+    ));
+?>
+<script type="text/javascript">
+  jQuery( document ).ready( function () {
+    function modealLoad(){
+    jQuery( '#itsec_intro_modal' ).dialog(
+		{
+			dialogClass   : 'wp-dialog itsec-setup-dialog',
+			modal         : true,
+			closeOnEscape : false,
+			title         : itsec_tooltip_text.title,
+			width         : '75%',
+			resizable     : false,
+			draggable     : false,
+			close         : function ( event, ui ) {
+
+				var data = {
+					action : 'itsec_tooltip_ajax',
+					module : 'close',
+					nonce  : itsec_tooltip_text.nonce
+				};
+
+				//call the ajax
+				jQuery.post( ajaxurl, data, function () {
+
+					var url = window.location.href;
+					console.log( url );
+					url = url.substring( 0, url.lastIndexOf( "&" ) );
+
+					window.location.replace( url );
+
+				} );
+
+			}
+
+
+		}
+	);
+  }
+  
+    
+    jQuery('.hb-tab-market-help a').click(function(){
+       modealLoad();
+       return false;
+    }); 
+    
+  });
+</script>
+
 <div id="screen-meta-links">
   <!--<div class="" id="screen-options-link-wrap">
     <a aria-expanded="false" aria-controls="screen-options-wrap" class="show-settings" id="show-settings-link" href="#screen-options-wrap">Screen Options</a>
   </div>-->
-  <div class="noArrowdown" id="screen-options-link-wrap">
+  <div class="noArrowdown hb-tab-market-help" id="screen-options-link-wrap">
     <a class="show-settings" href="admin.php?page=hatchbuck-manage&hb-mh=1">Get Marketing Help</a>
   </div>
 </div>

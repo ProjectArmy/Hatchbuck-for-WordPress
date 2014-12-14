@@ -57,18 +57,6 @@ id="system_notice_area_dismiss">Dismiss</span>
 }
 ?>
 
-<?php  
-  if (isset($_GET['hb-mh']) && $_GET['hb-mh'] == 1) {
-    wp_enqueue_script( 'itsec_modal', plugins_url(basename(dirname(dirname(__FILE__)))) . '/js/admin-modal.js', array( 'jquery' ), '', true );
-    wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
-      'nonce'    => '',
-      'messages' => $messages,
-      'title'    => 'Title Modal 1',
-    ));
-    require( dirname( __FILE__ ) . '/modal_marketing_help.php' );
-  }
-?>
-
 <div id="poststuff">
 <div id="post-body" class="metabox-holder columns-2">
 

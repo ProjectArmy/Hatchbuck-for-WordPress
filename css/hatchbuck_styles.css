@@ -125,6 +125,10 @@ i.hatchbuck-own-icon {
     width: 30px;
 }
 
-#contextual-help-link-wrap, #screen-options-link-wrap{
-  background-color:#00ff66;
+.hb-tab-market-help{
+  background-color:#f37736 !important;
+}
+
+.hb-tab-market-help a{
+  color:#fff !important;
 }
