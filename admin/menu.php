@@ -73,5 +73,8 @@ function hatchbuck_add_style_script(){
 add_action('admin_enqueue_scripts', 'hatchbuck_add_style_script');
 
 
-
+wp_enqueue_script( 'jquery-ui-tabs' );
+wp_enqueue_script( 'jquery-ui-dialog' );
+wp_enqueue_style( 'jquery-ui-tabs' );
+wp_enqueue_style( 'wp-jquery-ui-dialog' );
 ?>

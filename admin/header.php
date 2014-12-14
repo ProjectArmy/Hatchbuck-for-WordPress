@@ -1,3 +1,12 @@
+<div id="screen-meta-links">
+  <!--<div class="" id="screen-options-link-wrap">
+    <a aria-expanded="false" aria-controls="screen-options-wrap" class="show-settings" id="show-settings-link" href="#screen-options-wrap">Screen Options</a>
+  </div>-->
+  <div class="noArrowdown" id="screen-options-link-wrap">
+    <a class="show-settings" href="admin.php?page=hatchbuck-manage&hb-mh=1">Get Marketing Help</a>
+  </div>
+</div>
+
 <?php 
   $pageName = 'Form';
   $page = 'hatchbuck-manage';
@@ -11,6 +20,7 @@
     }
   }
 ?>
+
 <div class="wrap">
   <h2><?php echo PLUGIN_NAME; ?> - <?php echo $pageName; ?></h2>
 

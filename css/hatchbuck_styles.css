@@ -96,3 +96,35 @@ i.hatchbuck-own-icon {
 #poststuff h3{
   cursor:auto !important;
 }
+
+#screen-options-link-wrap.noArrowdown a:after{
+  content:"";
+}
+
+#itsec-meta-link-wrap a.show-settings{
+  float:right;
+}
+
+.itsec-setup-dialog .ui-dialog-titlebar{
+  background: none repeat scroll 0 0 #2ea2cc;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: normal;
+  height: auto;
+  line-height: 2.5;
+  padding: 0 1em;
+}
+
+.itsec-setup-dialog .ui-dialog-titlebar button{
+   color: #5bbdd5;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    right: 15px;
+    top: 8px;
+    width: 30px;
+}
+
+#contextual-help-link-wrap, #screen-options-link-wrap{
+  background-color:#00ff66;
+}
