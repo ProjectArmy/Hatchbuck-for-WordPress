@@ -54,13 +54,15 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
   });
 </script>
 
+<?php if(isset($_GET['hb-mh'])): ?>
+<script type="text/javascript">
+  jQuery( document ).ready( function () {
+    jQuery('.hb-tab-market-help a').click();
+  });
+</script>
+<?php endif; ?>
+
 <div id="screen-meta-links">
-  <!--<div class="" id="screen-options-link-wrap">
-    <a aria-expanded="false" aria-controls="screen-options-wrap" class="show-settings" id="show-settings-link" href="#screen-options-wrap">Screen Options</a>
-  </div>-->
-  <div class="noArrowdown hb-tab-market-help" id="screen-options-link-wrap">
-    <a class="show-settings" href="admin.php?page=hatchbuck-manage&hb-mh=1">Get Marketing Help</a>
-  </div>
 </div>
 
 <?php 

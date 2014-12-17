@@ -3,7 +3,7 @@
 function my_plugin_redirect() {
     if (get_option('my_plugin_do_activation_redirect', false)) {
         delete_option('my_plugin_do_activation_redirect');
-        wp_redirect(admin_url('admin.php?page=hatchbuck-about'));
+        wp_redirect(admin_url('admin.php?page=hatchbuck-help'));
     }
 }
 
@@ -44,11 +44,11 @@ function install(){
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1";
 	$wpdb->query($queryInsertHtml);
+  
+  update_option('hatchbuck_help_script',1);
 }
 
 register_activation_hook( HATCHBUCK_PLUGIN_FILE ,'hatchbuck_network_install');
+
 add_action('admin_init', 'my_plugin_redirect');
-
-
-
 

@@ -8,31 +8,35 @@ if($_POST){
 	
 $_POST=hatchbuck_trim_deep($_POST);
 $_POST = stripslashes_deep($_POST);
+		
+  $hatchbuck_limit = abs(intval($_POST['hatchbuck_limit']));
+  if($hatchbuck_limit==0)$hatchbuck_limit=20;
+  
+  $hatchbuck_credit = $_POST['hatchbuck_credit'];
+  
+  
+  update_option('hatchbuck_limit',$hatchbuck_limit);
 
-			
-			
-			$hatchbuck_limit = abs(intval($_POST['hatchbuck_limit']));
-			if($hatchbuck_limit==0)$hatchbuck_limit=20;
-			
-			$hatchbuck_credit = $_POST['hatchbuck_credit'];
-			
-			
-			update_option('hatchbuck_limit',$hatchbuck_limit);
-
+  if(isset($_POST['disable_help'])) {
+    update_option('hatchbuck_help_script',null);
+  } else {
+    update_option('hatchbuck_help_script',1);
+  }
+  header('Location: admin.php?page=hatchbuck-settings&notice=1');
 ?>
 
-
-<div class="system_notice_area_style1" id="system_notice_area">
-	Settings updated successfully. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
-</div>
 
 
 <?php
 }
 
-
 ?>
 
+<?php if(isset($_GET['notice'])): ?>
+<div class="system_notice_area_style1" id="system_notice_area">
+	Settings updated successfully. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
+</div>
+<?php endif; ?>
 
 <div id="poststuff">
 <div id="post-body" class="metabox-holder columns-2">
@@ -50,6 +54,13 @@ $_POST = stripslashes_deep($_POST);
 				<td scope="row" class=" settingInput" id=""><label for="hatchbuck_limit">Pagination limit</label></td>
 				<td id=""><input  name="hatchbuck_limit" type="text"
 					id="hatchbuck_limit" value="<?php if(isset($_POST['hatchbuck_limit']) ){echo abs(intval($_POST['hatchbuck_limit']));}else{print(get_option('hatchbuck_limit'));} ?>" />
+				</td>
+			</tr>
+      
+      <tr valign="top">
+				<td scope="row" class=" settingInput" id=""><label for="hatchbuck_limit">Disable help button</label></td>
+				<td>
+          <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
 				</td>
 			</tr>
 			
