@@ -21,6 +21,9 @@
           </ul>
           <p><a class="button-secondary" href="https://my.projectarmy.net/clientarea.php" target="_blank">Submit a Ticket &raquo;</a> <a class="button-primary" href="https://www.projectarmy.net/projects/" target="_blank">Browse Service Marketplace &raquo;</a></p>
           <hr />
+          <strong>Bugs and Feature Requests</strong>
+          <p>Found a bug or want to request a feature? <a href="https://github.com/ProjectArmy/Hatchbuck-for-WordPress/issues" target="_blank">Submit it here</a> <em>(You'll need free GitHub account)</em></p>
+          <hr />
           <p><strong>Marketing and Hatchbuck Help</strong></p>
           <p>Too much on your plate and not enough time to do everything yourself? <strong>We're here to help.</strong></p>
           <p>Take advantage of your free marketing consultation to find out how ProjectArmy's effective marketing solutions can help you create sustainable growth.</p>
