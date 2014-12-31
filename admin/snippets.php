@@ -62,7 +62,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 
 <div id="postbox-container-2" class="postbox-container">
   <div class="postbox">
-  <h3 class="hndle"><span>Title Sidebar 1</span></h3>
+  <h3 class="hndle"><span>Hatchbuck Forms</span></h3>
   <div class="inside">
 	<form method="post">
 		<!--<fieldset

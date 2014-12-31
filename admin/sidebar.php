@@ -1,4 +1,5 @@
 <div id="postbox-container-1" class="postbox-container">
+   <div class="hatchbuck-training"><a href="https://edu.projectarmy.net/hatchbuck/?utm_source=Hatchbuck%20for%20WordPress%20plugin&utm_medium=Image%20Banner&utm_campaign=Plugin%20Training%20Banner" target="_blank"><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-training.png')?>" alt="Go to free Hatchbuck and marketing training resources" /></a></div>
    <div class="postbox ">
     <h3 class="hndle"><span>Title Sidebar 1</span></h3>
     <div class="inside">

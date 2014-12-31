@@ -1,4 +1,3 @@
-
 #system_notice_area_dismiss{
 color: #FFFFFF;
 cursor: pointer;
@@ -10,7 +9,7 @@ cursor: pointer;
 
 .system_notice_area_style0 {
 	background: #FA5A6A;
-	border: 1px solid brown;
+	border: 1px solid orange;
 }
 
 
@@ -132,3 +131,17 @@ i.hatchbuck-own-icon {
 .hb-tab-market-help a{
   color:#fff !important;
 }
+/* viktors edits */
+.hatchbuck-form{ margin-bottom: 15px; }
+.hfw-privacy{ color: #999; }
+.hatchbuck-form label{ display: block;}
+.hatchbuck-form input[type=text],
+.hatchbuck-form input[type=email],
+.hatchbuck-form textarea{
+	margin-bottom: 10px;
+	width: 100%;
+}
+.form-required{ color:red; padding-left: 5px;}
+.hb-form-submit { width: 100%; text-align: right; }
+#itsec_intro_modal { padding-top: 0 !important; }
+.hatchbuck-training { margin-bottom: 20px; }

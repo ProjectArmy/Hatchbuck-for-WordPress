@@ -40,7 +40,7 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 		{
 			?>
 		<div class="system_notice_area_style0" id="system_notice_area">
-		Form title can have only alphabets,numbers or hyphen. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
+		Form title can have only letters, numbers or hyphens. &nbsp;&nbsp;&nbsp;<span id="system_notice_area_dismiss">Dismiss</span>
 		</div>
 		<?php
 		
@@ -72,14 +72,14 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 				<table
 					style="width: 99%; margin: 0 auto">
 					<tr valign="top">
-						<td style="border-bottom: none;width:20%;">&nbsp;&nbsp;&nbsp;Form Name&nbsp;<font color="red">*</font></td>
+						<td style="border-bottom: none;width:10%;">&nbsp;&nbsp;&nbsp;Form Name&nbsp;<font color="red">*</font></td>
 						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
 						<td><input style="width:80%;"
 							type="text" name="snippetTitle"
 							value="<?php if(isset($_POST['snippetTitle'])){ echo esc_attr($_POST['snippetTitle']);}?>"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom: none;width:20%; ">&nbsp;&nbsp;&nbsp;Form Code &nbsp;<font color="red">*</font></td>
+						<td style="border-bottom: none;width:10%; ">&nbsp;&nbsp;&nbsp;Form Code &nbsp;<font color="red">*</font></td>
 						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
 						<td >
 							<textarea name="snippetContent" style="width:80%;height:150px;"><?php if(isset($_POST['snippetContent'])){ echo esc_textarea($_POST['snippetContent']);}?></textarea>
@@ -99,8 +99,27 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
     </div><!-- inside -->
   </div><!-- postbox -->
 </div><!-- postbox-container-2 -->
-
 <?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
+<div id="postbox-container-3" class="postbox-container">
+	<div id="top-sortables" class="meta-box-sortables ui-sortable"></div>
+<div id="normal-sortables" class="meta-box-sortables ui-sortable">
+  <div class="postbox"><div class="handlediv" title="Click to toggle"><br></div>
+    <h3 class="hndle ui-sortable-handle"><span>What form code should I use?</span></h3>
+    <div class="inside">
+	<h3>Option #1: IFRAME</h3>
+	<p>If you are happy with form design that you created inside Hatchbuck - colors, fonts, sizes, etc. - than choos IFRAME option.</p>
+	<p><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-form-iframe.png')?>" alt="Hatchbuck form IFRAME" /></p>
+	<hr />
+	<h3>Option #2: HTML/CSS</h3>
+	<p>If you want your form to match your theme styling, choose HTML/CSS form option. BUT!</P>
+	<p><strong>IMPORTANT:</strong> Do NOT copy/paste everything. You only need to copy and paste form code that starts with <code>&#x3C;form</code> and ends with <code>&#x3C;/form&#x3E;</code></p>
+    <p><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-form-html-2.png')?>" alt="Hatchbuck form HTML/CSS" /></p>
+    </div><!-- inside -->
+  </div><!-- postbox -->
+</div>
+</div>
+
+
 
 </div><!-- postbody -->
 </div><!-- poststuff -->

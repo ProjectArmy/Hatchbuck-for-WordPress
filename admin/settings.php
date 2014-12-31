@@ -51,14 +51,14 @@ $_POST = stripslashes_deep($_POST);
 	<table style="width:99%;">
 						
 			<tr valign="top">
-				<td scope="row" class=" settingInput" id=""><label for="hatchbuck_limit">Pagination limit</label></td>
+				<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Pagination limit (forms per page)</label></td>
 				<td id=""><input  name="hatchbuck_limit" type="text"
 					id="hatchbuck_limit" value="<?php if(isset($_POST['hatchbuck_limit']) ){echo abs(intval($_POST['hatchbuck_limit']));}else{print(get_option('hatchbuck_limit'));} ?>" />
 				</td>
 			</tr>
       
       <tr valign="top">
-				<td scope="row" class=" settingInput" id=""><label for="hatchbuck_limit">Disable help button</label></td>
+				<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Disable orange "Get Marketing Help" button</label></td>
 				<td>
           <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
 				</td>

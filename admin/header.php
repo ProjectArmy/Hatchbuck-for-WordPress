@@ -4,7 +4,7 @@ require( dirname( __FILE__ ) . '/modal_marketing_help.php' );
 wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
       'nonce'    => '',
       'messages' => $messages,
-      'title'    => 'Title Modal 1',
+      'title'    => 'Request Your FREE Consultation',
     ));
 ?>
 <script type="text/javascript">
@@ -16,7 +16,7 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
 			modal         : true,
 			closeOnEscape : false,
 			title         : itsec_tooltip_text.title,
-			width         : '75%',
+			width         : '400px',
 			resizable     : false,
 			draggable     : false,
 			close         : function ( event, ui ) {
