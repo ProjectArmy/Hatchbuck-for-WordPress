@@ -103,7 +103,7 @@ function my_action_javascript() { ?>
       var data = {
         'action': 'subscribe',
         'name': $('.subscribe #name').val(),
-        'LastName': $('.subscribe #LastName').val(),
+        'lname': $('.subscribe #LastName').val(),
         'email': $('.subscribe #email').val()
       };
 

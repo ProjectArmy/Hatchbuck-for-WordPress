@@ -1,16 +1,16 @@
 <?php
 function getFeed(){
-  $url = 'https://www.projectarmy.net/feed/?utm_source=Blog%20Feed&utm_medium=Text%20Link&utm_campaign=HB%20for%20WP%20Plugin';
+  $url = 'https://www.projectarmy.net/feed/';
   $rss = fetch_feed($url);
   if(is_wp_error($rss)){
     return false;
   }
-  $maxitems = $rss->get_item_quantity(10);
+  $maxitems = $rss->get_item_quantity(5);
   $rss_items = $rss->get_items(0,$maxitems);
   $html = '<ul>';
   if($maxitems != 0){
     foreach($rss_items as $item){
-      $html .= '<li><a href="'.esc_url($item->get_permalink()).'" target="_blank">'.esc_html($item->get_title()).'</a></li>';
+      $html .= '<li><a href="'.esc_url($item->get_permalink()).'?utm_source=Blog%20Feed&utm_medium=Text%20Link&utm_campaign=HB%20for%20WP%20Plugin" target="_blank">'.esc_html($item->get_title()).'</a></li>';
     }
   }
   $html .= '</ul>';
@@ -32,14 +32,14 @@ function getFeed(){
           </tr>
           <tr>
             <td>Last Name:</td>
-            <td><input type="text" name="LastName" id="LastName"/></td>
+            <td><input type="text" name="lname" id="LastName"/></td>
           </tr>
           <tr>
             <td>Email</td>
             <td><input type="text" name="email" id="email"/></td>
           </tr>
         </table>
-        <div style="margin-left:90px;"><input type="submit" value="Subscribe" id="submit-btn"/></div> 
+        <div style="margin-left:90px;"><input type="submit" value="Sign up now &raquo;" id="submit-btn"/></div> 
       </form>
     </div><!-- inside -->
   </div><!-- postbox -->

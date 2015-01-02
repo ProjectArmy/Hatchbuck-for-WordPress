@@ -6,7 +6,7 @@
 
 	//--------------------------------------------------//
 	//POST variables
-	$name = $_POST['name'];
+	$name = trim($_POST['name'].' '.$_POST['lname']);
 	$email = $_POST['email'];
 	
 	//subscribe
