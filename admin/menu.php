@@ -82,4 +82,44 @@ wp_enqueue_script( 'jquery-ui-tabs' );
 wp_enqueue_script( 'jquery-ui-dialog' );
 wp_enqueue_style( 'jquery-ui-tabs' );
 wp_enqueue_style( 'wp-jquery-ui-dialog' );
+
+/*
+ * Ajax call
+ */
+add_action('wp_ajax_subscribe', 'ajaxSubscribe');
+function ajaxSubscribe() {
+  require( dirname( __FILE__ ).'/ajax-subscribe.php');
+  exit();
+}
 ?>
+
+<?php
+add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
+
+function my_action_javascript() { ?>
+	<script type="text/javascript" >
+	jQuery(document).ready(function($) {
+    $('#signup-form').submit(function(){
+      var data = {
+        'action': 'subscribe',
+        'name': $('.subscribe #name').val(),
+        'LastName': $('.subscribe #LastName').val(),
+        'email': $('.subscribe #email').val()
+      };
+
+      // since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+      $.post(ajaxurl, data, function(response) {
+        if(response == 1){
+          $('.subscribe #name').val('');
+          $('.subscribe #LastName').val('');
+          $('.subscribe #email').val('');
+          $('.subscribe #status').html('Thank you for Subscribing! ');
+        }else{
+          $('.subscribe #status').html(response);
+        }
+      });
+      return false;
+    });
+	});
+	</script> <?php
+}
