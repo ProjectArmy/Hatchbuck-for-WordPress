@@ -59,4 +59,6 @@ require( dirname( __FILE__ ) . '/direct_call.php' );
 
 require( dirname( __FILE__ ) . '/hatchbuck-admin-menu.php' );
 
+require( dirname( __FILE__ ) . '/functions/widget_pa_feed.php' );
+
 ?>

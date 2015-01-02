@@ -142,4 +142,3 @@ function custom_field_before_content() {
 function hatchbuckCode() {
 	echo get_post_custom_values('metabox')[0];
 }
-?>
