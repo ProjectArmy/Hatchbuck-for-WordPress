@@ -28,7 +28,7 @@ function getFeed(){
   </div><!-- postbox -->
   
   <div class="postbox ">
-    <h3 class="hndle"><span>Project Army Blog Feed</span></h3>
+    <h3 class="hndle"><span>ProjectArmy Blog</span></h3>
     <div class="inside">
       <?php echo getFeed(); ?>
     </div><!-- inside -->
