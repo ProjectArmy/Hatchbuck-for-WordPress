@@ -6,14 +6,18 @@
 
 	//--------------------------------------------------//
 	//POST variables
-	$name = trim($_POST['name'].' '.$_POST['lname']);
+	$name = $_POST['name'];
 	$email = $_POST['email'];
+	$lastname = $_POST['lname'];
+  $date = strftime('%b %d, %G', time());
 	
 	//subscribe
 	$postdata = http_build_query(
 	    array(
 	    'name' => $name,
 	    'email' => $email,
+      'LastName' => $lastname,
+      'SignupDate' => $date,
 	    'list' => $list,
 	    'boolean' => 'true'
 	    )
