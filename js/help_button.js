@@ -5,4 +5,5 @@ jQuery( document ).ready( function () {
   </div>\
 ';
   jQuery('#wpbody #screen-meta-links').prepend(screen);
+  jQuery("#wpbody #screen-meta-links").insertBefore("#wpbody .update-nag");
 });
