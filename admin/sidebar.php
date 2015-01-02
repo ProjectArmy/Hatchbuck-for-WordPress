@@ -1,6 +1,6 @@
 <?php
 function getFeed(){
-  $url = 'https://www.projectarmy.net/feed/';
+  $url = 'https://www.projectarmy.net/feed/?utm_source=Blog%20Feed&utm_medium=Text%20Link&utm_campaign=HB%20for%20WP%20Plugin';
   $rss = fetch_feed($url);
   if(is_wp_error($rss)){
     return false;
