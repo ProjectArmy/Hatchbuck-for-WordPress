@@ -148,3 +148,14 @@ i.hatchbuck-own-icon {
 
 .success{color:#4cae4c;}
 .danger{color:#d43f3a;}
+
+#signup-form label{
+	display: block;
+}
+#signup-form input[type=text],
+#signup-form input[type=email]{
+	margin-bottom: 10px;
+}
+
+#signup-form input{ width: 100%; }
+

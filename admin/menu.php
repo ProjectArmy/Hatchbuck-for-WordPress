@@ -7,6 +7,7 @@ function hatchbuck_menu(){
 	add_submenu_page('hatchbuck-manage', 'Forms', 'Forms', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets');
 	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Manage settings', 'Settings', 'manage_options', 'hatchbuck-settings' ,'hatchbuck_settings');	
 	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'manage_options', 'hatchbuck-help' ,'hatchbuck_help');
+	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Tutorial', 'Tutorial', 'manage_options', 'hatchbuck-tutorial' ,'hatchbuck_tutorial');
 	
 }
 
@@ -57,6 +58,11 @@ function hatchbuck_help(){
 	require( dirname( __FILE__ ) . '/footer.php' );
 }
 
+function hatchbuck_tutorial(){
+	require( dirname( __FILE__ ) . '/header.php' );
+	require( dirname( __FILE__ ) . '/tutorial.php' );
+	require( dirname( __FILE__ ) . '/footer.php' );
+}
 
 function hatchbuck_add_style_script(){
 

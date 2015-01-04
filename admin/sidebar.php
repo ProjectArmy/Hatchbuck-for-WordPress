@@ -23,23 +23,27 @@ function getFeed(){
    <div class="postbox subscribe">
     <h3 class="hndle"><span>FREE Hatchbuck Insider Updates!</span></h3>
     <div class="inside">
+    <p>The Hatchbuck Insider newsletter includes how-to's, templates and many other resources to help you use Hatchbuck to generate leads and sales!</p>
         <form method="POST" accept-charset="utf-8" name="signup-form" id="signup-form">
          <p id="status" align="center"></p>
-        <table>
+        <table style="width:100%;">
           <tr>
-            <td>First Name:</td>
-            <td><input type="text" name="name" id="name"/></td>
+            <td><label for="name">Your first name</label>
+            	<input type="text" name="name" id="name"/></td>
           </tr>
           <tr>
-            <td>Last Name:</td>
-            <td><input type="text" name="lname" id="LastName"/></td>
+            <td><label for="lname">Your last name</label>
+            	<input type="text" name="lname" id="LastName"/></td>
           </tr>
           <tr>
-            <td>Email</td>
-            <td><input type="text" name="email" id="email"/></td>
+            <td><label for="email">Your email</label>
+            	<input type="text" name="email" id="email"/></td>
+          </tr>
+          <tr>
+          	<td><input type="submit" value="Sign up now &raquo;" class="button-primary" id="submit-btn"/></td>
           </tr>
         </table>
-        <div style="margin-left:90px;"><input type="submit" value="Sign up now &raquo;" id="submit-btn"/></div> 
+        <small style="color:#999;">Privacy guaranteed!</small>
       </form>
     </div><!-- inside -->
   </div><!-- postbox -->
