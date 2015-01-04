@@ -145,3 +145,13 @@ i.hatchbuck-own-icon {
 .hb-form-submit { width: 100%; text-align: right; }
 #itsec_intro_modal { padding-top: 0 !important; }
 .hatchbuck-training { margin-bottom: 20px; }
+
+#signup-form label{
+	display: block;
+}
+#signup-form input[type=text],
+#signup-form input[type=email]{
+	margin-bottom: 10px;
+}
+
+#signup-form input{ width: 100%; }
