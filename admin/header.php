@@ -75,7 +75,10 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
     } elseif ($_GET['page'] == 'hatchbuck-help') {
       $pageName = 'Help';
       $page = 'hatchbuck-help';
-    }
+    } elseif ($_GET['page'] == 'hatchbuck-tutorial') {
+      $pageName = 'Tutorial';
+      $page = 'hatchbuck-tutorial';
+  }
   }
 ?>
 
@@ -83,5 +86,8 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
   <h2><?php echo PLUGIN_NAME; ?> - <?php echo $pageName; ?></h2>
 
   <h2 class="nav-tab-wrapper">
-    <a href="?page=hatchbuck-manage" class="nav-tab <?php echo ($page == 'hatchbuck-manage')?'nav-tab-active':''; ?>">Forms</a><a href="?page=hatchbuck-settings" class="nav-tab <?php echo ($page == 'hatchbuck-settings')?'nav-tab-active':''; ?>">Settings</a><a href="?page=hatchbuck-help" class="nav-tab <?php echo ($page == 'hatchbuck-help')?'nav-tab-active':''; ?>">Help</a>
+    <a href="?page=hatchbuck-manage" class="nav-tab <?php echo ($page == 'hatchbuck-manage')?'nav-tab-active':''; ?>">Forms</a>
+    <a href="?page=hatchbuck-settings" class="nav-tab <?php echo ($page == 'hatchbuck-settings')?'nav-tab-active':''; ?>">Settings</a>
+    <a href="?page=hatchbuck-help" class="nav-tab <?php echo ($page == 'hatchbuck-help')?'nav-tab-active':''; ?>">Help</a>
+    <a href="?page=hatchbuck-tutorial" class="nav-tab <?php echo ($page == 'hatchbuck-tutorial')?'nav-tab-active':''; ?>">Tutorial</a>
   </h2>

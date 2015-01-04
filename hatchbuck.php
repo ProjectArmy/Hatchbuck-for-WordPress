@@ -59,4 +59,15 @@ require( dirname( __FILE__ ) . '/direct_call.php' );
 
 require( dirname( __FILE__ ) . '/hatchbuck-admin-menu.php' );
 
+/*********** Get Started link on the Plugins page *******************/
+
+function hatchbuck_add_settings_link( $links ) {
+    $tutorial_link = '<a href="admin.php?page=hatchbuck-tutorial">' . __( 'Tutorial' ) . '</a>';
+	$settings_link = '<a href="admin.php?page=hatchbuck-manage">' . __( 'Get Started &raquo;' ) . '</a>';
+    array_push( $links, $tutorial_link, $settings_link );
+  	return $links;
+}
+$plugin = plugin_basename( __FILE__ );
+add_filter( "plugin_action_links_$plugin", 'hatchbuck_add_settings_link' );
+
 ?>
