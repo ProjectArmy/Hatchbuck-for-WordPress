@@ -113,9 +113,15 @@ function my_action_javascript() { ?>
           $('.subscribe #name').val('');
           $('.subscribe #LastName').val('');
           $('.subscribe #email').val('');
-          $('.subscribe #status').html('Thank you for Subscribing! ');
+          $('.subscribe #status').
+            html('Thank you for Subscribing! ').
+            removeClass('danger').
+            addClass('success');
         }else{
-          $('.subscribe #status').html(response);
+          $('.subscribe #status').
+            html(response).
+            removeClass('success').
+            addClass('danger');
         }
       });
       return false;

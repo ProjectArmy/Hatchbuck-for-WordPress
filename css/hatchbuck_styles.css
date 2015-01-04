@@ -145,3 +145,6 @@ i.hatchbuck-own-icon {
 .hb-form-submit { width: 100%; text-align: right; }
 #itsec_intro_modal { padding-top: 0 !important; }
 .hatchbuck-training { margin-bottom: 20px; }
+
+.success{color:#4cae4c;}
+.danger{color:#d43f3a;}
