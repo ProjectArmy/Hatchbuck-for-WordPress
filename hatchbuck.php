@@ -7,7 +7,7 @@ Version: 1.0
 Author: ProjectArmy
 Author URI: https://www.projectarmy.net
 Text Domain: Hatchbuck
-License: GPLv2 or later
+License: GPLv3 or later
 */
 
 /*
@@ -25,11 +25,6 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
-
-// if ( !function_exists( 'add_action' ) ) {
-// 	echo "Hi there!  I'm just a plugin, not much I can do when called directly.";
-// 	exit;
-// }
 
 ob_start();
 
