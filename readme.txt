@@ -1,4 +1,4 @@
-﻿=== Hatchbuck for WordPress ===
+﻿=== Hatchbuck ===
 Contributors: projectarmy,viktorix,richcode
 Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales
 Donate link: https://www.projectarmy.net
@@ -49,7 +49,7 @@ This plugin is based on [Insert HTML Snippet](https://wordpress.org/plugins/inse
 
 == Installation ==
 1. Visit "Plugins" page and click on "Add New".
-1. In the search box, search for "Hatchbuck for WordPress".
+1. In the search box, search for "Hatchbuck".
 1. Click on "Install" button.
 1. Click on "Activate" link.
 1. Once activated, you will have a new menu option called "Hatchbuck".
