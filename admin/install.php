@@ -3,7 +3,7 @@
 function hatchbuck_my_plugin_redirect() {
     if (get_option('my_plugin_do_activation_redirect', false)) {
         delete_option('my_plugin_do_activation_redirect');
-        wp_redirect(admin_url('admin.php?page=hatchbuck-help'));
+        wp_redirect(admin_url('admin.php?page=hatchbuck-tutorial'));
     }
 }
 
