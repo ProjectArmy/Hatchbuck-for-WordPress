@@ -1,5 +1,5 @@
 <?php
-function getFeed(){
+function hatchbuck_getFeed(){
   $url = 'https://www.projectarmy.net/feed/';
   $rss = fetch_feed($url);
   if(is_wp_error($rss)){
@@ -51,7 +51,7 @@ function getFeed(){
   <div class="postbox ">
     <h3 class="hndle"><span>ProjectArmy Blog</span></h3>
     <div class="inside">
-      <?php echo getFeed(); ?>
+      <?php echo hatchbuck_getFeed(); ?>
     </div><!-- inside -->
   </div><!-- postbox -->
   

@@ -9,7 +9,7 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
 ?>
 <script type="text/javascript">
   jQuery( document ).ready( function () {
-    function modealLoad(){
+    function hatchbuck_modealLoad(){
     jQuery( '#itsec_intro_modal' ).dialog(
 		{
 			dialogClass   : 'wp-dialog itsec-setup-dialog',
@@ -47,7 +47,7 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
   
     
     jQuery('.hb-tab-market-help a').click(function(){
-       modealLoad();
+       hatchbuck_modealLoad();
        return false;
     }); 
     

@@ -92,17 +92,17 @@ wp_enqueue_style( 'wp-jquery-ui-dialog' );
 /*
  * Ajax call
  */
-add_action('wp_ajax_subscribe', 'ajaxSubscribe');
-function ajaxSubscribe() {
+add_action('wp_ajax_subscribe', 'hatchbuck_ajaxSubscribe');
+function hatchbuck_ajaxSubscribe() {
   require( dirname( __FILE__ ).'/ajax-subscribe.php');
   exit();
 }
 ?>
 
 <?php
-add_action( 'admin_footer', 'my_action_javascript' ); // Write our JS below here
+add_action( 'admin_footer', 'hatchbuck_my_action_javascript' ); // Write our JS below here
 
-function my_action_javascript() { ?>
+function hatchbuck_my_action_javascript() { ?>
 	<script type="text/javascript" >
 	jQuery(document).ready(function($) {
     $('#signup-form').submit(function(){

@@ -1,6 +1,6 @@
 <?php
 
-function my_plugin_redirect() {
+function hatchbuck_my_plugin_redirect() {
     if (get_option('my_plugin_do_activation_redirect', false)) {
         delete_option('my_plugin_do_activation_redirect');
         wp_redirect(admin_url('admin.php?page=hatchbuck-help'));
@@ -18,17 +18,17 @@ function hatchbuck_network_install($networkwide) {
 			$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 			foreach ($blogids as $blog_id) {
 				switch_to_blog($blog_id);
-				install();
+				hatchbuck_install();
 			}
 			switch_to_blog($old_blog);
 			return;
 		}
 	}
-	install();
+	hatchbuck_install();
 }
 
 
-function install(){
+function hatchbuck_install(){
 	
 	global $wpdb;
 	//global $current_user; get_currentuserinfo();
@@ -50,5 +50,5 @@ function install(){
 
 register_activation_hook( HATCHBUCK_PLUGIN_FILE ,'hatchbuck_network_install');
 
-add_action('admin_init', 'my_plugin_redirect');
+add_action('admin_init', 'hatchbuck_my_plugin_redirect');
 

@@ -17,12 +17,12 @@ if(!function_exists('hatchbuck_trim_deep')) {
 }
 
 
-add_action( 'add_meta_boxes', 'wpsites_register_metabox' );
-function wpsites_register_metabox() {
+add_action( 'add_meta_boxes', 'hatchbuck_wpsites_register_metabox' );
+function hatchbuck_wpsites_register_metabox() {
 	add_meta_box(
 		'wpsites_sectionid',
 		'Hatchbuck Website Tracking Code',
-		'wpsites_meta_box_callback',
+		'hatchbuck_wpsites_meta_box_callback',
 		'post',
 		'normal',
 		'high'
@@ -30,7 +30,7 @@ function wpsites_register_metabox() {
 	add_meta_box(
 		'wpsites_sectionid',
 		'Hatchbuck Website Tracking Code',
-		'wpsites_meta_box_callback',
+		'hatchbuck_wpsites_meta_box_callback',
 		'page',
 		'normal',
 		'high'
@@ -38,7 +38,7 @@ function wpsites_register_metabox() {
 	add_meta_box(
 		'wpsites_sectionid',
 		'Hatchbuck Website Tracking Code',
-		'wpsites_meta_box_callback',
+		'hatchbuck_wpsites_meta_box_callback',
 		'custom_post_type',
 		'normal',
 		'high'
@@ -47,17 +47,17 @@ function wpsites_register_metabox() {
 }
 
 //add javascript
-function my_scripts_method() {
+function hatchbuck_my_scripts_method() {
 	wp_enqueue_script('hatchbuck','//app.hatchbuck.com/OnlineForm/js/cdn/jotform.js','',HATCHBUCK_VERSION);
 	wp_enqueue_script('hatchbuckloc',plugins_url('js/hatchbuck.js', __FILE__),'',HATCHBUCK_VERSION);
 }
-add_action('wp_enqueue_scripts', 'my_scripts_method'); // wp_enqueue_scripts action hook to link only on the front-end
-add_action( 'admin_enqueue_scripts', 'my_scripts_method' );
+add_action('wp_enqueue_scripts', 'hatchbuck_my_scripts_method'); // wp_enqueue_scripts action hook to link only on the front-end
+add_action( 'admin_enqueue_scripts', 'hatchbuck_my_scripts_method' );
  
 /**
  * Prints the box content.
  */
-function wpsites_meta_box_callback( $post ) {
+function hatchbuck_wpsites_meta_box_callback( $post ) {
  
 // Add an nonce field so we can check for it later.
 wp_nonce_field( 'wpsites_meta_box', 'wpsites_meta_box_nonce' );
@@ -80,7 +80,7 @@ $value = get_post_meta( $post->ID, 'metabox', true );
  *
  * @param int $post_id The ID of the post being saved.
  */
-function wpsites_save_meta_box_data( $post_id ) {
+function hatchbuck_wpsites_save_meta_box_data( $post_id ) {
  
 	/*
 	 * We need to verify this came from our screen and with proper authorization,
@@ -131,12 +131,12 @@ update_post_meta( $post_id, 'metabox', $my_data );
 
 
 }
-add_action( 'save_post', 'wpsites_save_meta_box_data' );
+add_action( 'save_post', 'hatchbuck_wpsites_save_meta_box_data' );
  
 // Hook in & Display The Value Conditionally
-add_action( 'loop_start', 'custom_field_before_content', 5 );
+add_action( 'loop_start', 'hatchbuck_custom_field_before_content', 5 );
  
-function custom_field_before_content() {
+function hatchbuck_custom_field_before_content() {
 	add_action('wp_footer','hatchbuckCode');
 }
 
