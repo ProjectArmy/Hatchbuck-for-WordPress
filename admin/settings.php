@@ -8,7 +8,16 @@ if($_POST){
 	
 $_POST=hatchbuck_trim_deep($_POST);
 $_POST = stripslashes_deep($_POST);
-		
+  
+  //post type
+  if (isset($_POST['posttype'])) {
+    foreach($_POST['posttype'] as $key => $val){
+      echo $key.'-'.$val;
+      $option[$key] = $val;
+    }
+  }
+  update_option('hatchbuck_postTypeTc',$option);
+
   $hatchbuck_limit = abs(intval($_POST['hatchbuck_limit']));
   if($hatchbuck_limit==0)$hatchbuck_limit=20;
   
@@ -61,6 +70,29 @@ $_POST = stripslashes_deep($_POST);
 				<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Disable orange "Get Marketing Help" button</label></td>
 				<td>
           <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
+				</td>
+			</tr>
+      
+       <tr valign="top">
+				<td scope="row" class=" settingInput" id="" style="width: 25%;">
+          <br>Select post type to display tracking code
+        </td>
+				<td>
+        <ul>
+         <?php 
+          $postTypes = get_post_types();
+          $postTypeTc = get_option('hatchbuck_postTypeTc');
+          foreach($postTypes as $postType): ?>
+            <?php if (in_array($postType,array('attachment','revision','nav_menu_item'))) {
+              continue;
+            } ?>
+            <li>
+              <label><input type="checkbox" name="posttype[<?php echo $postType; ?>]" value="1" 
+              <?php echo (isset($postTypeTc[$postType]))?'checked="checked"':'' ?>/> 
+              <?php echo ucfirst($postType); ?></label>
+            </li>
+          <?php endforeach; ?>
+         </ul>
 				</td>
 			</tr>
 			
