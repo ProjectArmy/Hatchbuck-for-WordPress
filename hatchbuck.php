@@ -38,6 +38,8 @@ require( dirname( __FILE__ ) . '/hatchbuck-functions.php' );
 
 require( dirname( __FILE__ ) . '/add_shortcode_tynimce.php' );
 
+require( dirname( __FILE__ ) . '/admin/addons/addons.php' );
+
 require( dirname( __FILE__ ) . '/admin/install.php' );
 
 require( dirname( __FILE__ ) . '/admin/menu.php' );
@@ -47,8 +49,6 @@ require( dirname( __FILE__ ) . '/shortcode-handler.php' );
 require( dirname( __FILE__ ) . '/ajax-handler.php' );
 
 require( dirname( __FILE__ ) . '/admin/uninstall.php' );
-
-require( dirname( __FILE__ ) . '/widget.php' );
 
 require( dirname( __FILE__ ) . '/direct_call.php' );
 

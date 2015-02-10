@@ -7,53 +7,6 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
       'title'    => 'Request Your FREE Consultation',
     ));
 ?>
-<script type="text/javascript">
-  jQuery( document ).ready( function () {
-    function hatchbuck_modealLoad(){
-    jQuery( '#itsec_intro_modal' ).dialog(
-		{
-			dialogClass   : 'wp-dialog itsec-setup-dialog',
-			modal         : true,
-			closeOnEscape : false,
-			title         : itsec_tooltip_text.title,
-			width         : '400px',
-			resizable     : false,
-			draggable     : false,
-			close         : function ( event, ui ) {
-
-				var data = {
-					action : 'itsec_tooltip_ajax',
-					module : 'close',
-					nonce  : itsec_tooltip_text.nonce
-				};
-
-				//call the ajax
-				jQuery.post( ajaxurl, data, function () {
-
-					var url = window.location.href;
-					console.log( url );
-					url = url.substring( 0, url.lastIndexOf( "&" ) );
-
-					window.location.replace( url );
-
-				} );
-
-			}
-
-
-		}
-	);
-  }
-  
-    
-    jQuery('.hb-tab-market-help a').click(function(){
-       hatchbuck_modealLoad();
-       return false;
-    }); 
-    
-  });
-</script>
-
 <?php if(isset($_GET['hb-mh'])): ?>
 <script type="text/javascript">
   jQuery( document ).ready( function () {
@@ -72,6 +25,9 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
     if ($_GET['page'] == 'hatchbuck-settings') {
       $pageName = 'Settings';
       $page = 'hatchbuck-settings';
+    } elseif ($_GET['page'] == 'hatchbuck-addons') {
+      $pageName = 'Addons';
+      $page = 'hatchbuck-addons';
     } elseif ($_GET['page'] == 'hatchbuck-help') {
       $pageName = 'Help';
       $page = 'hatchbuck-help';
@@ -88,6 +44,7 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
   <h2 class="nav-tab-wrapper">
     <a href="?page=hatchbuck-manage" class="nav-tab <?php echo ($page == 'hatchbuck-manage')?'nav-tab-active':''; ?>">Forms</a>
     <a href="?page=hatchbuck-settings" class="nav-tab <?php echo ($page == 'hatchbuck-settings')?'nav-tab-active':''; ?>">Settings</a>
+    <a href="?page=hatchbuck-addons" class="nav-tab <?php echo ($page == 'hatchbuck-addons')?'nav-tab-active':''; ?>">Addons</a>
     <a href="?page=hatchbuck-help" class="nav-tab <?php echo ($page == 'hatchbuck-help')?'nav-tab-active':''; ?>">Help</a>
     <a href="?page=hatchbuck-tutorial" class="nav-tab <?php echo ($page == 'hatchbuck-tutorial')?'nav-tab-active':''; ?>">Tutorial</a>
   </h2>
