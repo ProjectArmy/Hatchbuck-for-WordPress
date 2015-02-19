@@ -3,8 +3,8 @@ Contributors: projectarmy,viktorix,richcode
 Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales
 Donate link: https://www.projectarmy.net
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.0
+Tested up to: 4.1.1
+Stable tag: 1.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -19,6 +19,7 @@ Current version includes:
 * Embed Hatchbuck forms with shortcodes anywhere in WordPress
 * Insert website tracking code on any page or post
 * Admin toolbar shortcuts to your Hatchbuck app
+* Addons to extend plugin's functionality
 
 = Todo =
 This is what we got so far on our road map:
@@ -27,11 +28,9 @@ This is what we got so far on our road map:
 * Gravity Form integration (waiting on API to support visitor tracking cookie)
 
 > **Free Support**
-
 > You can get basic free community support here on WordPress.org by visiting "Support" tab above. We cannot guarantee support, but will do our best to help and answer requests in a timely fashion.
 >
 > **Premium Support**
-
 > If you're a [ProjectArmy](https://www.projectarmy.net/) client, you receive free premium support for this plugin. Simply submit a ticket through My ProjectArmy, and we'll provide assistance you need.
 
 = Plugin Tutorial =
@@ -76,7 +75,15 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 2. Use dropdown menu inside your Visual Editor to easily insert form shortcodes.
 3. Pages and posts include a box where you can insert website tracking code.
 4. Admin toolbar shortcuts to your Hatchbuck app.
+5. Form widget addon.
 
 == Changelog ==
+
+= 1.1 =
+* Fixed and consolidated javascript fixing possible bug with another plugin (Bug #2)
+* Added new page Addons
+* Added new setting to enable/disable tracking metabox per post type
+* Added first Addon: Form Widget to display forms in sidebars
+
 = 1.0 =
 Initial release.

@@ -7,6 +7,7 @@ Features:
   - Embed Hatchbuck forms with shortcodes anywhere in WordPress 
   - Insert website tracking code on any page or post
   - Admin toolbar shortcuts to your Hatchbuck app
+  - **NEW:** Addons - Form widget for sidebars (more coming soon!)
 
 Download Plugin:
 ----
@@ -17,6 +18,7 @@ Todo's
 ----
 - Implement Hatchbuck API 
 - Gravity Form integration (waiting on API to support visitor tracking cookie)
+- Add more addons to extend functionality
 
 Support
 ----
