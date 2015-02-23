@@ -80,16 +80,19 @@ $_POST = stripslashes_deep($_POST);
 				<td>
         <ul>
          <?php 
-          $postTypes = get_post_types();
+          $args = array(
+            'name' => 'property'
+          );
+          $output = 'objects'; // names or objects
+          $postTypes = get_post_types( '', 'singular_name' );
           $postTypeTc = get_option('hatchbuck_postTypeTc');
-          foreach($postTypes as $postType): ?>
-            <?php if (in_array($postType,array('attachment','revision','nav_menu_item'))) {
+          foreach($postTypes as $key => $postType): ?>
+            <?php if (in_array( $postType->labels->name,array('attachment','Revisions','Navigation Menu Items','Media'))) {
               continue;
             } ?>
             <li>
-              <label><input type="checkbox" name="posttype[<?php echo $postType; ?>]" value="1" 
-              <?php echo (isset($postTypeTc[$postType]))?'checked="checked"':'' ?>/> 
-              <?php echo ucfirst($postType); ?></label>
+              <label><input type="checkbox" name="posttype[<?php echo $key; ?>]" value="1" 
+              <?php echo (isset($postTypeTc[$key]))?'checked="checked"':'' ?>/><?php echo $postType->labels->name; ?></label>
             </li>
           <?php endforeach; ?>
          </ul>
