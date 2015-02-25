@@ -53,8 +53,9 @@ $_POST = stripslashes_deep($_POST);
         <li class="postbox">
           <h3 class="hndle"><span>Form Widget</span></h3>
           <div class="inside">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin</p>
-            <div align="center">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/form-widget-screenshot.png"/>
+            <p>This addon adds a form widget, so you can easily include your Hatchbuck forms in your sidebars or on pages with Page Builder plugin.</p>
+            <div align="left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_form-widget')): ?>
                 <input type="hidden" name="addon" value="form-widget"/>
@@ -67,19 +68,7 @@ $_POST = stripslashes_deep($_POST);
             </div>
           </div><!-- inside -->
         </li>
-        
-        <li class="postbox">
-          <h3 class="hndle"><span>Dummy Addon</span></h3>
-          <div class="inside">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sollicitudin </p>
-            <div align="center">
-              <form method="post">
-              <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
-              </form>
-            </div>
-          </div><!-- inside -->
-        </li>
-        
+      </ul> 
   </div><!-- postbox -->
 </div><!-- postbox-container-2 -->
 

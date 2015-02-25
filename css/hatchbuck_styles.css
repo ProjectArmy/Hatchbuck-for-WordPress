@@ -169,9 +169,12 @@ i.hatchbuck-own-icon {
 .plugin-list li{
   float: left;
   margin: 7px;
-  min-width: 207px;
-  width: 20%;
+  width: 250px;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.plugin-list li img{
+  width:100%;
 }
