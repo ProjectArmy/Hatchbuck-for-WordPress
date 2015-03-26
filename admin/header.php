@@ -3,7 +3,7 @@ wp_enqueue_script( 'itsec_modal', plugins_url(basename(dirname(dirname(__FILE__)
 require( dirname( __FILE__ ) . '/modal_marketing_help.php' );
 wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
       'nonce'    => '',
-      'messages' => $messages,
+      'messages' => (isset($messages))?$messages:'',
       'title'    => 'Request Your FREE Consultation',
     ));
 ?>

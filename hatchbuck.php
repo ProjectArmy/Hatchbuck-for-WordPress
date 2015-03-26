@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 Plugin Name: Hatchbuck
 Plugin URI: https://www.projectarmy.net

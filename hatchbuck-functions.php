@@ -133,5 +133,12 @@ function hatchbuck_custom_field_before_content() {
 }
 
 function hatchbuckCode() {
-	echo get_post_custom_values('metabox')[0];
+	$postType = get_post_custom_values('metabox');
+  if (isset($postType)) {
+    if (is_array($postType) && isset($postType[0])) {
+      echo $postType[0];
+    }else { 
+      echo $postType;
+    }
+  }
 }
