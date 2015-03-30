@@ -95,5 +95,9 @@ jQuery(document).ready(function() {
        hatchbuck_modealLoad();
        return false;
     }); 
+		
+		jQuery('.notice .close').click(function(){
+			jQuery(this).closest('.notice').fadeOut();
+    }); 
     
-  });
+});

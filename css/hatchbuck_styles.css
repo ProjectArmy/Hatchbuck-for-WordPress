@@ -178,3 +178,32 @@ i.hatchbuck-own-icon {
 .plugin-list li img{
   width:100%;
 }
+
+.plugin-list p{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 82px;
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+.wrap .notice{
+	margin: 15px 0 0 0!important;
+}
+
+
+.notice  p{
+	float:left;
+}
+
+.notice .close{
+	width:15px;
+	height:15px;
+	background-image:url("../admin/addons/addons-view/image/x.png");
+	float:right;
+	margin-top:10px;
+	cursor:pointer;
+}
