@@ -65,7 +65,6 @@ function verify_fields()
 
 }
 </script>
-
 </div>   
 
 
