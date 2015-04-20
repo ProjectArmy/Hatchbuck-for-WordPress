@@ -175,7 +175,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 			$num_of_pages = ceil( $total / $limit );
 
 			$page_links = paginate_links( array(
-					'base' => add_query_arg( 'pagenum','%#%'),
+					'base' => esc_url(add_query_arg( 'pagenum','%#%')),
 				    'format' => '',
 				    'prev_text' =>  '&laquo;',
 				    'next_text' =>  '&raquo;',
