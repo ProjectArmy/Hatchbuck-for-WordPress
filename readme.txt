@@ -82,6 +82,7 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 = 1.2.2 =
 * Fixed add_query_arg vulnerability
 * Fixed issue with orange button setting (But #3)
+* Limited hatchbuck.js to admin, so it doesn't show in frontend
 
 = 1.2.1 =
 * Fix for metabox issue certain users have
