@@ -41,7 +41,10 @@ function hatchbuck_my_scripts_method() {
   if (!is_admin()) {
 		wp_enqueue_script('hatchbuck','//app.hatchbuck.com/OnlineForm/js/cdn/jotform.js','',HATCHBUCK_VERSION);
 	}
-	wp_enqueue_script('hatchbuckloc',plugins_url('js/hatchbuck.js', __FILE__),'',HATCHBUCK_VERSION);
+	
+	if (is_admin()) {
+		wp_enqueue_script('hatchbuckloc',plugins_url('js/hatchbuck.js', __FILE__),'',HATCHBUCK_VERSION);
+	}
 }
 add_action('wp_enqueue_scripts', 'hatchbuck_my_scripts_method'); // wp_enqueue_scripts action hook to link only on the front-end
 add_action( 'admin_enqueue_scripts', 'hatchbuck_my_scripts_method' );
