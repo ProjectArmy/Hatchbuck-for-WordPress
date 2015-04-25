@@ -10,6 +10,16 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
 <?php if(isset($_GET['hb-mh'])): ?>
 <script type="text/javascript">
   jQuery( document ).ready( function () {
+		jQuery('.hb-tab-market-help a').click(function(event){
+			event.preventDefault();
+
+			var module = jQuery( this ).attr( 'href' );
+			var caller = this;
+
+       hatchbuck_modealLoad();
+       return false;
+    }); 
+		
     jQuery('.hb-tab-market-help a').click();
   });
 </script>

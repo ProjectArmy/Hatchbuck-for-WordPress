@@ -45,17 +45,6 @@ jQuery( document ).ready( function () {
 	//process tooltip actions
 	jQuery( '.itsec_tooltip_ajax' ).click( function ( event ) {
 
-		event.preventDefault();
-
-		var module = jQuery( this ).attr( 'href' );
-		var caller = this;
-
-		var data = {
-			action : 'itsec_tooltip_ajax',
-			module : module,
-			nonce  : itsec_tooltip_text.nonce
-		};
-
 		//let user know we're working
 		jQuery( caller ).removeClass( 'itsec_tooltip_ajax button-primary' ).addClass( 'button-secondary' ).html( 'Working...' );
 

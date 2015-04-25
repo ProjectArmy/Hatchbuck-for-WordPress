@@ -4,7 +4,7 @@ Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embe
 Donate link: https://www.projectarmy.net
 Requires at least: 3.0
 Tested up to: 4.1.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -78,6 +78,11 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 5. Form widget addon.
 
 == Changelog ==
+
+= 1.2.2 =
+* Fixed add_query_arg vulnerability
+* Fixed issue with orange button setting (But #3)
+* Limited hatchbuck.js to admin, so it doesn't show in frontend
 
 = 1.2.1 =
 * Fix for metabox issue certain users have

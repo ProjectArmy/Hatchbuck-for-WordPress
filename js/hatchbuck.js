@@ -28,13 +28,24 @@ jQuery(document).ready(function($) {
   });
 });
 
-jQuery( document ).ready( function () {
+jQuery(document).ready(function() {
   var screen = '\
   <div class="noArrowdown hb-tab-market-help" id="screen-options-link-wrap">\
     <a class="show-settings" href="admin.php?page=hatchbuck-manage&hb-mh=1">Get Marketing Help &raquo;</a>\
   </div>\
 ';
   jQuery('#wpbody #screen-meta-links').prepend(screen);
+	jQuery('.hb-tab-market-help').hide();
+	var data = {
+		'action': 'hb-screen-option'
+	};
+	jQuery.post(ajaxurl, data, function(response) {
+		if (response == 1) {
+			jQuery('.hb-tab-market-help').hide();
+		} else {
+			jQuery('.hb-tab-market-help').show();
+		}
+	});
 });
 
 jQuery(document).ready(function() {
@@ -53,51 +64,42 @@ jQuery(document).ready(function() {
 
 });
 
-  jQuery( document ).ready( function () {
-    function hatchbuck_modealLoad(){
-    jQuery( '#itsec_intro_modal' ).dialog(
-		{
-			dialogClass   : 'wp-dialog itsec-setup-dialog',
-			modal         : true,
-			closeOnEscape : false,
-			title         : itsec_tooltip_text.title,
-			width         : '400px',
-			resizable     : false,
-			draggable     : false,
-			close         : function ( event, ui ) {
+function hatchbuck_modealLoad(){
+	jQuery( '#itsec_intro_modal' ).dialog({
+		dialogClass   : 'wp-dialog itsec-setup-dialog',
+		modal         : true,
+		closeOnEscape : false,
+		title         : 'Request Your FREE Consultation',
+		width         : '400px',
+		resizable     : false,
+		draggable     : false,
+		close         : function ( event, ui ) {
+			var data = {
+				action : 'itsec_tooltip_ajax',
+				module : 'close',
+				nonce  : itsec_tooltip_text.nonce
+			};
 
-				var data = {
-					action : 'itsec_tooltip_ajax',
-					module : 'close',
-					nonce  : itsec_tooltip_text.nonce
-				};
+			//call the ajax
+			jQuery.post( ajaxurl, data, function () {
 
-				//call the ajax
-				jQuery.post( ajaxurl, data, function () {
+				var url = window.location.href;
+				console.log( url );
+				url = url.substring( 0, url.lastIndexOf( "&" ) );
 
-					var url = window.location.href;
-					console.log( url );
-					url = url.substring( 0, url.lastIndexOf( "&" ) );
+				window.location.replace( url );
 
-					window.location.replace( url );
-
-				} );
-
-			}
-
-
+			} );
 		}
-	);
-  }
-  
+ 
+	});
+}
     
-    jQuery('.hb-tab-market-help a').click(function(){
-       hatchbuck_modealLoad();
-       return false;
-    }); 
-		
-		jQuery('.notice .close').click(function(){
-			jQuery(this).closest('.notice').fadeOut();
-    }); 
-    
-});
+jQuery('.hb-tab-market-help a').click(function(){
+	 hatchbuck_modealLoad();
+	 return false;
+}); 
+
+jQuery('.notice .close').click(function(){
+	jQuery(this).closest('.notice').fadeOut();
+}); 
