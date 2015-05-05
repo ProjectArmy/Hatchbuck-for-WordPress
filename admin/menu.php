@@ -1,14 +1,15 @@
 <?php
+
 add_action('admin_menu', 'hatchbuck_menu');
 function hatchbuck_menu(){
 	
-	add_menu_page('hatchbuck', 'Hatchbuck', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets',plugins_url(basename(dirname(dirname(__FILE__))).'/images/logo.png'));
+	add_menu_page('hatchbuck', 'Hatchbuck', 'edit_others_posts', 'hatchbuck-manage','hatchbuck_snippets',plugins_url(basename(dirname(dirname(__FILE__))).'/images/logo.png'));
 
-	add_submenu_page('hatchbuck-manage', 'Forms', 'Forms', 'manage_options', 'hatchbuck-manage','hatchbuck_snippets');
-	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Manage settings', 'Settings', 'manage_options', 'hatchbuck-settings' ,'hatchbuck_settings');	
-  add_submenu_page('hatchbuck-manage', 'Hatchbuck - Addons', 'Addons', 'manage_options', 'hatchbuck-addons' ,'hatchbuck_addons');
-	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'manage_options', 'hatchbuck-help' ,'hatchbuck_help');
-	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Tutorial', 'Tutorial', 'manage_options', 'hatchbuck-tutorial' ,'hatchbuck_tutorial');
+	add_submenu_page('hatchbuck-manage', 'Forms', 'Forms', 'edit_others_posts', 'hatchbuck-manage','hatchbuck_snippets');
+	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Manage settings', 'Settings', 'edit_others_posts', 'hatchbuck-settings' ,'hatchbuck_settings');	
+  add_submenu_page('hatchbuck-manage', 'Hatchbuck - Addons', 'Addons', 'edit_others_posts', 'hatchbuck-addons' ,'hatchbuck_addons');
+	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'edit_others_posts', 'hatchbuck-help' ,'hatchbuck_help');
+	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Tutorial', 'Tutorial', 'edit_others_posts', 'hatchbuck-tutorial' ,'hatchbuck_tutorial');
 	
 }
 
