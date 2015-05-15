@@ -25,7 +25,6 @@ function hatchbuck_uninstall(){
 global $wpdb;
 
 delete_option("hatchbuck_limit");
-delete_option('hatchbuck_postTypeTc');
 
 /* table delete*/
 $wpdb->query("DROP TABLE ".$wpdb->prefix.HATCHBUCK_TABLE);

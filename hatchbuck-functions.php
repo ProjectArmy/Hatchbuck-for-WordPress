@@ -16,26 +16,6 @@ if(!function_exists('hatchbuck_trim_deep')) {
 	}
 }
 
-
-add_action( 'add_meta_boxes', 'hatchbuck_wpsites_register_metabox' );
-function hatchbuck_wpsites_register_metabox() {
-  $postTypeTcs = get_option('hatchbuck_postTypeTc');
-  if ($postTypeTcs) {
-    foreach($postTypeTcs as $key => $val){
-      if ($val) {
-        add_meta_box(
-          'wpsites_sectionid',
-          'Hatchbuck Website Tracking Code',
-          'hatchbuck_wpsites_meta_box_callback',
-          $key,
-          'normal',
-          'high'
-        );
-      }
-    }
-  }
-}
-
 //add javascript
 function hatchbuck_my_scripts_method() {
   if (!is_admin()) {
