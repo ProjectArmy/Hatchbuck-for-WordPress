@@ -16,6 +16,11 @@ if(!function_exists('hatchbuck_trim_deep')) {
 	}
 }
 
+function hatchbuck_side_wide() {
+    echo "\n".get_option('hatchbuck_sw_code')."\n";
+}
+add_action('wp_footer', 'hatchbuck_side_wide');
+
 //add javascript
 function hatchbuck_my_scripts_method() {
   if (!is_admin()) {

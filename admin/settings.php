@@ -22,6 +22,13 @@ $_POST = stripslashes_deep($_POST);
   } else {
     update_option('hatchbuck_help_script',1);
   }
+	
+	if(isset($_POST['hatchbuck_sw_code']) && $_POST['hatchbuck_sw_code']) {
+		update_option('hatchbuck_sw_code',$_POST['hatchbuck_sw_code']);
+  } else {
+    update_option('hatchbuck_sw_code',null);
+  }
+	
   header('Location: admin.php?page=hatchbuck-settings&notice=1');
 ?>
 
@@ -63,6 +70,15 @@ $_POST = stripslashes_deep($_POST);
           <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
 				</td>
 			</tr>
+			
+			<?php if(get_option('hatchbuck_addons_side-wide')): ?>
+				<tr valign="top">
+					<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Add tracking to entire website</label></td>
+					<td>
+						<textarea name="hatchbuck_sw_code" style="width:70%;height:150px;"><?php echo get_option('hatchbuck_sw_code'); ?></textarea>
+					</td>
+				</tr>
+			<?php endif; ?>
       
 			<tr valign="top">
 				<td scope="row" class=" settingInput" id="bottomBorderNone">
