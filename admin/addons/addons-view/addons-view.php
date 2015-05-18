@@ -16,6 +16,11 @@ $_POST = stripslashes_deep($_POST);
         break;
 			case 'side-wide':
         update_option('hatchbuck_addons_side-wide',1);
+				update_option('hatchbuck_addons_metabox',null);
+        break;
+			case 'metabox':
+        update_option('hatchbuck_addons_metabox',1);
+				update_option('hatchbuck_addons_side-wide',null);
         break;
     }      
     $noticeval = 'Activated';
@@ -28,6 +33,9 @@ $_POST = stripslashes_deep($_POST);
         break;
 			 case 'side-wide':
         update_option('hatchbuck_addons_side-wide',null);
+        break;
+			case 'metabox':
+        update_option('hatchbuck_addons_metabox',null);
         break;
     }
     $noticeval = 'Deactivated';
@@ -78,7 +86,7 @@ $_POST = stripslashes_deep($_POST);
 				<li class="postbox">
           <h3 class="hndle"><span>Side-wide Tracking</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/form-widget-screenshot.png"/>
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut tellus nulla. Integer fermentum sapien a tincidunt gravida.</p>
             <div align="left">
               <form method="post">
@@ -87,6 +95,25 @@ $_POST = stripslashes_deep($_POST);
                 <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
               <?php else: ?>
                 <input type="hidden" name="addon" value="side-wide"/>
+                <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
+              <?php endif; ?>
+              </form>
+            </div>
+          </div><!-- inside -->
+        </li>
+				
+				<li class="postbox">
+          <h3 class="hndle"><span>Metaboxes</span></h3>
+          <div class="inside">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut tellus nulla. Integer fermentum sapien a tincidunt gravida.</p>
+            <div align="left">
+              <form method="post">
+              <?php if(get_option('hatchbuck_addons_metabox')): ?>
+                <input type="hidden" name="addon" value="metabox"/>
+                <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
+              <?php else: ?>
+                <input type="hidden" name="addon" value="metabox"/>
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
               <?php endif; ?>
               </form>

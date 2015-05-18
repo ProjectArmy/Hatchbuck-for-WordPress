@@ -116,10 +116,13 @@ add_action( 'save_post', 'hatchbuck_wpsites_save_meta_box_data' );
 // Hook in & Display The Value Conditionally
 add_action( 'loop_start', 'hatchbuck_custom_field_before_content', 5 );
  
-function hatchbuck_custom_field_before_content() {
-	add_action('wp_footer','hatchbuckCode');
-}
 
+ 
+function hatchbuck_custom_field_before_content() {
+	if (get_option('hatchbuck_addons_metabox')) {
+		add_action('wp_footer','hatchbuckCode');
+	}
+}
 function hatchbuckCode() {
 	$postType = get_post_custom_values('metabox');
   if (isset($postType)) {
@@ -129,4 +132,25 @@ function hatchbuckCode() {
       echo $postType;
     }
   }
+}
+
+if (get_option('hatchbuck_addons_metabox')) {
+	add_action( 'add_meta_boxes', 'hatchbuck_wpsites_register_metabox' );
+	function hatchbuck_wpsites_register_metabox() {
+		$postTypeTcs = get_option('hatchbuck_postTypeTc');
+		if ($postTypeTcs) {
+			foreach($postTypeTcs as $key => $val){
+				if ($val) {
+					add_meta_box(
+						'wpsites_sectionid',
+						'Hatchbuck Website Tracking Code',
+						'hatchbuck_wpsites_meta_box_callback',
+						$key,
+						'normal',
+						'high'
+					);
+				}
+			}
+		}
+	}
 }

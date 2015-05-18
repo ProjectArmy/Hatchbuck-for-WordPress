@@ -29,6 +29,15 @@ $_POST = stripslashes_deep($_POST);
     update_option('hatchbuck_sw_code',null);
   }
 	
+	//post type
+  if (isset($_POST['posttype'])) {
+    foreach($_POST['posttype'] as $key => $val){
+      echo $key.'-'.$val;
+      $option[$key] = $val;
+    }
+  }
+  update_option('hatchbuck_postTypeTc',$option);
+	
   header('Location: admin.php?page=hatchbuck-settings&notice=1');
 ?>
 
@@ -70,6 +79,35 @@ $_POST = stripslashes_deep($_POST);
           <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
 				</td>
 			</tr>
+			
+			<?php if(get_option('hatchbuck_addons_metabox')): ?>
+				<tr valign="top">
+				<td scope="row" class=" settingInput" id="" style="width: 25%;">
+          <br>Select post type to display tracking code
+        </td>
+				<td>
+        <ul>
+         <?php 
+          $args = array(
+            'name' => 'property'
+          );
+          $output = 'objects'; // names or objects
+          $postTypes = get_post_types( '', 'singular_name' );
+          $postTypeTc = get_option('hatchbuck_postTypeTc');
+          foreach($postTypes as $key => $postType): ?>
+            <?php if (in_array( $postType->labels->name,array('attachment','Revisions','Navigation Menu Items','Media'))) {
+              continue;
+            } ?>
+            <li>
+              <label><input type="checkbox" name="posttype[<?php echo $key; ?>]" value="1" 
+              <?php echo (isset($postTypeTc[$key]))?'checked="checked"':'' ?>/><?php echo $postType->labels->name; ?></label>
+            </li>
+          <?php endforeach; ?>
+         </ul>
+				</td>
+			</tr>
+			<?php endif; ?>
+			
 			
 			<?php if(get_option('hatchbuck_addons_side-wide')): ?>
 				<tr valign="top">

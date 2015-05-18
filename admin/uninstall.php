@@ -25,6 +25,10 @@ function hatchbuck_uninstall(){
 global $wpdb;
 
 delete_option("hatchbuck_limit");
+delete_option('hatchbuck_postTypeTc');
+delete_option('hatchbuck_addons_metabox');
+delete_option('hatchbuck_addons_side-wide');
+delete_option('hatchbuck_addons_form-widget');
 
 /* table delete*/
 $wpdb->query("DROP TABLE ".$wpdb->prefix.HATCHBUCK_TABLE);

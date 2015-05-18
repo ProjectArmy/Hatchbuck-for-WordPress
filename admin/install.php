@@ -46,9 +46,19 @@ function hatchbuck_install(){
 	$wpdb->query($queryInsertHtml);
   
   update_option('hatchbuck_help_script',1);
+	
+	//set metabox by default
+	update_option('hatchbuck_addons_metabox',1);
+	$postTypes = get_post_types( '', 'singular_name' );
+	foreach($postTypes as $key => $postType) {
+		if (in_array( $postType->labels->name,array('attachment','Revisions','Navigation Menu Items','Media'))) {
+			continue;
+		} 
+		$option[$key] = 1;
+	}
+	update_option('hatchbuck_postTypeTc',$option);
 }
 
 register_activation_hook( HATCHBUCK_PLUGIN_FILE ,'hatchbuck_network_install');
 
 add_action('admin_init', 'hatchbuck_my_plugin_redirect');
-
