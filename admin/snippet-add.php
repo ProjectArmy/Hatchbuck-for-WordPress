@@ -107,7 +107,7 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
     <h3 class="hndle ui-sortable-handle"><span>What form code should I use?</span></h3>
     <div class="inside">
 	<h3>Option #1: IFRAME</h3>
-	<p>If you are happy with form design that you created inside Hatchbuck - colors, fonts, sizes, etc. - than choos IFRAME option.</p>
+	<p>If you are happy with form design that you created inside Hatchbuck - colors, fonts, sizes, etc. - than choose IFRAME option.</p>
 	<p><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-form-iframe.png')?>" alt="Hatchbuck form IFRAME" /></p>
 	<hr />
 	<h3>Option #2: HTML/CSS</h3>
