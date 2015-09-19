@@ -1,8 +1,6 @@
 <?php
-
 global $wpdb;
 // Load the options
-
 
 if($_POST){
 	
@@ -11,40 +9,44 @@ $_POST = stripslashes_deep($_POST);
     
   if (isset($_POST['activate']) && isset($_POST['addon'])) {
     switch ($_POST['addon']) {
-      case 'form-widget':
-        update_option('hatchbuck_addons_form-widget',1);
-        break;
-			case 'side-wide':
-        update_option('hatchbuck_addons_side-wide',1);
-				update_option('hatchbuck_addons_metabox',null);
-        break;
-			case 'metabox':
-        update_option('hatchbuck_addons_metabox',1);
-				update_option('hatchbuck_addons_side-wide',null);
-        break;
+        case 'form-widget':
+            update_option('hatchbuck_addons_form-widget',1);
+            break;
+        case 'scroll-box':
+            update_option('hatchbuck_addons_scroll-box',1);
+            break;        
+        case 'side-wide':
+            update_option('hatchbuck_addons_side-wide',1);
+			update_option('hatchbuck_addons_metabox',null);
+            break;
+		case 'metabox':
+            update_option('hatchbuck_addons_metabox',1);
+			update_option('hatchbuck_addons_side-wide',null);
+            break;
     }      
     $noticeval = 'Activated';
   }
   
   if (isset($_POST['deactivate']) && isset($_POST['addon'])) {
     switch ($_POST['addon']) {
-      case 'form-widget':
-        update_option('hatchbuck_addons_form-widget',null);
-        break;
-			 case 'side-wide':
-        update_option('hatchbuck_addons_side-wide',null);
-        break;
-			case 'metabox':
-        update_option('hatchbuck_addons_metabox',null);
-        break;
+        case 'form-widget':
+            update_option('hatchbuck_addons_form-widget',null);
+            break;
+        case 'scroll-box':
+            update_option('hatchbuck_addons_scroll-box',null);
+            break; 
+        case 'side-wide':
+            update_option('hatchbuck_addons_side-wide',null);
+            break;
+		case 'metabox':
+            update_option('hatchbuck_addons_metabox',null);
+            break;
     }
     $noticeval = 'Deactivated';
   }
-   header('Location: admin.php?page=hatchbuck-addons&notice=1&noticeval='.$noticeval);
+  
+  header('Location: admin.php?page=hatchbuck-addons&notice=1&noticeval='.$noticeval);
 ?>
-
-
-
 <?php
 }
 
@@ -78,6 +80,26 @@ $_POST = stripslashes_deep($_POST);
                 <input type="hidden" name="addon" value="form-widget"/>
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
               <?php endif; ?>
+              </form>
+            </div>
+          </div><!-- inside -->
+        </li>
+        
+        <li class="postbox">
+          <h3 class="hndle"><span>Scroll Box</span></h3>
+          <div class="inside">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
+            <p>This addon adds a email subscribe pop up to page so users can easily add their email to keep updated. Requires Hatchbuck API key.</p>
+            <div align="left">
+              <form method="post">
+              <?php if(get_option('hatchbuck_addons_scroll-box')): ?>
+                <input type="hidden" name="addon" value="scroll-box"/>
+                <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
+              <?php else: ?>
+                <input type="hidden" name="addon" value="scroll-box"/>
+                <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
+              <?php endif; ?>
+                <a name="setting" class="button button-secondary button-large right" href="admin.php?page=scroll-box-settings">Setting</a>
               </form>
             </div>
           </div><!-- inside -->

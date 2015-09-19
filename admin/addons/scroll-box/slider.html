@@ -1,0 +1,117 @@
+<!--
+https://blog.hartleybrody.com/adding-subtle-pop-ups-to-your-website/
+-->
+<html>
+<head></head>
+<body>
+<div id="hb-slider">
+    <p>
+    <h4>Sign Up for Free Updates!</h4><br />
+    Receive latest business improvement ideas<br />
+    directly to you inbox.<br />
+    </p>
+    <form action="" method="get">
+        <table  class="form-table" border=0>
+            <tbody>
+                <tr>
+                    <td>Email:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" name="email" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="phoneNo" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="phoneNo" value="">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Sign Me Up">
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </form>
+</div>
+<style type="text/css">
+#hb-slider
+{
+    position:fixed;
+    bottom:-400px;
+    right:0px;
+    height:395px;
+    width:300px;
+    background-color:#fff;
+    border-top:1px solid #000;
+    border-left:1px solid #000;
+    -moz-box-shadow:0px 0px 15px #888;
+    -webkit-box-shadow:0px 0px 15px #888;
+    box-shadow:0px 0px 15px #888;
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+		function isScrolledTo(elem) {
+			var docViewTop = $(window).scrollTop(); //num of pixels hidden above current screen
+			var docViewBottom = docViewTop + $(window).height();
+ 
+			var elemTop = $(elem).offset().top; //num of pixels above the elem
+			var elemBottom = elemTop + $(elem).height();
+ 
+			return (elemTop <= docViewBottom); //if the bottom of the current viewing area is lower than the top of the trigger
+		}
+ 
+		var trigger = $('#trigger-div'); 	//set the trigger
+		var reached = false;
+		
+		$(window).scroll(function() {
+			if(isScrolledTo(trigger)) {
+				//slide CTA onto screen
+				if(!reached){			
+					$('#hb-slider').animate({
+						bottom: 0
+					}, "fast");
+					
+					reached = true;
+				}
+			} 
+			
+			if (!isScrolledTo(trigger)) {
+				//slide CTA off of screen
+				if(reached){
+					$('#hb-slider').animate({
+						bottom: -400
+					}, "fast");
+					
+					reached = false;
+				}
+			}
+		});
+	});
+</script>
+<div style="height:600px; font-size:2.5em;">
+Scroll down to see the animation....
+</div>
+<div style="height:600px; font-size:2.5em;">
+keep scrolling....
+</div>
+<div id="trigger-div" style="border-top:2px solid #ccc; height:400px;">
+You reached the trigger!
+</div>
+</body>
+</html>

@@ -35,7 +35,7 @@ wp_localize_script( 'itsec_modal', 'itsec_tooltip_text', array(
     if ($_GET['page'] == 'hatchbuck-settings') {
       $pageName = 'Settings';
       $page = 'hatchbuck-settings';
-    } elseif ($_GET['page'] == 'hatchbuck-addons') {
+    } elseif ($_GET['page'] == 'hatchbuck-addons' || $_GET['page'] == 'scroll-box-settings') {
       $pageName = 'Addons';
       $page = 'hatchbuck-addons';
     } elseif ($_GET['page'] == 'hatchbuck-help') {
