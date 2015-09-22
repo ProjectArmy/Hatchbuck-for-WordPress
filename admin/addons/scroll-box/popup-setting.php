@@ -15,6 +15,13 @@ add_action( 'wp_footer', 'hb_popup_html' );
 add_action( 'wp_footer', 'hb_popup_css' );
 add_action( 'wp_footer', 'hb_popup_js' );
 
+add_action("wp_ajax_nopriv_HatchbuckScrollBox", "hb_ajax_subscribe");
+
+function hb_ajax_subscribe() {
+    require_once ('scroll-box-ajax.php');
+    die(); //  otherwise it will print 0
+}
+
 function hb_trigger_point() {
     ?>
     <div id="hatchbuck_popup_trigger"></div>
@@ -72,7 +79,7 @@ function hb_popup_js() {
                             type: "POST",
                             data : $("#hatchbuck_scroll-box").serialize(),
                             cache: false,  
-                            url: "<?php print plugin_dir_url( __FILE__ ) . "scroll-box-ajax.php" ; ?>",
+                            url: "<?php print admin_url('admin-ajax.php?action=HatchbuckScrollBox'); ?>",
                             success: function(data){
                                 $("#hatchbuck_scroll-box_result").html(data); 
                                 $("#hatchbuck_scroll-box_result p").delay(3000).fadeOut( "slow" );                                
