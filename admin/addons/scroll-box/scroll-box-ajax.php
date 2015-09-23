@@ -19,12 +19,13 @@ else {
     $opts['tag_key'] = $data['hb_tag_key'];
     $opts['tag_name'] = "Scroll Box";
 	
-    
     $result = subscribe($opts, $email, $firstname, $lastName); // Return 1 if everything successfull    
     
     if ($result == 1) { 
         if ($data)  print "<p class='hatchbuck_info'>" .$data['hb_thank_you'] . "</p>";
         else print "<p class='hatchbuck_info'>Thank for subscribing." . "</p>";
+        
+        setcookie("hatchbuck_subscribed", 1, time()+3600*24*356);
     }
     else {
         print "<p class='hatchbuck_error'>" . $result . "</p>";

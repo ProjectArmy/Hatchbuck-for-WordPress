@@ -1,21 +1,36 @@
 <?php
-$scrollBoxKey = 'hatchbuck_scroll-box_data';
-$data = get_option($scrollBoxKey);
-if (!$data) $data = array();
-/*
-if (
-    in_array('all-pages') ||
+    $scrollBoxKey = 'hatchbuck_scroll-box_data';
+    $data = get_option($scrollBoxKey);    ;
+
+function hb_condition_check() {
+    global $data;
     
-    in_array('no-pages') && is_page() == false
-    in_array('only-posts') && is_single() == true &&
-    in_array('only-pages') && is_page() == true
-)*/
+    if (
+        isset($_COOKIE['hatchbuck_subscribed']) ||
+        !$data || 
+        isset($data['hb_api_key']) && empty($data['hb_api_key']) || 
+        isset($data['hb_tag_key']) && empty($data['hb_tag_key'])
+    ) {
+        return 0;
+    }
+    
+    
+    if (
+            in_array('all-pages', $data['hb_show']) && (is_page() == true || is_front_page() == true) ||
+            in_array('no-pages', $data['hb_show']) && (is_page() == false || is_front_page() == false) ||
+            in_array('only-posts', $data['hb_show']) && is_single() == true &&
+            in_array('only-pages', $data['hb_show']) && (is_page() == true || is_front_page() == true) && is_single() == false
+    )
+    return 1;
+    return 0;
+}
+
 add_action( 'wp_footer', 'hb_trigger_point' );
 add_action( 'wp_footer', 'hb_popup_html' );
 add_action( 'wp_footer', 'hb_popup_css' );
 add_action( 'wp_footer', 'hb_popup_js' );
-
-add_action("wp_ajax_nopriv_HatchbuckScrollBox", "hb_ajax_subscribe");
+add_action( "wp_ajax_nopriv_HatchbuckScrollBox", "hb_ajax_subscribe");
+add_action( "wp_ajax_HatchbuckScrollBox", "hb_ajax_subscribe");
 
 function hb_ajax_subscribe() {
     require_once ('scroll-box-ajax.php');
@@ -23,12 +38,15 @@ function hb_ajax_subscribe() {
 }
 
 function hb_trigger_point() {
+    if (!hb_condition_check()) return;
+    
     ?>
     <div id="hatchbuck_popup_trigger"></div>
     <?php
 }
 
 function hb_popup_html() {
+    if (!hb_condition_check()) return;
     global $data;
     ?>
     <div id="hatchbuck-slider">
@@ -69,9 +87,25 @@ function hb_popup_html() {
 }
 
 function hb_popup_js() {
+    if (!hb_condition_check()) return;
+    global $data;
     ?>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">            
+   
+            function createCookie(name, value, days) {
+                var expires;
+
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toGMTString();
+                } else {
+                    expires = "";
+                }
+                document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
+            }
+
    
             function hatchbuck_post() {
                         
@@ -81,8 +115,15 @@ function hb_popup_js() {
                             cache: false,  
                             url: "<?php print admin_url('admin-ajax.php?action=HatchbuckScrollBox'); ?>",
                             success: function(data){
-                                $("#hatchbuck_scroll-box_result").html(data); 
-                                $("#hatchbuck_scroll-box_result p").delay(3000).fadeOut( "slow" );                                
+                                $("#hatchbuck_scroll-box_result").html(data);                                 
+                                $("#hatchbuck_scroll-box_result p").delay(3000).fadeOut( "slow" );
+  
+                                setTimeout(function(){
+                                    if (data.search("<?php echo $data['hb_thank_you']; ?>") != -1) {
+                                        $("#hatchbuck-slider").remove();
+                                        createCookie("hatchbuck_subscribed", 1, 365);
+                                    }
+                                }, 4000);                                
                             }   
                         });   
                         return false;   
@@ -131,6 +172,7 @@ function hb_popup_js() {
 }
 
 function hb_popup_css() {
+    if (!hb_condition_check()) return;
     ?>
     <style type="text/css">
     #hatchbuck-slider

@@ -14,10 +14,10 @@ function scroll_box_page() {
 }
 
 function scroll_box_settings() {
-    include "setting.php";    
+    require_once("setting.php");
 }
 
 // Apply pop up
-include "popup-setting.php";  
+require_once("popup-setting.php");  
 
 ?>

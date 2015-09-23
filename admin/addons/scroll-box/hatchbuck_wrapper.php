@@ -14,16 +14,14 @@
 			} else {
 				$res[] = $first;
 			}
-
 		}
-
 		return $res;
 	}
 
 	
 	function remote_post($url, $data){
-		ini_set('default_socket_timeout', 3);
-		$opts = array(        'http' => array(            'method'    =>"POST",            'timeout'   => 3,            'header'    =>  "Content-type: application/json\r\n" .                            "Content-Length: " .strlen($data) . "\r\n",            'content'      => $data,            'ignore_errors' => true        )    );
+		ini_set('default_socket_timeout', 10);
+		$opts = array(        'http' => array(            'method'    =>"POST",            'timeout'   => 10,            'header'    =>  "Content-type: application/json\r\n" .                            "Content-Length: " .strlen($data) . "\r\n",            'content'      => $data,            'ignore_errors' => true        )    );
 		$context = stream_context_create($opts);
 		$result = file_get_contents($url, false, $context);
 		$response['response'] = http_parse_headers(implode("\n",$http_response_header));

@@ -34,6 +34,7 @@ $_POST = stripslashes_deep($_POST);
             break;
         case 'scroll-box':
             update_option('hatchbuck_addons_scroll-box',null);
+            require_once("/../scroll-box/deactivate.php");
             break; 
         case 'side-wide':
             update_option('hatchbuck_addons_side-wide',null);
@@ -95,11 +96,11 @@ $_POST = stripslashes_deep($_POST);
               <?php if(get_option('hatchbuck_addons_scroll-box')): ?>
                 <input type="hidden" name="addon" value="scroll-box"/>
                 <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
+                <a name="setting" class="button button-secondary button-large right" href="admin.php?page=scroll-box-settings">Setting</a>
               <?php else: ?>
                 <input type="hidden" name="addon" value="scroll-box"/>
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
               <?php endif; ?>
-                <a name="setting" class="button button-secondary button-large right" href="admin.php?page=scroll-box-settings">Setting</a>
               </form>
             </div>
           </div><!-- inside -->

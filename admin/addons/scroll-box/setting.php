@@ -6,9 +6,14 @@ $data = get_option($scrollBoxKey);
 if ($data == false) {
     // Default
     $data = Array();   // get_options will set it to false; re-init to array
-    $data['hb_show'] = 'all-pages';
-    $data['hb_tag_key'] = 'contact-email';
+    $data['hb_title'] = 'Sign Up for Free Updates!';
+    $data['hb_desc'] = 'Receive latest business improvement ideas directly to your inbox.';
+    $data['hb_thank_you'] = 'Thanks for submission.';
+    $data['hb_btn_text'] = 'Submit';
     $data['hb_show_mobile'] = 0;
+    $data['hb_api_key'] = "";
+    $data['hb_tag_key'] = "";
+    $data['hb_show'] = Array('all-pages');
 }
 
 if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scroll_box_setting' )) {
