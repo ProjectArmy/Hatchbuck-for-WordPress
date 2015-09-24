@@ -43,7 +43,8 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
 }
 ?>
 
-<?php require( '/../../header.php'); ?>
+<?php 
+require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php'); ?>
 <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
 
@@ -137,7 +138,7 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
                 </div>
             </div>
         </div>
-        <?php require( '/../../sidebar.php'); ?>
+        <?php require(  plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/sidebar.php'); ?>
     </div>
 </div>
-<?php require( '/../../footer.php'); ?>
+<?php require(  plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/footer.php'); ?>

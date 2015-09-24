@@ -34,7 +34,7 @@ $_POST = stripslashes_deep($_POST);
             break;
         case 'scroll-box':
             update_option('hatchbuck_addons_scroll-box',null);
-            require_once("/../scroll-box/deactivate.php");
+            require_once(plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . "admin/addons/scroll-box/deactivate.php");
             break; 
         case 'side-wide':
             update_option('hatchbuck_addons_side-wide',null);
@@ -149,7 +149,7 @@ $_POST = stripslashes_deep($_POST);
 </div><!-- postbox-container-2 -->
 
 
-<?php require( dirname( __FILE__ ) . '/../../sidebar.php' ); ?>
+<?php require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/sidebar.php' ); ?>
 
 </div><!-- postbody -->
 </div><!-- poststuff -->
