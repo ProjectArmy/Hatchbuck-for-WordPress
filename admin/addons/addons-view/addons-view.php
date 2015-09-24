@@ -90,13 +90,13 @@ $_POST = stripslashes_deep($_POST);
           <h3 class="hndle"><span>Scroll Box</span></h3>
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/scroll-box-screenshot.png"/>
-            <p>This addon adds a email subscribe pop up to page so users can easily add their email to keep updated. Requires Hatchbuck API key.</p>
+            <p>This addon adds an email subscribe pop up to page so users can easily add their email to keep updated. <strong>Requires Hatchbuck API key.</strong></p>
             <div align="left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_scroll-box')): ?>
                 <input type="hidden" name="addon" value="scroll-box"/>
                 <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
-                <a name="setting" class="button button-secondary button-large right" href="admin.php?page=scroll-box-settings">Setting</a>
+                <a name="setting" class="button button-secondary button-large right" href="admin.php?page=scroll-box-settings">Settings</a>
               <?php else: ?>
                 <input type="hidden" name="addon" value="scroll-box"/>
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
@@ -110,7 +110,7 @@ $_POST = stripslashes_deep($_POST);
           <h3 class="hndle"><span>Side-wide Tracking</span></h3>
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut tellus nulla. Integer fermentum sapien a tincidunt gravida.</p>
+            <p>A better implementation of Hatchbuck's page tracking functionality. Now you only need one tracking code to track entire website.</p>
             <div align="left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_side-wide')): ?>
@@ -126,10 +126,10 @@ $_POST = stripslashes_deep($_POST);
         </li>
 				
 				<li class="postbox">
-          <h3 class="hndle"><span>Metaboxes</span></h3>
+          <h3 class="hndle"><span>Page Specific Tracking</span></h3>
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut tellus nulla. Integer fermentum sapien a tincidunt gravida.</p>
+            <p>This is the original page tracking feature, where you can place page tracking code on individual pages. If enabled, disables site-wide tracking.</p>
             <div align="left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_metabox')): ?>

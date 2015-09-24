@@ -24,13 +24,11 @@
           <strong>Bugs and Feature Requests</strong>
           <p>Found a bug or want to request a feature? <a href="https://github.com/ProjectArmy/Hatchbuck-for-WordPress/issues" target="_blank">Submit it here</a> <em>(You'll need free GitHub account)</em></p>
           <hr />
-          <p><strong>Marketing and Hatchbuck Help</strong></p>
+          <p><strong>Marketing and Hatchbuck Support</strong></p>
           <p>Too much on your plate and not enough time to do everything yourself? <strong>We're here to help.</strong></p>
           <p>Take advantage of your free marketing consultation to find out how ProjectArmy's effective marketing solutions can help you create sustainable growth.</p>
           <p><a class="button-secondary" href="admin.php?page=hatchbuck-manage&hb-mh=1">Request FREE Consultation &raquo;</a></p>
           <br />
-          <p><blockquote style="width: 40%; border-left: 3px solid #9ccd00;padding-left: 10px;">Viktor is a first-class consultant and expert in the inbound Web marketing space. He is very generous in providing free consultation prior to engagement. He is extremely knowledgeable in providing multiple solutions to a problem, and is sensitive to the needs of small business. Viktor is also a very friendly person. I recommend him highly!<br />- <strong>Mark Shneour,
-TreLuCo</strong></blockquote></p>
         </div><!-- inside -->
       </div><!-- postbox -->
     </div><!-- postbox-container-2 -->
