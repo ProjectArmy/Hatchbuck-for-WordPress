@@ -1,6 +1,5 @@
 <?php
-    $scrollBoxKey = 'hatchbuck_scroll-box_data';
-    $data = get_option($scrollBoxKey);    ;
+$data = get_option($scrollBoxKey);
 
 function hb_condition_check() {
     global $data;
@@ -25,7 +24,6 @@ function hb_condition_check() {
     return 0;
 }
 
-add_action( 'wp_footer', 'hb_trigger_point' );
 add_action( 'wp_footer', 'hb_popup_html' );
 add_action( 'wp_footer', 'hb_popup_css' );
 add_action( 'wp_footer', 'hb_popup_js' );
@@ -33,16 +31,9 @@ add_action( "wp_ajax_nopriv_HatchbuckScrollBox", "hb_ajax_subscribe");
 add_action( "wp_ajax_HatchbuckScrollBox", "hb_ajax_subscribe");
 
 function hb_ajax_subscribe() {
+    global $scrollBoxKey;
     require_once ('scroll-box-ajax.php');
     die(); //  otherwise it will print 0
-}
-
-function hb_trigger_point() {
-    if (!hb_condition_check()) return;
-    
-    ?>
-    <div id="hatchbuck_popup_trigger"></div>
-    <?php
 }
 
 function hb_popup_html() {
@@ -105,7 +96,6 @@ function hb_popup_js() {
                 }
                 document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + expires + "; path=/";
             }
-
    
             function hatchbuck_post() {
                         
@@ -129,23 +119,20 @@ function hb_popup_js() {
                         return false;   
             }
     $(document).ready(function() {
-       
-            function isScrolledTo(elem) {
-                var docViewTop = $(window).scrollTop(); //num of pixels hidden above current screen
-                var docViewBottom = docViewTop + $(window).height();
-     
-                var elemTop = $(elem).offset().top; //num of pixels above the elem
-                var elemBottom = elemTop + $(elem).height();
-     
-                return (elemTop <= docViewBottom); //if the bottom of the current viewing area is lower than the top of the trigger
+                  
+            function isScrolledPercent(limit) {
+                var wintop = $(window).scrollTop(), 
+                docheight = $(document).height(), 
+                winheight = $(window).height();
+                var percent = (wintop/(docheight-winheight)) * 100;
+                return (percent >= limit);
             }
      
-            var trigger = $('#hatchbuck_popup_trigger'); 	//set the trigger
+            var triggerPercent = 50;
             var reached = false;
             
             $(window).scroll(function() {
-                if(isScrolledTo(trigger)) {
-                    //slide CTA onto screen
+                if(isScrolledPercent(triggerPercent)) {
                     if(!reached){			
                         $('#hatchbuck-slider').animate({
                             bottom: 0
@@ -155,7 +142,8 @@ function hb_popup_js() {
                     }
                 } 
                 
-                if (!isScrolledTo(trigger)) {
+                if(!isScrolledPercent(triggerPercent)) {
+
                     //slide CTA off of screen
                     if(reached){
                         $('#hatchbuck-slider').animate({

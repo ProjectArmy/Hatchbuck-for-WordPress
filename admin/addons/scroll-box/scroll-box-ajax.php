@@ -12,7 +12,6 @@ else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
 else {    
     require_once ("hatchbuck_wrapper.php");
     
-    $scrollBoxKey = 'hatchbuck_scroll-box_data';
     $data = get_option($scrollBoxKey);
         
     $opts['api_key'] = $data['hb_api_key'];

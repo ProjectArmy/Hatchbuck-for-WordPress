@@ -41,20 +41,29 @@
 		$data['lastName'] = $lname;
 		$data = json_encode($data);
 
-		$result = remote_post($api_url . '?api_key='. $api_key, 
-                            $data                         
-                            );
+        try {
+            $result = remote_post($api_url . '?api_key='. $api_key, 
+                $data                         
+            );
+		}
+        catch (Exception $e) {
+            return "Server error.";
+        }
 		
-		if ($result['response_code'] == 200) {
+        if ($result['response_code'] == 200) {
 			$result = json_decode($result['body']);
 			$contactId  = $result->contactId;
-			$result = remote_post(                            
-                            $api_url . $contactId . '/Tags?api_key='. $api_key,
-                            json_encode(
-                                array(array('name'=>$tag_name, 'id' => $tag_key)
-                                ))                       
-                                );
-			
+            try {
+                $result = remote_post(                            
+                                $api_url . $contactId . '/Tags?api_key='. $api_key,
+                                json_encode(
+                                    array(array('name'=>$tag_name, 'id' => $tag_key)
+                                    ))                       
+                                    );
+                }
+            catch (Exception $e) {
+                return "Server error.";
+            }
 			if ($result['response_code'] == 201) {
 				return 1;
 			} else {

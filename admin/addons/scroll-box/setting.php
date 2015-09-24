@@ -1,31 +1,31 @@
 <?php
-$scrollBoxKey = 'hatchbuck_scroll-box_data';
-
 $data = Array();
 $data = get_option($scrollBoxKey);
+
 if ($data == false) {
     // Default
-    $data = Array();   // get_options will set it to false; re-init to array
-    $data['hb_title'] = 'Sign Up for Free Updates!';
-    $data['hb_desc'] = 'Receive latest business improvement ideas directly to your inbox.';
-    $data['hb_thank_you'] = 'Thanks for submission.';
-    $data['hb_btn_text'] = 'Submit';
+    $data = Array();        // get_options will set it to false; re-init to array
+    $data['hb_title']       = 'Sign Up for Free Updates!';
+    $data['hb_desc']        = 'Receive latest business improvement ideas directly to your inbox.';
+    $data['hb_thank_you']   = 'Thanks for submission.';
+    $data['hb_btn_text']    = 'Submit';
     $data['hb_show_mobile'] = 0;
-    $data['hb_api_key'] = "";
-    $data['hb_tag_key'] = "";
-    $data['hb_show'] = Array('all-pages');
+    $data['hb_api_key']     = "";
+    $data['hb_btn_color']   = "#eeeeee";
+    $data['hb_tag_key']     = "";
+    $data['hb_show']        = Array('all-pages');
 }
 
 if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scroll_box_setting' )) {
-    $data['hb_show'] = ($_POST['hb_show']) ? $_POST['hb_show'] : Array();
-    $data['hb_title'] = $_POST['hb_title'];
-    $data['hb_desc'] = $_POST['hb_desc'];
-    $data['hb_thank_you'] = trim($_POST['hb_thank_you']);
-    $data['hb_btn_text'] = $_POST['hb_btn_text'];
-    $data['hb_btn_color'] = $_POST['hb_btn_color'];
+    $data['hb_show']        = ($_POST['hb_show']) ? $_POST['hb_show'] : Array();
+    $data['hb_title']       = $_POST['hb_title'];
+    $data['hb_desc']        = $_POST['hb_desc'];
+    $data['hb_thank_you']   = trim($_POST['hb_thank_you']);
+    $data['hb_btn_text']    = $_POST['hb_btn_text'];
+    $data['hb_btn_color']   = $_POST['hb_btn_color'];
     $data['hb_show_mobile'] = $_POST['hb_show_mobile'];
-    $data['hb_api_key'] = $_POST['hb_api_key'];
-    $data['hb_tag_key'] = $_POST['hb_tag_key'];
+    $data['hb_api_key']     = $_POST['hb_api_key'];
+    $data['hb_tag_key']     = $_POST['hb_tag_key'];
     
     // $scrollBoxKey add in scroll-box.php
     if (get_option($scrollBoxKey) == $data || update_option($scrollBoxKey, $data)) {
@@ -41,10 +41,19 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
         ";          
     }
 }
-?>
 
-<?php 
-require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php'); ?>
+if ($data && empty($data['hb_api_key']) || empty($data['hb_tag_key'])) {
+    print " <div class='error'>
+                <p>You will need to enter key to show scroll box.</p>
+            </div>
+    ";     
+}
+
+
+ 
+require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php'); 
+
+?>
 <div id="poststuff">
     <div id="post-body" class="metabox-holder columns-2">
 
@@ -99,8 +108,9 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php'); ?>
                                     </tr>
                                     <tr>
                                         <td style="vertical-align:text-top;">Button color</td>
-                                        <td>
-                                            <input type="color" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>">
+                                        <td>         
+                                            <input type="text" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
+
                                         </td>
                                     </tr>
                                     <tr>

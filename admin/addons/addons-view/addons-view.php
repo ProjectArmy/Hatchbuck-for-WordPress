@@ -89,7 +89,7 @@ $_POST = stripslashes_deep($_POST);
         <li class="postbox">
           <h3 class="hndle"><span>Scroll Box</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/scroll-box-screenshot.png"/>
             <p>This addon adds a email subscribe pop up to page so users can easily add their email to keep updated. Requires Hatchbuck API key.</p>
             <div align="left">
               <form method="post">
