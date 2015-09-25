@@ -23,7 +23,7 @@ function hb_iris_color_picker( ) {
             false,
             1
     );     
-    wp_enqueue_script( 'hb_scrollbox_admin_script', plugin_dir_url( __FILE__ ) . '/script.js' );
+    wp_enqueue_script( 'hb_scrollbox_admin_script', plugin_dir_url( __FILE__ ) . 'script/admin-script.js' );
 }
 
 function scroll_box_settings() {

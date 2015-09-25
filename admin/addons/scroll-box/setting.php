@@ -55,10 +55,10 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
 
 ?>
 <div id="poststuff">
-    <div id="post-body" class="metabox-holder columns-2">
+    <div id="post-body"  class="metabox-holder columns-2">
 
         <div id="postbox-container-2" class="postbox-container">
-            <div class="postbox">
+            <div class="postbox" style="max-width:600px;">
 
                 <h3 class="hndle"><span>Scroll Box - Settings</span></h3>
                 <div class="inside">
@@ -72,13 +72,13 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                             Show scroll box on
                                         </td>
                                         <td>
-                                            <input type="radio" <?php print (in_array('no-pages',$data['hb_show'])) ? "checked" : ""; ?> name="hb_show[]" value="no-pages">No Pages
+                                            <input type="radio" <?php print (in_array('no-pages',$data['hb_show'])) ? "checked" : ""; ?> name="hb_show[]" value="no-pages">Only front page
                                             <br />
-                                            <input type="radio" <?php print (in_array('all-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="all-pages">All Pages
+                                            <input type="radio" <?php print (in_array('all-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="all-pages">Pages and Posts
                                             <br />
-                                            <input type="checkbox" <?php print (in_array('only-posts',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="only-posts">Only Posts
+                                            <input type="radio" <?php print (in_array('only-posts',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="only-posts">Only Posts
                                             <br />
-                                            <input type="checkbox" <?php print (in_array('only-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="only-pages">Only Pages
+                                            <input type="radio" <?php print (in_array('only-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="only-pages">Only Pages
                                             <br />
                                         </td>
                                     </tr>
@@ -91,13 +91,14 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                     <tr>
                                         <td style="vertical-align:text-top;">Description Text</td>
                                         <td>
-                                            <input type="text" name="hb_desc" value="<?php print $data['hb_desc']; ?>">
+                                            <textarea style="width:100%;" name="hb_desc"><?php print $data['hb_desc']; ?></textarea>
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="vertical-align:text-top;">Thank you text</td>
                                         <td>
-                                            <textarea name="hb_thank_you"><?php print $data['hb_thank_you']; ?></textarea>
+                                            <textarea style="width:100%;" name="hb_thank_you"><?php print $data['hb_thank_you']; ?></textarea>
                                         </td>
                                     </tr>
                                     <tr>
