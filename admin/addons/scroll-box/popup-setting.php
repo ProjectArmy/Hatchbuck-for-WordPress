@@ -120,11 +120,12 @@ function hb_popup_js() {
                             cache: false,  
                             url: "<?php print admin_url('admin-ajax.php?action=HatchbuckScrollBox'); ?>",
                             success: function(data){
+                                $("#hatchbuck_scroll-box_result").css( "display", "block");
                                 $("#hatchbuck_scroll-box_result").height(70);
                                 $("#hatchbuck_scroll-box_result").html(data);                                 
                                 // p tag return from Ajax file
                                 
-                                $("#hatchbuck_scroll-box_result p").delay(3000).fadeOut( "slow" );
+                                $("#hatchbuck_scroll-box_result").delay(3000).fadeOut( "slow" );
                                     
                                 setTimeout(function(){
                                     $("#hatchbuck_scroll-box_result").height(0);
@@ -212,16 +213,14 @@ function hb_popup_css() {
         font-family: 'Source Sans Pro', Helvetica, sans-serif;
         font-size: 14px;
         margin:0px !important;
-        width:100%;
         color: red;
         border: 2px solid red;
         padding:5px;
     }
     .hatchbuck_info {
         font-family: 'Source Sans Pro', Helvetica, sans-serif;
-        font-size: 14px
+        font-size: 14px;
         margin:0px !important;
-        width:100%;
         color: green;
         border: 2px solid green;
         padding:5px;
