@@ -6,12 +6,12 @@ if ($data == false) {
     // Default
     $data = Array();        // get_options will set it to false; re-init to array
     $data['hb_title']       = 'Sign Up for Free Updates!';
-    $data['hb_desc']        = 'Receive latest business improvement ideas directly to your inbox.';
-    $data['hb_thank_you']   = 'Thanks for submission.';
-    $data['hb_btn_text']    = 'Submit';
+    $data['hb_desc']        = 'Receive free updates directly to your inbox.';
+    $data['hb_thank_you']   = 'Thank you for signing up.';
+    $data['hb_btn_text']    = 'Sign up now &raquo;';
     $data['hb_show_mobile'] = 0;
     $data['hb_api_key']     = "";
-    $data['hb_btn_color']   = "#eeeeee";
+    $data['hb_btn_color']   = "#ff5936";
     $data['hb_tag_key']     = "";
     $data['hb_show']        = Array('all-pages');
 }
@@ -36,7 +36,7 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
     }
     else {
         print " <div class='error'>
-                    <p>Fail to save setting.</p>
+                    <p>Failed to save settings.</p>
                 </div>
         ";          
     }
@@ -44,7 +44,7 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
 
 if ($data && empty($data['hb_api_key']) || empty($data['hb_tag_key'])) {
     print " <div class='error'>
-                <p>You will need to enter key to show scroll box.</p>
+                <p>You will need to enter keys to show scroll box.</p>
             </div>
     ";     
 }
@@ -83,13 +83,13 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Header Title</td>
+                                        <td style="vertical-align:text-top;">Header title</td>
                                         <td>
                                             <input type="text" name="hb_title" value="<?php print $data['hb_title']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Description Text</td>
+                                        <td style="vertical-align:text-top;">Description text</td>
                                         <td>
                                             <textarea style="width:100%;" name="hb_desc"><?php print $data['hb_desc']; ?></textarea>
 
@@ -112,6 +112,17 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         <td>         
                                             <input type="text" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
 
+                                        </td>
+                                    </tr>
+									<tr>
+                                        <td style="vertical-align:text-top;">
+                                            Ask for first and/or last name?
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" <?php //print (in_array('no-pages',$data['hb_show'])) ? "checked" : ""; ?> name="hb_show[]" value="no-pages">First Name
+                                            <br />
+                                            <input type="checkbox" <?php //print (in_array('all-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="all-pages">Last Name
+                                            <br />
                                         </td>
                                     </tr>
                                     <tr>
