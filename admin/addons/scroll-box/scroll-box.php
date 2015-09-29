@@ -2,6 +2,7 @@
 $scrollBoxKey = 'hatchbuck_scroll-box_data';
 
 add_action( 'admin_menu', 'scroll_box_page' );
+add_action( 'wp_enqueue_scripts', 'hb_script' );
 add_action( 'admin_enqueue_scripts', 'hb_iris_color_picker' );
 
 function scroll_box_page() {
@@ -12,6 +13,12 @@ function scroll_box_page() {
         'scroll-box-settings',
         'scroll_box_settings'
     );
+}
+
+function hb_script( ) {
+//        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+    wp_enqueue_script( 'jquery' );
 }
 
 function hb_iris_color_picker( ) {

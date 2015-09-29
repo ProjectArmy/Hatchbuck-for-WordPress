@@ -97,7 +97,6 @@ function hb_popup_js() {
     if (!hb_condition_check()) return;
     global $data;
     ?>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript">            
    
             function createCookie(name, value, days) {
@@ -114,24 +113,24 @@ function hb_popup_js() {
    
             function hatchbuck_post() {
                         
-                        $.ajax({   
+                        jQuery.ajax({   
                             type: "POST",
-                            data : $("#hatchbuck_scroll-box").serialize(),
+                            data : jQuery("#hatchbuck_scroll-box").serialize(),
                             cache: false,  
                             url: "<?php print admin_url('admin-ajax.php?action=HatchbuckScrollBox'); ?>",
                             success: function(data){
-                                $("#hatchbuck_scroll-box_result").css( "display", "block");
-                                $("#hatchbuck_scroll-box_result").height(70);
-                                $("#hatchbuck_scroll-box_result").html(data);                                 
+                                jQuery("#hatchbuck_scroll-box_result").css( "display", "block");
+                                jQuery("#hatchbuck_scroll-box_result").height(70);
+                                jQuery("#hatchbuck_scroll-box_result").html(data);                                 
                                 // p tag return from Ajax file
                                 
-                                $("#hatchbuck_scroll-box_result").delay(3000).fadeOut( "slow" );
+                                jQuery("#hatchbuck_scroll-box_result").delay(3000).fadeOut( "slow" );
                                     
                                 setTimeout(function(){
-                                    $("#hatchbuck_scroll-box_result").height(0);
+                                    jQuery("#hatchbuck_scroll-box_result").height(0);
 
                                     if (data.search("<?php echo $data['hb_thank_you']; ?>") != -1) {
-                                        $("#hatchbuck-slider").remove();
+                                        jQuery("#hatchbuck-slider").remove();
                                         createCookie("hatchbuck_subscribed", true, 1);
                                         // 1 day;
                                     }
@@ -145,26 +144,27 @@ function hb_popup_js() {
             var reached = false;
             
             function hb_closeBox() {
-                $('#hatchbuck-slider').animate({
+                jQuery('#hatchbuck-slider').animate({
                     bottom: -400
                 }, "fast");
                 //reached = false;
             }
              
             function hb_isScrolledPercent(limit) {
-                var wintop = $(window).scrollTop(), 
-                docheight = $(document).height(), 
-                winheight = $(window).height();
+                var wintop = jQuery(window).scrollTop(), 
+                docheight = jQuery(document).height(), 
+                winheight = jQuery(window).height();
                 var percent = (wintop/(docheight-winheight)) * 100;
                 return (percent >= limit);
             }
      
-    $(document).ready(function() {
-            
-            $(window).scroll(function() {
+    //$(document).ready(function(){ 
+    jQuery(document).ready(function(){
+        
+            jQuery(window).scroll(function() {
                 if(hb_isScrolledPercent(triggerPercent)) {
                     if(!reached){			
-                        $('#hatchbuck-slider').animate({
+                        jQuery('#hatchbuck-slider').animate({
                             bottom: 0
                         }, "fast");
                         
@@ -181,6 +181,8 @@ function hb_popup_js() {
                     }
                 }
             });
+            
+            
         });
     </script>    
     <?php    
