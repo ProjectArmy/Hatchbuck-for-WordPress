@@ -59,7 +59,7 @@ function hb_popup_html() {
     ?>
     <div id="hatchbuck-slider">
         <div class="hb_close_btn" onclick="hb_closeBox();">
-            <img src="<?php echo plugins_url( 'close.ico', __FILE__ ); ?>">
+            <img src="<?php echo plugins_url( 'close.ico', __FILE__ ); ?>" alt="Close" />
         </div>
 
         <form action="" method="post" id="hatchbuck_scroll-box" class="">
@@ -85,7 +85,7 @@ function hb_popup_html() {
                 <div class="hb_scroll_box_div" id="hatchbuck_scroll-box_result">
                 </div>
                 <div class="hb_scroll_box_div">
-                            <p class="hb_text hb_powered_by">Powered by <a class="hb_btn_color" target="_blank" href="https://www.projectarmy.net/"><strong>ProjectArmy</strong></a></p>
+                            <p class="hb_text hb_powered_by"><a target="_blank" href="https://www.projectarmy.net/" rel="external">Powered by ProjectArmy</a></p>
                 </div>
             </div>
         </form>
@@ -193,20 +193,22 @@ function hb_popup_css() {
     <style type="text/css">
     #hatchbuck-slider
     {
-        padding:0;
+        padding: 0 20px 0 20px;
         margin: 0;
         position:fixed;
         bottom:-400px;
         right:0px;
-        height:395px;
+        height: auto;
         width:350px;
-        background-color:#fff;
-        border-top:1px solid #000;
-        border-left:1px solid #000;
-        -moz-box-shadow:0px 0px 15px #888;
-        -webkit-box-shadow:0px 0px 15px #888;
-        box-shadow:0px 0px 15px #888;
-        z-index:9999;
+        background-color: #f9f9f9;
+		-moz-box-shadow: 0px 0px 3px #888;
+		-webkit-box-shadow: 0px 0px 3px #888;
+		box-shadow: 0px 0px 3px #888;
+		z-index: 9999;
+		border-top: 5px solid <?php print $data['hb_btn_color']; ?>;
+		-webkit-border-top-left-radius: 5px;
+		-moz-border-radius-topleft: 5px;
+		border-top-left-radius: 5px;
     }
     
     .hatchbuck_error {
@@ -241,6 +243,7 @@ function hb_popup_css() {
     
     .hb_close_btn img:hover {
         opacity:0.7;
+		cursor: pointer;
     }
     
     .hb_scroll_box_div {
@@ -249,7 +252,7 @@ function hb_popup_css() {
     }
     
     .hb_title {
-        color: rgb(20, 20, 18);
+        color: rgba(50,50,50,1);
         line-height:36px;
         font-size:24px;
         font-weight: bold;
@@ -261,9 +264,10 @@ function hb_popup_css() {
     
     .hb_desc {
         font-family: 'Source Sans Pro', Helvetica, sans-serif;
-        font-size: 14px;    
-        margin: 10px 0 0 0;
-        padding:0px;
+        font-size: 16px;
+		margin: 10px 0 0 0;
+		padding: 0px;
+		color: #666;
     }
     
     .hb_scroll_box_div input {
@@ -272,7 +276,7 @@ function hb_popup_css() {
         margin: 10px 0 0 0;
         padding:0 5px 0 5px;
         height: 40px;
-        border: 3px solid #ddd;
+        border: 2px solid #ddd;
         background-color: #eee;
         color: grey;
         width: 100%;
@@ -281,6 +285,7 @@ function hb_popup_css() {
     
     .hb_scroll_box_div input:focus { 
         background-color: #f7f7f7;
+		border-color: <?php print $data['hb_btn_color']; ?>;
     }
     
     
@@ -305,15 +310,12 @@ function hb_popup_css() {
         font-size: 14px;
     }
     
-    .hb_powered_by {
+    .hb_powered_by, .hb_powered_by a {
         font-family: 'Source Sans Pro', Helvetica, sans-serif;
         font-size: 12px; 
         margin-top:10px;
-        text-align:center;        
-    }
-    
-    .hb_powered_by a{
-        color: <?php print $data['hb_btn_color']; ?> !important; 
+        text-align:center;  
+		color: #999 !important;
     }
     </style>
     <?php    
