@@ -85,7 +85,7 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                     <tr>
                                         <td style="vertical-align:text-top;">Header title</td>
                                         <td>
-                                            <input type="text" name="hb_title" value="<?php print $data['hb_title']; ?>">
+                                            <input type="text" style="width:100%;" name="hb_title" value="<?php print $data['hb_title']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
@@ -104,11 +104,11 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                     <tr>
                                         <td style="vertical-align:text-top;">Button text</td>
                                         <td>
-                                            <input type="text" name="hb_btn_text" value="<?php print $data['hb_btn_text']; ?>">
+                                            <input type="text" style="width:100%;" name="hb_btn_text" value="<?php print $data['hb_btn_text']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Button color</td>
+                                        <td style="vertical-align:text-top; width: 100%;">Button color</td>
                                         <td>         
                                             <input type="text" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
 
@@ -137,13 +137,13 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                     <tr>
                                         <td style="vertical-align:text-top;">Hatchbuck API Key</td>
                                         <td>
-                                            <input type="text" name="hb_api_key" value="<?php print $data['hb_api_key']; ?>">
+                                            <input type="text" style="width:100%;" name="hb_api_key" value="<?php print $data['hb_api_key']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="vertical-align:text-top;">Hatchbuck Tag Key</td>
                                         <td>
-                                            <input type="text" name="hb_tag_key" value="<?php print $data['hb_tag_key']; ?>">
+                                            <input type="text"style="width:100%;" name="hb_tag_key" value="<?php print $data['hb_tag_key']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
