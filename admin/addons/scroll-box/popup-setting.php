@@ -3,6 +3,8 @@ $data = get_option($scrollBoxKey);
 
 function hb_condition_check() {
     global $data;
+    if (is_user_logged_in() == true && isset($_COOKIE['hatchbuck_subscribed']))
+        return 1;
     
     if (
         isset($_COOKIE['hatchbuck_subscribed']) ||
@@ -184,7 +186,9 @@ function hb_popup_js() {
 
                     //slide CTA off of screen
                     if(reached){
-                        hb_closeBox();
+                        jQuery('#hatchbuck-slider').animate({
+                            bottom: -400
+                        }, "fast");
                         reached = false;
                     }
                 }
