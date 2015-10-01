@@ -10,12 +10,14 @@ function hatchbuck_display_content($hatchbuck_snippet_name){
 		$snippet_name = $hatchbuck_snippet_name['form'];
 		$query = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix.HATCHBUCK_TABLE." WHERE title=%s" ,$snippet_name));
 		
-		if(count($query)>0){
-			
+		if(count($query)>0){            
+            
 			foreach ($query as $sippetdetails){
 // 				return stripslashes($sippetdetails->content);
-			if($sippetdetails->status==1)
-				return do_shortcode($sippetdetails->content) ;
+			if($sippetdetails->status==1) {
+                add_action( 'wp_footer', 'hatchbuck_footer' );                
+                return do_shortcode($sippetdetails->content) ;
+            }
 			else 
 				return '';
 				break;
@@ -36,5 +38,19 @@ function hatchbuck_display_content($hatchbuck_snippet_name){
 	}
 }
 
+function hatchbuck_footer() {
+                echo '
+                <script> 
+                jQuery(document).ready(function(){  
+                if(window.location.href.indexOf("cnt=0") == -1) 
+                { 
+                    var fileref=document.createElement("script" ); 
+                    fileref.setAttribute("type","text/javascript");
+                    fileref.setAttribute("src", "https://app.hatchbuck.com/OnlineForm/counter.php?page=" + jQuery( "input:hidden[name=formID]").val());
+                    document.getElementsByTagName("head")[0].appendChild(fileref); } 
+                });
+                </script>
+                ';
+}
 
 add_filter('widget_text', 'do_shortcode'); // to run shortcodes in text widgets
