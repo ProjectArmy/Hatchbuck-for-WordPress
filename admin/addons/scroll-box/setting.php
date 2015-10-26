@@ -14,6 +14,8 @@ if ($data == false) {
     $data['hb_btn_color']   = "#ff5936";
     $data['hb_tag_key']     = "";
     $data['hb_show']        = Array('all-pages');
+    $data['hb_first_name']     = 1;
+    $data['hb_last_name']      = 1;
 }
 
 if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scroll_box_setting' )) {
@@ -26,6 +28,9 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
     $data['hb_show_mobile'] = $_POST['hb_show_mobile'];
     $data['hb_api_key']     = $_POST['hb_api_key'];
     $data['hb_tag_key']     = $_POST['hb_tag_key'];
+    
+    $data['hb_first_name']     = $_POST['hb_first_name'];
+    $data['hb_last_name']     = $_POST['hb_last_name'];
     
     // $scrollBoxKey add in scroll-box.php
     if (get_option($scrollBoxKey) == $data || update_option($scrollBoxKey, $data)) {
@@ -66,7 +71,6 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                         <?php wp_nonce_field( 'hb_scroll_box_setting', 'hb_nonce' ); ?>
 
                             <table class="form-table" border=0>
-                                <tbody>
                                     <tr>
                                         <td style="vertical-align:text-top;">
                                             Show scroll box on
@@ -108,9 +112,9 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top; width: 100%;">Button color</td>
+                                        <td style="vertical-align:text-top;">Button color</td>
                                         <td>         
-                                            <input type="text" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
+                                            <input type="text" style="width:100%;" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
 
                                         </td>
                                     </tr>
@@ -119,9 +123,9 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                             Ask for first and/or last name?
                                         </td>
                                         <td>
-                                            <input type="checkbox" <?php //print (in_array('no-pages',$data['hb_show'])) ? "checked" : ""; ?> name="hb_show[]" value="no-pages">First Name
+                                            <input type="checkbox" <?php print ($data['hb_first_name'] == 1) ? "checked" : ""; ?> name="hb_first_name" value="1">First Name
                                             <br />
-                                            <input type="checkbox" <?php //print (in_array('all-pages',$data['hb_show'])) ? "checked" : ""; ?>  name="hb_show[]" value="all-pages">Last Name
+                                            <input type="checkbox" <?php print ($data['hb_last_name'] == 1) ? "checked" : ""; ?>  name="hb_last_name" value="1">Last Name
                                             <br />
                                         </td>
                                     </tr>
@@ -143,7 +147,7 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                     <tr>
                                         <td style="vertical-align:text-top;">Hatchbuck Tag Key</td>
                                         <td>
-                                            <input type="text"style="width:100%;" name="hb_tag_key" value="<?php print $data['hb_tag_key']; ?>">
+                                            <input type="text" style="width:100%;" name="hb_tag_key" value="<?php print $data['hb_tag_key']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
@@ -153,8 +157,6 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         <td>
                                         </td>
                                     </tr>
-
-                                </tbody>
                             </table>
                     </form>
                 </div>

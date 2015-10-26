@@ -3,6 +3,8 @@ $data = get_option($scrollBoxKey);
 
 function hb_condition_check() {
     global $data;
+    if (is_user_logged_in() == true && isset($_COOKIE['hatchbuck_subscribed']))
+        return 1;
     
     if (
         isset($_COOKIE['hatchbuck_subscribed']) ||
@@ -70,12 +72,16 @@ function hb_popup_html() {
                 <div class="hb_scroll_box_div">
                     <p class="hb_desc"><?php print $data['hb_desc']; ?></p>
                 </div>
+                <?php if($data['hb_first_name'] == 1): ?>
                 <div class="hb_scroll_box_div">
                             <input type="text" name="firstName" placeholder="First Name" value="">
                 </div>
+                <?php endif; ?>
+                <?php if($data['hb_last_name'] == 1): ?>
                 <div class="hb_scroll_box_div">
                             <input type="text" name="lastName" placeholder="Last Name"  value="">
                 </div>
+                <?php endif; ?>
                 <div class=" hb_scroll_box_div">
                             <input type="email" name="email" placeholder="Email" value="">
                 </div>
@@ -131,7 +137,7 @@ function hb_popup_js() {
 
                                     if (data.search("<?php echo $data['hb_thank_you']; ?>") != -1) {
                                         jQuery("#hatchbuck-slider").remove();
-                                        createCookie("hatchbuck_subscribed", true, 1);
+                                        createCookie("hatchbuck_subscribed", true, 2);
                                         // 1 day;
                                     }
                                 }, 4000);                                
@@ -144,9 +150,13 @@ function hb_popup_js() {
             var reached = false;
             
             function hb_closeBox() {
+                createCookie("hatchbuck_subscribed", true, 2);
+                
                 jQuery('#hatchbuck-slider').animate({
                     bottom: -400
                 }, "fast");
+                
+                jQuery("#hatchbuck-slider").remove();
                 //reached = false;
             }
              
@@ -176,7 +186,9 @@ function hb_popup_js() {
 
                     //slide CTA off of screen
                     if(reached){
-                        hb_closeBox();
+                        jQuery('#hatchbuck-slider').animate({
+                            bottom: -400
+                        }, "fast");
                         reached = false;
                     }
                 }
