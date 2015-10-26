@@ -300,7 +300,8 @@ function hb_popup_css() {
         width: 100%;
         border: 1px solid <?php print $data['hb_btn_color']; ?>;
         border-radius: 5px !important;
-        background:<?php print $data['hb_btn_color']; ?> !important;       
+        background:<?php print $data['hb_btn_color']; ?> !important;
+		color: #fff;
     }
     
     .hb_scroll_box_btn:hover {
@@ -318,6 +319,7 @@ function hb_popup_css() {
         margin-top:10px;
         text-align:center;  
 		color: #999 !important;
+		text-decoration: none !important;
     }
     </style>
     <?php    

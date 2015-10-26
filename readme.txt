@@ -1,36 +1,38 @@
 ﻿=== Hatchbuck ===
 Contributors: projectarmy,viktorix,richcode
-Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales
+Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales,leadgen,lead generation,pop ups,scroll box
 Donate link: https://www.projectarmy.net
 Requires at least: 3.0
-Tested up to: 4.1.1
-Stable tag: 1.2.2
+Tested up to: 4.3.1
+Stable tag: 1.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easily embed Hatchbuck forms and website tracking code into your WordPress website. It's time to grow.
+Integrate Hatchbuck with your WordPress website to capture and nurture more leads. It's time to grow.
 
 == Description ==
-Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. Plus, it makes it very easy to insert website tracking code on any page or post to enable tracking of these pages in Hatchbuck. **ProjectArmy is an official Hatchbuck partner.**
+Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. It makes it very easy to insert website tracking code on any page, post or site-wide. We've added some extra tools to help Hatchbuckers**ProjectArmy is a certified Hatchbuck partner.**
 
 = Features =
 Current version includes:
 
 * Embed Hatchbuck forms with shortcodes anywhere in WordPress
-* Insert website tracking code on any page or post
+* Insert website tracking code on any page, post or site-wide
 * Admin toolbar shortcuts to your Hatchbuck app
+* Scroll box to capture more leads (NEW)
 * Addons to extend plugin's functionality
 
 = Todo =
 This is what we got so far on our road map:
 
-* Implement Hatchbuck API
-* Gravity Form integration (waiting on API to support visitor tracking cookie)
+* Gravity Forms integration
+* Additional lead generation tools
+* Analytics
 
-> **Free Support**
+> **Free Support: **
 > You can get basic free community support here on WordPress.org by visiting "Support" tab above. We cannot guarantee support, but will do our best to help and answer requests in a timely fashion.
 >
-> **Premium Support**
+> **Premium Support: **
 > If you're a [ProjectArmy](https://www.projectarmy.net/) client, you receive free premium support for this plugin. Simply submit a ticket through My ProjectArmy, and we'll provide assistance you need.
 
 = Plugin Tutorial =
@@ -62,6 +64,11 @@ Plugin includes a video tutorial. You can also watch it on YouTube:
 
 Please use `do_shortcode()` function. For example: `<?php echo do_shortcode('[hatchbuck form="HTML-form"]'); ?>`
 
+= Where do I find Hatchbuck API keys? =
+
+Go to Account Settings > Web API to get API key.
+Go to Account Settings > Web API > Tags to get specific tag key.
+
 = Where can I get support? =
 
 Basic free community support is provided here on WordPress.org. Please visit "Support" tab above. If you're a [ProjectArmy](https://www.projectarmy.net/) client, you receive free premium support for the plugin. Submit a ticket in My ProjectArmy to get help.
@@ -76,8 +83,15 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 3. Pages and posts include a box where you can insert website tracking code.
 4. Admin toolbar shortcuts to your Hatchbuck app.
 5. Form widget addon.
+6. Scroll box addon.
 
 == Changelog ==
+
+= 1.3 =
+* New addon: Scroll box
+* New addon: Site-wide tracking
+* Hatchbuck API integrated
+* Updated settings, text and help section
 
 = 1.2.2 =
 * Fixed add_query_arg vulnerability
