@@ -33,7 +33,7 @@
 	function subscribe($opts, $email, $fname, $lname) {
         $api_key    = $opts['api_key'];
         $tag_key    = $opts['tag_key'];
-        $tag_name   = $opts['tag_name'];
+        //$tag_name   = $opts['tag_name'];
         $api_url    = "https://api.hatchbuck.com/api/v1/contact/";
                
 		$data = array( 'emails' => array(array('address' => $email,'type'  => 'Work')),'status' => array('name' => 'Lead'));
@@ -54,24 +54,8 @@
 			$result = json_decode($result['body']);
 			$contactId  = $result->contactId;
             try {
-                /* if (!emptyt$tag_key)
-                $info = json_encode(
-                                        array(
-                                            array(
-                                                'name'=>$tag_name,
-                                                'id' => $tag_key
-                                                )
-                                            )
-                                        ); */
-                                        
+                $info = json_encode(array(array('id' => $tag_key)));
 
-                if (!empty($tag_name)) {
-                    $info = json_encode(array(array('name' => $tag_name)));
-                }  
-                else {
-                    $info = json_encode(array(array('id' => $tag_key)));
-                }
-                
                 $result = remote_post(                            
                                 $api_url . $contactId . '/Tags?api_key='. $api_key, 
                                 $info                 

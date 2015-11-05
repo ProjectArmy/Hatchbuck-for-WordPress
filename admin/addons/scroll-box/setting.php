@@ -13,7 +13,7 @@ if ($data == false) {
     $data['hb_api_key']     = "";
     $data['hb_btn_color']   = "#ff5936";
     $data['hb_tag_key']     = "";
-    $data['hb_tag_name']    = "Scroll Box";
+    //$data['hb_tag_name']    = "Scroll Box";
     
     $data['hb_show']        = Array('all-pages');
     $data['hb_first_name']     = 1;
@@ -30,7 +30,7 @@ if ( isset( $_POST['hb_nonce'] ) && wp_verify_nonce( $_POST['hb_nonce'], 'hb_scr
     $data['hb_show_mobile'] = $_POST['hb_show_mobile'];
     $data['hb_api_key']     = $_POST['hb_api_key'];
     $data['hb_tag_key']     = $_POST['hb_tag_key'];
-    $data['hb_tag_name']    = $_POST['hb_tag_name'];
+    //$data['hb_tag_name']    = $_POST['hb_tag_name'];
     
     $data['hb_first_name']     = $_POST['hb_first_name'];
     $data['hb_last_name']     = $_POST['hb_last_name'];
@@ -141,12 +141,15 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                             <br />
                                         </td>
                                     </tr>
-                                    <tr>
+                                   <?php
+                                    /*<tr>
                                         <td style="vertical-align:text-top;">Hatchbuck Tag Name</td>
                                         <td>
                                             <input type="text" style="width:100%;" name="hb_tag_name" value="<?php print $data['hb_tag_name']; ?>">
                                         </td>
                                     </tr>
+                                    */
+                                    ?>
                                     <tr>
                                         <td style="vertical-align:text-top;">Hatchbuck API Key</td>
                                         <td>

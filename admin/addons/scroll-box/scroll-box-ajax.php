@@ -28,7 +28,7 @@ else {
 
     $opts['api_key']    = $data['hb_api_key'];
     $opts['tag_key']    = $data['hb_tag_key'];
-    $opts['tag_name']   = $data['hb_tag_name'];
+    //$opts['tag_name']   = $data['hb_tag_name'];
 	
     $result = subscribe($opts, $email, $firstname, $lastName); // Return 1 if everything successfull    
     
