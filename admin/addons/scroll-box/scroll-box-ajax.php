@@ -25,12 +25,10 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
 }
 else {    
     require_once ("hatchbuck_wrapper.php");
-    
-    
-        
-    $opts['api_key'] = $data['hb_api_key'];
-    $opts['tag_key'] = $data['hb_tag_key'];
-    $opts['tag_name'] = "Scroll Box";
+
+    $opts['api_key']    = $data['hb_api_key'];
+    $opts['tag_key']    = $data['hb_tag_key'];
+    $opts['tag_name']   = $data['hb_tag_name'];
 	
     $result = subscribe($opts, $email, $firstname, $lastName); // Return 1 if everything successfull    
     
