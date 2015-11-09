@@ -36,11 +36,11 @@
         //$tag_name   = $opts['tag_name'];
         $api_url    = "https://api.hatchbuck.com/api/v1/contact/";
                
-		$data = array( 'emails' => array(array('address' => $email,'type'  => 'Work')),'status' => array('name' => 'Lead'));
-		$data['firstName'] = $fname;
-		$data['lastName'] = $lname;
+		$data = array( 'emails' => array(array('address' => $email,'type'  => 'Work')),'status' => array('name' => 'Lead'));	
+        if(!empty($fname)) $data['firstName'] = $fname;
+		if(!empty($lname)) $data['lastName'] = $lname;
 		$data = json_encode($data);
-
+        
         try {
             $result = remote_post($api_url . '?api_key='. $api_key, 
                 $data                         
@@ -49,7 +49,7 @@
         catch (Exception $e) {
             return "Server error.";
         }
-		
+        
         if ($result['response_code'] == 200) {
 			$result = json_decode($result['body']);
 			$contactId  = $result->contactId;

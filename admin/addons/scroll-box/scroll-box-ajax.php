@@ -30,7 +30,7 @@ else {
     $opts['tag_key']    = $data['hb_tag_key'];
     //$opts['tag_name']   = $data['hb_tag_name'];
 	
-    $result = subscribe($opts, $email, $firstname, $lastName); // Return 1 if everything successfull    
+    $result = subscribe($opts, $email, $firstName, $lastName); // Return 1 if everything successfull    
     
     if ($result == 1) { 
         if ($data)  print "<p class='hatchbuck_info'>" .$data['hb_thank_you'] . "</p>";
