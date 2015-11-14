@@ -153,7 +153,7 @@ function hb_popup_js() {
                 createCookie("hatchbuck_subscribed", true, 2);
                 
                 jQuery('#hatchbuck-slider').animate({
-                    bottom: -400
+                    bottom: (jQuery('#hatchbuck-slider').height() + 10) * -1
                 }, "fast");
                 
                 jQuery("#hatchbuck-slider").remove();
@@ -171,6 +171,8 @@ function hb_popup_js() {
     //$(document).ready(function(){ 
     jQuery(document).ready(function(){
         
+            jQuery('#hatchbuck-slider').css('bottom', (jQuery('#hatchbuck-slider').height() + 10) * -1);
+        
             jQuery(window).scroll(function() {
                 if(hb_isScrolledPercent(triggerPercent)) {
                     if(!reached){			
@@ -187,7 +189,7 @@ function hb_popup_js() {
                     //slide CTA off of screen
                     if(reached){
                         jQuery('#hatchbuck-slider').animate({
-                            bottom: -400
+                            bottom: (jQuery('#hatchbuck-slider').height() + 10) * -1
                         }, "fast");
                         reached = false;
                     }
