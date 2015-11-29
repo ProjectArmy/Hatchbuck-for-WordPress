@@ -61,7 +61,7 @@ function hb_popup_html() {
     ?>
     <div id="hatchbuck-slider">
         <div class="hb_close_btn" onclick="hb_closeBox();">
-            <img src="<?php echo plugins_url( 'close.ico', __FILE__ ); ?>" alt="Close" />
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABFFBMVEVMaXEAAAAAAAAAAABEQ0E+Qz1MTkxKSUkAAABGRkMICQkgICAAAAAJCQhGRkdHSUcJCglKTEpHSUQJCQlLUEsODg0GBwZVVVNXV1MNDQxWWlY1NjRqa2lhYmBaX1leYFxbXllTVlNaX1lVVlVZW1laXllZX1ozNDI1NTQ6OzleYF1gYF1wcW52d3NydXBYWVd3eXZ6end8fXp6e3h4eXWFh4KBgn9/gX17fXiHiYWEh4KFh4OOkIqPkIuPko2Qko2Rk46Rk4+TlJCTlJGVl5KWmJKYmpWZm5abnZibnpmdn5qen5udoJqeoJyfoJufoZyipJ6kpaClpqKkp6GmqKKmqKOnqaOoqqapqqaqq6e2uLO8vrdkKdc5AAAAPHRSTlMAAQIDAwMEBQgICQkJCgoOFhsbHyEoLzE2OFxfYWprbG1tbXBwcXF4en6nqK+xsrrFysrK0d3g4ufo6/RlLb4gAAAAjklEQVR42o3IVQ7CABRE0cHd3d3dXQu0uBbd/z5IeKT97YlM5kISdczz26gXJDSu6QCEmaaFQvl1rCsRZ59zGwVn+8SXEtvbKoI/e+tyfvDrNASq3maxT0LkH4xmw6JG+CmGm/QPXMMMEpxy14C1c2erBgqVzy4HOLrvpYuCL5+Bwgh3IasF0QNyyGCCJF+0FxHKKu8V2gAAAABJRU5ErkJggg==" alt="Close" width="16" height="16" />
         </div>
 
         <form action="" method="post" id="hatchbuck_scroll-box" class="">
