@@ -104,8 +104,21 @@ function hb_popup_js() {
     global $data;
     ?>
     <script type="text/javascript">            
-   
+            var hatchbuck_scrollbox_cookie = "hatchbuck_subscribed";
+            
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i=0; i<ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0)==' ') c = c.substring(1);
+                    if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+                }
+                return "";
+            }
+            
             function createCookie(name, value, days) {
+                console.log("Setting cookie " + name + " " + days);
                 var expires;
                 if (days) {
                     var date = new Date();
@@ -118,6 +131,7 @@ function hb_popup_js() {
             }
    
             function hatchbuck_post() {
+                        if (getCookie(hatchbuck_scrollbox_cookie) == true) return;
                         
                         jQuery.ajax({   
                             type: "POST",
@@ -137,7 +151,7 @@ function hb_popup_js() {
 
                                     if (data.search("<?php echo $data['hb_thank_you']; ?>") != -1) {
                                         jQuery("#hatchbuck-slider").remove();
-                                        createCookie("hatchbuck_subscribed", true, 2);
+                                        createCookie(hatchbuck_scrollbox_cookie, true, 2);
                                         // 1 day;
                                     }
                                 }, 4000);                                
@@ -150,7 +164,7 @@ function hb_popup_js() {
             var reached = false;
             
             function hb_closeBox() {
-                createCookie("hatchbuck_subscribed", true, 2);
+                createCookie(hatchbuck_scrollbox_cookie, true, 2);
                 
                 jQuery('#hatchbuck-slider').animate({
                     bottom: (jQuery('#hatchbuck-slider').height() + 10) * -1
@@ -167,37 +181,36 @@ function hb_popup_js() {
                 var percent = (wintop/(docheight-winheight)) * 100;
                 return (percent >= limit);
             }
-     
-    //$(document).ready(function(){ 
-    jQuery(document).ready(function(){
-        
-            jQuery('#hatchbuck-slider').css('bottom', (jQuery('#hatchbuck-slider').height() + 10) * -1);
-        
-            jQuery(window).scroll(function() {
-                if(hb_isScrolledPercent(triggerPercent)) {
-                    if(!reached){			
-                        jQuery('#hatchbuck-slider').animate({
-                            bottom: 0
-                        }, "fast");
-                        
-                        reached = true;
-                    }
-                } 
+            
+            jQuery(document).ready(function(){       
+                jQuery('#hatchbuck-slider').css('bottom', (jQuery('#hatchbuck-slider').height() + 10) * -1);
                 
-                if(!hb_isScrolledPercent(triggerPercent)) {
+                jQuery(window).scroll(function() {
+                    if (getCookie(hatchbuck_scrollbox_cookie) == true) return;
+                    if(hb_isScrolledPercent(triggerPercent)) {
+                        if(!reached){			
+                            jQuery('#hatchbuck-slider').animate({
+                                bottom: 0
+                            }, "fast");
+                            
+                            reached = true;
+                        }
+                    } 
+                    
+                    if(!hb_isScrolledPercent(triggerPercent)) {
 
-                    //slide CTA off of screen
-                    if(reached){
-                        jQuery('#hatchbuck-slider').animate({
-                            bottom: (jQuery('#hatchbuck-slider').height() + 10) * -1
-                        }, "fast");
-                        reached = false;
+                        //slide CTA off of screen
+                        if(reached){
+                            jQuery('#hatchbuck-slider').animate({
+                                bottom: (jQuery('#hatchbuck-slider').height() + 10) * -1
+                            }, "fast");
+                            reached = false;
+                        }
                     }
-                }
+                });
+            
+            
             });
-            
-            
-        });
     </script>    
     <?php    
 }
