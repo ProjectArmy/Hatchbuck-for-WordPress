@@ -56,8 +56,6 @@ if ($data && empty($data['hb_api_key']) || empty($data['hb_tag_key'])) {
             </div>
     ";     
 }
-
-
  
 require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php'); 
 
