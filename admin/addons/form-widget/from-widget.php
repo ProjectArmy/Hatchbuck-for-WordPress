@@ -10,10 +10,10 @@ class HatchbuckWidget extends WP_Widget {
  
  
     /** constructor -- name this the same as the class above */
-    function HatchbuckWidget() {
+    function __construct() {
         //parent::WP_Widget(false, $name = 'Hatchbuck Forms');	
         $widget_ops = array('classname' => 'HatchbuckWidget', 'description' => 'Adds Hatchbuck forms to your sidebar' );
-        $this->WP_Widget('HatchbuckWidget', 'Hatchbuck Forms', $widget_ops);
+        parent::WP_Widget('HatchbuckWidget', 'Hatchbuck Forms', $widget_ops);
 
     }
  
