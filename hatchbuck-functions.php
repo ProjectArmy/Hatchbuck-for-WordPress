@@ -23,16 +23,18 @@ add_action('wp_footer', 'hatchbuck_side_wide');
 
 //add javascript
 function hatchbuck_my_scripts_method() {
-  if (!is_admin()) {
-		wp_enqueue_script('hatchbuck','//app.hatchbuck.com/OnlineForm/js/cdn/jotform.js','',HATCHBUCK_VERSION);
-	}
-	
-	if (is_admin()) {
+  	wp_register_script('hatchbuck', '//app.hatchbuck.com/OnlineForm/js/cdn/jotform.js', '', HATCHBUCK_VERSION);
+}
+add_action('wp_enqueue_scripts', 'hatchbuck_my_scripts_method'); // wp_enqueue_scripts action hook to link only on the front-end
+
+// add admin javascript
+function hatchbuck_my_admin_scripts($hook) {
+	// If we are on a hatchbuck related page
+	if( stripos( $hook , "hatchbuck" ) !== false ) {
 		wp_enqueue_script('hatchbuckloc',plugins_url('js/hatchbuck.js', __FILE__),'',HATCHBUCK_VERSION);
 	}
 }
-add_action('wp_enqueue_scripts', 'hatchbuck_my_scripts_method'); // wp_enqueue_scripts action hook to link only on the front-end
-add_action( 'admin_enqueue_scripts', 'hatchbuck_my_scripts_method' );
+add_action( 'admin_enqueue_scripts' , 'hatchbuck_my_admin_scripts' , 10 , 1 );
  
 /**
  * Prints the box content.

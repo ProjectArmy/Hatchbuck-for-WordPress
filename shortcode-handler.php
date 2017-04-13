@@ -7,6 +7,8 @@ function hatchbuck_display_content($hatchbuck_snippet_name){
 	global $wpdb;
 
 	if(is_array($hatchbuck_snippet_name)){
+		wp_enqueue_script('hatchbuck');
+		
 		$snippet_name = $hatchbuck_snippet_name['form'];
 		$query = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix.HATCHBUCK_TABLE." WHERE title=%s" ,$snippet_name));
 		
