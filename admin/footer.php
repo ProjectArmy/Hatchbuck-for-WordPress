@@ -15,8 +15,8 @@
 </div>
 
 <?php 
-$action = $_GET["action"];
-$page = $_GET["page"];
+$action = (isset($_GET['action']) ? $_GET['action'] : null);
+$page = (isset($_GET['page']) ? $_GET['page'] : null);
 
 if ($page == "hatchbuck-manage" && ($action == "snippet-add" || $action == "snippet-edit") ){
 ?>
