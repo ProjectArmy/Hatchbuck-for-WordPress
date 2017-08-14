@@ -3,7 +3,7 @@
 function hatchbuck_my_plugin_redirect() {
     if (get_option('my_plugin_do_activation_redirect', false)) {
         delete_option('my_plugin_do_activation_redirect');
-        wp_redirect(admin_url('admin.php?page=hatchbuck-tutorial'));
+        wp_redirect(admin_url('admin.php?page=hatchbuck-help'));
     }
 }
 
@@ -31,8 +31,6 @@ function hatchbuck_network_install($networkwide) {
 function hatchbuck_install(){
 	
 	global $wpdb;
-	//global $current_user; get_currentuserinfo();
-	
 
 	add_option('hatchbuck_limit',20);
 	$queryInsertHtml = "CREATE TABLE IF NOT EXISTS  ".$wpdb->prefix.HATCHBUCK_TABLE." (

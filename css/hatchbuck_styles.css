@@ -1,15 +1,16 @@
 #system_notice_area_dismiss{
-color: #FFFFFF;
-cursor: pointer;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
 }
 .system_notice_area_style1 {
-	background: #00C348;
-	border: 1px solid green;
+	background: #5cb85c;
+        border: 1px solid #5cb85c;
 }
 
 .system_notice_area_style0 {
-	background: #FA5A6A;
-	border: 1px solid orange;
+	background: #ef4108;
+        border: 1px solid #ef4108;;
 }
 
 
@@ -61,26 +62,17 @@ legend{
 
 #system_notice_area {
 	position: fixed;
-	margin-bottom:40px;
-	left:25%;
-	width:50%;
-	height:20px;
-	border-radius:5px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	font-weight:bold;
-	display:none;
-	padding:3px;
-	color: #000000;
-	text-align: center;
-	top: 0px;
-z-index:100000;
-	}
-	
-
-  
-i.hatchbuck-own-icon {
-	background-image: url('../images/logo.png');
+        margin-bottom: 40px;
+        left: 0;
+        width: 100%;
+        height: 24px;
+        font-weight: normal;
+        display: none;
+        padding: 5px 0 1px;
+        color: #fff;
+        text-align: center;
+        top: 0px;
+        z-index: 100000;
 }
 
 #text {margin:50px auto; width:500px}
@@ -177,4 +169,158 @@ i.hatchbuck-own-icon {
 
 .plugin-list li img{
   width:100%;
+}
+
+.form-submit-button{ padding: 25px 0; }
+.form-sybmit-button a{float: right; padding: 5px 0;}
+.form-name input{ width: 100%; padding: 4px; }
+
+body.admin_page_scroll-box-settings .iris-picker{
+    position: absolute;
+    z-index: 99999;
+}
+.cp-close{
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: #de0000;
+    border-radius: 10px;
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #c71839;
+}
+
+a.rate-us{
+    background: #fff;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    box-shadow: 0 0 1px #ddd;
+    font-size: 16px;
+    color: #555;
+}
+a.rate-us:hover{
+    box-shadow: 0 0 2px #ccc;
+}
+a.rate-us .dashicons{
+    color: #edb404;
+    font-size: 18px;
+}
+
+.what-code{
+    float: right;
+    padding-top: 3px;
+}
+
+.button { cursor: pointer; }
+
+.hatchbuck_sw_code{
+    width:70%;
+    height:100px;
+}
+
+.hb-text-info{
+    font-size: 12px;
+    color: #777;
+}
+
+.hb-tutorial-link{
+    font-weight: normal;
+    float:right;
+}
+
+a.hb-btn{
+    color: #fff;
+    background-color: #FC5021;
+    border-color: #FC5021;
+    -webkit-transition: all ease-in-out .3s;
+    transition: all ease-in-out .3s;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    outline: none !important;
+    cursor: pointer;
+    background-image: none;
+    border-width: 1px;
+    border-style: solid;
+    white-space: nowrap;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 3px;
+}
+a.hb-btn:hover {
+    background-color: #e73403;
+    border-color: #dd3203;
+}
+.hb-btn-block{
+    display:block;
+}
+ul.hb-list{
+    list-style-type: disc;
+    margin-left: 30px;
+}
+
+li#toplevel_page_hatchbuck-manage .wp-menu-image img{
+    height: auto;
+    width: 15px;
+    position: relative;
+    bottom: 4px;
+}
+.hb-inside-row{
+    display: table;
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+.hb-col-3{
+    float: left;
+    display: block;
+    width: 25%;
+    padding:0 15px;
+}
+.hb-col-3 img{
+    max-width: 100%;
+    height: auto;
+}
+.hb-support-col{
+    background: #eee;
+    border-radius: 3px;
+    padding: 10px 25px;
+    width: 25%;
+    margin-left: 15px;
+}
+
+.hb-shortcode-select{
+    padding: 3px 15px 4px;
+    background: #eee;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+}
+
+tr td.hb-td-12{
+    padding-top: 12px;
+}
+
+.hb-active{
+    padding: 4px 10px 5px;
+    background: #5cb85c;
+    color: #fff;
+    border-radius: 3px;
+    border: 1px solid #4dad4d;
+}
+
+.hb-inactive{
+    padding: 4px 10px 5px;
+    background: #a9a9ae;
+    color: #555;
+    border-radius: 3px;
+    border: 1px solid #9f9fa2;
 }

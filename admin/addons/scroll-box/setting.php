@@ -66,7 +66,7 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
         <div id="postbox-container-2" class="postbox-container">
             <div class="postbox" style="max-width:600px;">
 
-                <h3 class="hndle"><span>Scroll Box - Settings</span></h3>
+                <h3 class="hndle"><span>Scroll Box - Settings</span> <span class="hb-tutorial-link"><a href="/wp-admin/admin.php?page=hatchbuck-help" target="_blank">Tutorial</a></span></h3>
                 <div class="inside">
                     <form method="post">
                         <?php wp_nonce_field( 'hb_scroll_box_setting', 'hb_nonce' ); ?>
@@ -88,32 +88,32 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Header title</td>
+                                        <td style="vertical-align:text-top;">Header Title</td>
                                         <td>
                                             <input type="text" style="width:100%;" name="hb_title" value="<?php print $data['hb_title']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Description text</td>
+                                        <td style="vertical-align:text-top;">Description Text</td>
                                         <td>
                                             <textarea style="width:100%;" name="hb_desc"><?php print $data['hb_desc']; ?></textarea>
 
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Thank you text</td>
+                                        <td style="vertical-align:text-top;">Thank You Text</td>
                                         <td>
                                             <textarea style="width:100%;" name="hb_thank_you"><?php print $data['hb_thank_you']; ?></textarea>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Button text</td>
+                                        <td style="vertical-align:text-top;">Button Text</td>
                                         <td>
                                             <input type="text" style="width:100%;" name="hb_btn_text" value="<?php print $data['hb_btn_text']; ?>">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="vertical-align:text-top;">Button color</td>
+                                        <td style="vertical-align:text-top;">Accent Color</td>
                                         <td>         
                                             <input type="text" style="width:100%;" name="hb_btn_color" value="<?php print $data['hb_btn_color']; ?>" class="color-picker" />
 
@@ -164,7 +164,10 @@ require( plugin_dir_path(HATCHBUCK_PLUGIN_FILE) . 'admin/header.php');
                                         <td>
                                             <input type="submit" class="button-primary" value="Save Settings">
                                         </td>
-                                        <td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="hb-text-info"><strong>Note:</strong> Scroll box subscribers are not tracked by Hatchbuck. It's not available through API right now.</div>
                                         </td>
                                     </tr>
                             </table>

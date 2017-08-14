@@ -1,34 +1,32 @@
+<?php 
+/*** Modal Pop Up ***/
+add_thickbox(); 
+?>
 <div id="poststuff">
   <div id="post-body" class="metabox-holder columns-2">
     <div id="postbox-container-2" class="postbox-container">
       <div class="postbox">
 
-        <h3 class="hndle"><span>We're Here to Help You!</span></h3>
+        <h3 class="hndle"><span>Tutorials & Help</span></h3>
         <div class="inside">
-          <p>With ProjectArmy, you're never alone. We always have your back.</p>
-          <p><strong>Free Community Support on WordPress.org</strong></p>
-          <p>Free support is available on WordPress.org forum. Please note, we try to answer support requests on the free forum but cannot guarantee it.</p>
-          <p><a class="button-secondary" href="http://wordpress.org/support/plugin/" target="_blank">Get Free Support &raquo;</a></p>
-          <hr />
-          <p><strong>Premium Support for Clients</strong></p>
-          <p>If you're one of our amazing clients taking advantage of our effective marketing solutions to create sustainable growth, you receive <em>free premium support.</em></p>
-          <p>Simply submit a ticket in My ProjectArmy, or shoot us an email to support@projectarmy.net <em>(note, if you're not a client your email will not work)</em></p>
-          <p>To be eligible for free premium support, you need one of these:</p>
-          <ul style="list-style:disc;margin-left:35px;">
-          	<li>Purchase Hatchbuck subscription through us</li>
-          	<li>Purchase <a href="https://www.projectarmy.net/project/wordpress-care/" target="_blank">WordPress Care</a> plan</li>
-          	<li>Purchase any monthly (or annual) service subscription</li>
-          </ul>
-          <p><a class="button-secondary" href="https://my.projectarmy.net/clientarea.php" target="_blank">Submit a Ticket &raquo;</a> <a class="button-primary" href="https://www.projectarmy.net/projects/" target="_blank">Browse Service Marketplace &raquo;</a></p>
-          <hr />
-          <strong>Bugs and Feature Requests</strong>
-          <p>Found a bug or want to request a feature? <a href="https://github.com/ProjectArmy/Hatchbuck-for-WordPress/issues" target="_blank">Submit it here</a> <em>(You'll need free GitHub account)</em></p>
-          <hr />
-          <p><strong>Marketing and Hatchbuck Support</strong></p>
-          <p>Too much on your plate and not enough time to do everything yourself? <strong>We're here to help.</strong></p>
-          <p>Take advantage of your free marketing consultation to find out how ProjectArmy's effective marketing solutions can help you create sustainable growth.</p>
-          <p><a class="button-secondary" href="admin.php?page=hatchbuck-manage&hb-mh=1">Request FREE Consultation &raquo;</a></p>
-          <br />
+        <div class="hb-inside-row">
+            <div class="hb-col-3">
+            <div id="hb-video-1" style="display:none;"><div style="padding-top:15px;"><iframe width="600" height="338" src="//www.youtube.com/embed/JcAxAiNuza0?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+            <a href="#TB_inline?width=600&height=365&inlineId=hb-video-1" class="thickbox"><img src="<?php echo plugin_dir_url(HATCHBUCK_PLUGIN_FILE).'/images/hb-tutorial-thumb.png'; ?>" alt="Getting Started with Hatchbuck for WordPress Plugin" /></a>
+            <p>Learn how to setup and use Hatchbuck for WordPress plugin.</p>
+            </div>
+            <div class="hb-col-3">
+            <div id="hb-video-2" style="display:none;"><div style="padding-top:15px;"><iframe width="600" height="338" src="//www.youtube.com/embed/GKpo2AM73GE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe></div></div>
+            <a href="#TB_inline?width=600&height=365&inlineId=hb-video-2" class="thickbox"><img src="<?php echo plugin_dir_url(HATCHBUCK_PLUGIN_FILE).'/images/hb-scroll-box-thumb.png'; ?>" alt="How to Set Up Scroll Box in Hatchbuck for WordPress Plugin" /></a>
+            <p>Learn how to setup Scroll Box addon to build your email list.</p>
+            </div>
+            <div class="hb-col-3 hb-support-col">
+                <p><h3>Get Support on WordPress.org</h3></p>
+          <p>If you run into issues or need help with the plugin, submit your issue on WordPress.org forum with as many details as possible. We'll try to respond in a timely fashion.</p>
+          <p><a class="button-primary" href="https://wordpress.org/support/plugin/hatchbuck" target="_blank">Visit Forum to Get Help &raquo;</a></p>    
+                
+            </div>
+        </div>
         </div><!-- inside -->
       </div><!-- postbox -->
     </div><!-- postbox-container-2 -->

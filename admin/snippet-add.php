@@ -66,60 +66,30 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
   <div class="postbox">
     <h3 class="hndle"><span>Add Hatchbuck Form</span></h3>
     <div class="inside">
-		<form name="frmmainForm" id="frmmainForm" method="post">
-			
+        
+        <form name="frmmainForm" id="frmmainForm" method="post">
 			<div>
-				<table
-					style="width: 99%; margin: 0 auto">
-					<tr valign="top">
-						<td style="border-bottom: none;width:10%;">&nbsp;&nbsp;&nbsp;Form Name&nbsp;<font color="red">*</font></td>
-						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
-						<td><input style="width:80%;"
-							type="text" name="snippetTitle"
-							value="<?php if(isset($_POST['snippetTitle'])){ echo esc_attr($_POST['snippetTitle']);}?>"></td>
-					</tr>
-					<tr>
-						<td style="border-bottom: none;width:10%; ">&nbsp;&nbsp;&nbsp;Form Code &nbsp;<font color="red">*</font></td>
-						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
-						<td >
-							<textarea name="snippetContent" style="width:80%;height:150px;"><?php if(isset($_POST['snippetContent'])){ echo esc_textarea($_POST['snippetContent']);}?></textarea>
-						</td>
-					</tr>				
-
-				<tr>
-				<td></td><td></td>
-					<td><input class="button button-primary" style="cursor: pointer;"
-							type="submit" name="addSubmit" value="Create Your Form"></td>
-				</tr>
-				<tr><td><br/></td></tr>
-				</table>
+					
+					<div class="form-name"><input
+							type="text" placeholder="Name your Hatchbuck form" name="snippetTitle" id="snippetTitle"
+							value="<?php if(isset($_POST['snippetTitle'])){ echo esc_attr($_POST['snippetTitle']);}?>">
+					</div>
+					<div class="form-code">
+                            <textarea name="snippetContent" style="width:80%;height:150px;"><?php if(isset($_POST['snippetContent'])){ echo esc_textarea($_POST['snippetContent']);}?></textarea>
+                            <div id="ace-editor" style="height: 450px;border: 1px solid #DDD;border-radius: 4px;border-bottom-right-radius: 0px;margin-top: 5px;"></div>
+                    </div>			
+                    <div class="form-submit-button">
+                    <input class="button button-primary" type="submit" name="addSubmit" value="Create Your Form">
+                    <a href="<?php echo admin_url( 'admin.php?page=hatchbuck-help' ); ?>" class="what-code">What code should I use?</a>
+                    </div>
 			</div>
 
 		</form>
+        
     </div><!-- inside -->
   </div><!-- postbox -->
 </div><!-- postbox-container-2 -->
 <?php require( dirname( __FILE__ ) . '/sidebar.php' ); ?>
-<div id="postbox-container-3" class="postbox-container">
-	<div id="top-sortables" class="meta-box-sortables ui-sortable"></div>
-<div id="normal-sortables" class="meta-box-sortables ui-sortable">
-  <div class="postbox"><div class="handlediv" title="Click to toggle"><br></div>
-    <h3 class="hndle ui-sortable-handle"><span>What form code should I use?</span></h3>
-    <div class="inside">
-	<h3>Option #1: IFRAME</h3>
-	<p>If you are happy with form design that you created inside Hatchbuck - colors, fonts, sizes, etc. - than choose IFRAME option.</p>
-	<p><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-form-iframe.png')?>" alt="Hatchbuck form IFRAME" /></p>
-	<hr />
-	<h3>Option #2: HTML/CSS</h3>
-	<p>If you want your form to match your theme styling, choose HTML/CSS form option. BUT!</P>
-	<p><strong>IMPORTANT:</strong> Do NOT copy/paste everything. You only need to copy and paste form code that starts with <code>&#x3C;form</code> and ends with <code>&#x3C;/form&#x3E;</code></p>
-    <p><img src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/hatchbuck-form-html-2.png')?>" alt="Hatchbuck form HTML/CSS" /></p>
-    </div><!-- inside -->
-  </div><!-- postbox -->
-</div>
-</div>
-
-
 
 </div><!-- postbody -->
 </div><!-- poststuff -->

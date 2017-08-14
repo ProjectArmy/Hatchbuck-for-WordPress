@@ -1,5 +1,8 @@
 <?php 
-	
+if ( ! defined( 'ABSPATH' ) ) 
+	        exit;
+
+header( 'Content-Type: text/javascript' );	
 	if ( ! is_user_logged_in() )
 		die('You must be logged in to access this script.');
 	
@@ -20,7 +23,7 @@ if(floatval(get_bloginfo('version'))>=3.9)
 
  tinymce.PluginManager.add('<?php echo $shortCodes->buttonName; ?>', function( editor, url ) {
         editor.addButton( '<?php echo $shortCodes->buttonName; ?>', {
-            title: 'Insert Form Short Code',
+            title: 'Insert Form Shortcode',
             type: 'menubutton',
             icon: 'icon hatchbuck-own-icon',
             menu: [
@@ -42,7 +45,7 @@ if(floatval(get_bloginfo('version'))>=3.9)
 
 	$hatchbuck_snippets = array(
                 'title'   =>'Hatchbuck',
-				'url'	=> plugins_url('hatchbuck/images/logo.png'),
+		'url'	=> plugins_url( 'images/logo.png', __FILE__ ),
                 'hatchbuck_snippets' => $hatchbuck_snippets_arr
             );
 	?>

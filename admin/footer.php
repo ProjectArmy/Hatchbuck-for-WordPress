@@ -5,69 +5,6 @@
 
 <div style="width: 100%">
 
-   <p></p>
-    
-<div class="hatchbuck_subscribe_temp">
-
-<script language="javascript">
-function check_email(emailString)
-{
-    var mailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    var matchArray = emailString.match(mailPattern);
-    if (emailString.length == 0)
-    return false;
-       
-    if (matchArray == null)    {
-    return false;
-    }else{
-    return true;
-    }
-}
-
-   
-function verify_lists(form)
-{
-   
-    var total=0;
-    var checkBox=form['chk[]'];
-   
-    if(checkBox.length){
-   
-    for(var i=0;i<checkBox.length;i++){
-    checkBox[i].checked?total++:null;
-    }
-    }else{
-       
-    checkBox.checked?total++:null;
-       
-    }
-    if(total>0){
-    return true;
-    }else{
-    return false;
-    }
-
-}
-   
-function verify_fields()
-{
-
-    if(check_email(document.email_subscription.email.value) == false){
-    alert("Please check whether the email is correct.");
-    document.email_subscription.email.select();
-    return false;
-    }else if(verify_lists(document.email_subscription)==false){
-    alert("Select atleast one list.");
-    }
-    else{
-    document.email_subscription.submit();
-    }
-
-}
-</script>
-</div>   
-
-
     <div style="clear: both;"></div>
   <div style="width: 100%">
 
@@ -76,3 +13,37 @@ function verify_fields()
 </div>
     <p style="clear: both;"></p>
 </div>
+
+<?php 
+$action = $_GET["action"];
+$page = $_GET["page"];
+
+if ($page == "hatchbuck-manage" && ($action == "snippet-add" || $action == "snippet-edit") ){
+?>
+<script>
+    //setting basePath fixes compatability issue with mod_pagespeed minification   
+    ace.config.set("basePath", "<?php echo plugin_dir_url( HATCHBUCK_PLUGIN_FILE ) . 'js/ace'; ?>");
+    var editor = ace.edit("ace-editor");
+    editor.setOption("showPrintMargin", false);
+    var textarea = jQuery('textarea[name="snippetContent"]').hide();
+    editor.getSession().setValue(textarea.val());
+    editor.getSession().on('change', function(){
+        textarea.val(editor.getSession().getValue());
+    });
+    editor.session.setMode("ace/mode/html");
+    editor.setTheme("ace/theme/chrome");
+    
+    var session = editor.getSession();
+    session.on("changeAnnotation", function() {
+    var annotations = session.getAnnotations()||[], i = len = annotations.length;
+    while (i--) {
+    if(/doctype first\. Expected/.test(annotations[i].text)) {
+      annotations.splice(i, 1);
+    }
+    }
+    if(len>annotations.length) {
+    session.setAnnotations(annotations);
+    }
+    });
+</script>
+<?php } ?>

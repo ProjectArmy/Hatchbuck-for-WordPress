@@ -2,7 +2,7 @@
 
 global $wpdb;
 global $current_user;
-get_currentuserinfo();
+wp_get_current_user();
 
 $hatchbuck_snippetId = $_GET['snippetId'];
 
@@ -85,33 +85,19 @@ $snippetDetails = $snippetDetails[0];
 			<input type="hidden" id="snippetId" name="snippetId"
 				value="<?php if(isset($_POST['snippetId'])){ echo esc_attr($_POST['snippetId']);}else{ echo esc_attr($snippetDetails->id); }?>">
 			<div>
-				<table
-					style="width: 99%; background-color: #F9F9F9; border: 1px solid #E4E4E4; border-width: 1px;margin: 0 auto">
-					<tr><td><br/>
-					<div id="shortCode"></div>
-					<br/></td></tr>
-					<tr valign="top">
-						<td style="border-bottom: none;width:20%;">&nbsp;&nbsp;&nbsp;Form Name&nbsp;<font color="red">*</font></td>
-						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
-						<td><input style="width:80%;"
-							type="text" name="snippetTitle" id="snippetTitle"
-							value="<?php if(isset($_POST['snippetTitle'])){ echo esc_attr($_POST['snippetTitle']);}else{ echo esc_attr($snippetDetails->title); }?>"></td>
-					</tr>
-					<tr>
-						<td style="border-bottom: none;width:20%; ">&nbsp;&nbsp;&nbsp;Form Code &nbsp;<font color="red">*</font></td>
-						<td style="border-bottom: none;width:1px;">&nbsp;:&nbsp;</td>
-						<td >
-							<textarea name="snippetContent" style="width:80%;height:150px;"><?php if(isset($_POST['snippetContent'])){ echo esc_textarea($_POST['snippetContent']);}else{ echo esc_textarea($snippetDetails->content); }?></textarea>
-						</td>
-					</tr>				
-
-				<tr>
-				<td></td><td></td>
-					<td><input class="button-primary" style="cursor: pointer;"
-							type="submit" name="updateSubmit" value="Save Your Form"></td>
-				</tr>
-				<tr><td><br/></td></tr>
-				</table>
+					
+					<div class="form-name"><input
+							type="text" placeholder="Name your Hatchbuck form" name="snippetTitle" id="snippetTitle"
+							value="<?php if(isset($_POST['snippetTitle'])){ echo esc_attr($_POST['snippetTitle']);}else{ echo esc_attr($snippetDetails->title); }?>">
+					</div>
+					<div class="form-code">
+                            <textarea name="snippetContent" style="width:80%;height:150px;"><?php if(isset($_POST['snippetContent'])){ echo esc_textarea($_POST['snippetContent']);}else{ echo esc_textarea($snippetDetails->content); }?></textarea>
+                            <div id="ace-editor" style="height: 450px;border: 1px solid #DDD;border-radius: 4px;border-bottom-right-radius: 0px;margin-top: 5px;"></div>
+                    </div>			
+                    <div class="form-submit-button">
+                    <input class="button button-primary" type="submit" name="updateSubmit" value="Save Your Form">
+                        <a href="<?php echo admin_url( 'admin.php?page=hatchbuck-help' ); ?>" class="what-code">What code should I use?</a>
+                    </div>
 			</div>
 
 		</form>

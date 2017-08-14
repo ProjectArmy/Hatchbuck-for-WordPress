@@ -67,16 +67,9 @@ $_POST = stripslashes_deep($_POST);
 	<table style="width:99%;">
 						
 			<tr valign="top">
-				<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Pagination limit (forms per page)</label></td>
+				<td scope="row" class=" settingInput" style="width: 25%;"><label for="hatchbuck_limit">Pagination limit (forms per page)</label></td>
 				<td id=""><input  name="hatchbuck_limit" type="text"
 					id="hatchbuck_limit" value="<?php if(isset($_POST['hatchbuck_limit']) ){echo abs(intval($_POST['hatchbuck_limit']));}else{print(get_option('hatchbuck_limit'));} ?>" />
-				</td>
-			</tr>
-      
-      <tr valign="top">
-				<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Disable orange "Get Marketing Help" button</label></td>
-				<td>
-          <input type="checkbox" name="disable_help" value="disabled" <?php echo (!get_option('hatchbuck_help_script'))?'checked':''; ?>/>
 				</td>
 			</tr>
 			
@@ -111,9 +104,9 @@ $_POST = stripslashes_deep($_POST);
 			
 			<?php if(get_option('hatchbuck_addons_side-wide')): ?>
 				<tr valign="top">
-					<td scope="row" class=" settingInput" id="" style="width: 25%;"><label for="hatchbuck_limit">Add tracking to entire website</label></td>
+					<td scope="row" class=" settingInput" style="width: 25%;"><label for="hatchbuck_limit">Tracking code for your website</label></td>
 					<td>
-						<textarea name="hatchbuck_sw_code" style="width:70%;height:150px;"><?php echo get_option('hatchbuck_sw_code'); ?></textarea>
+						<textarea name="hatchbuck_sw_code" class="hatchbuck_sw_code"><?php echo get_option('hatchbuck_sw_code'); ?></textarea>
 					</td>
 				</tr>
 			<?php endif; ?>
@@ -121,7 +114,7 @@ $_POST = stripslashes_deep($_POST);
 			<tr valign="top">
 				<td scope="row" class=" settingInput" id="bottomBorderNone">
 				</td>
-				<td id="bottomBorderNone"><input style="margin:10px 0 20px 0;" id="submit" class="button-primary bottonWidth" type="submit" value=" Update Settings " />
+				<td id="bottomBorderNone"><input style="margin:10px 0 20px 0;" id="submit" class="button-primary bottonWidth" type="submit" value="Update Settings" />
 				</td>
 			</tr>
 			

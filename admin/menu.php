@@ -3,13 +3,12 @@
 add_action('admin_menu', 'hatchbuck_menu');
 function hatchbuck_menu(){
 	
-	add_menu_page('hatchbuck', 'Hatchbuck', 'edit_others_posts', 'hatchbuck-manage','hatchbuck_snippets',plugins_url(basename(dirname(dirname(__FILE__))).'/images/logo.png'));
-
+	add_menu_page('hatchbuck', 'Hatchbuck', 'edit_others_posts', 'hatchbuck-manage','hatchbuck_snippets',plugins_url(basename(dirname(dirname(__FILE__))).'/images/hb-logo-icon.svg'));
+        
 	add_submenu_page('hatchbuck-manage', 'Forms', 'Forms', 'edit_others_posts', 'hatchbuck-manage','hatchbuck_snippets');
 	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Manage settings', 'Settings', 'edit_others_posts', 'hatchbuck-settings' ,'hatchbuck_settings');	
-  add_submenu_page('hatchbuck-manage', 'Hatchbuck - Addons', 'Addons', 'edit_others_posts', 'hatchbuck-addons' ,'hatchbuck_addons');
+        add_submenu_page('hatchbuck-manage', 'Hatchbuck - Addons', 'Addons', 'edit_others_posts', 'hatchbuck-addons' ,'hatchbuck_addons');
 	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Help', 'Help', 'edit_others_posts', 'hatchbuck-help' ,'hatchbuck_help');
-	add_submenu_page('hatchbuck-manage', 'Hatchbuck - Tutorial', 'Tutorial', 'edit_others_posts', 'hatchbuck-tutorial' ,'hatchbuck_tutorial');
 	
 }
 
@@ -68,28 +67,12 @@ function hatchbuck_help(){
 	require( dirname( __FILE__ ) . '/footer.php' );
 }
 
-function hatchbuck_tutorial(){
-	require( dirname( __FILE__ ) . '/header.php' );
-	require( dirname( __FILE__ ) . '/tutorial.php' );
-	require( dirname( __FILE__ ) . '/footer.php' );
-}
-
 function hatchbuck_add_style_script(){
 
 	wp_enqueue_script('jquery');
 	
-	//wp_register_script( 'hatchbuck_notice_script', plugins_url(basename(dirname(dirname(__FILE__))).'/js/notice.js'),'',HATCHBUCK_VERSION);
   wp_enqueue_script( 'hatchbuck_notice_script' );
-  
-  //wp_register_script( 'hatchbuck_help_script', plugins_url(basename(dirname(dirname(__FILE__))).'/js/help_button.js'),'',HATCHBUCK_VERSION);
 
-  if(get_option('hatchbuck_help_script')) {
-    wp_enqueue_script( 'hatchbuck_help_script' );
-  }
-	
-	// Register stylesheets
-	wp_register_style('hatchbuck_style', plugins_url(basename(dirname(dirname(__FILE__))).'/css/hatchbuck_styles.css'),'',HATCHBUCK_VERSION);
-	wp_enqueue_style('hatchbuck_style');
 }
 add_action('admin_enqueue_scripts', 'hatchbuck_add_style_script');
 
@@ -98,13 +81,3 @@ wp_enqueue_script( 'jquery-ui-tabs' );
 wp_enqueue_script( 'jquery-ui-dialog' );
 wp_enqueue_style( 'jquery-ui-tabs' );
 wp_enqueue_style( 'wp-jquery-ui-dialog' );
-
-/*
- * Ajax call
- */
-add_action('wp_ajax_subscribe', 'hatchbuck_ajaxSubscribe');
-function hatchbuck_ajaxSubscribe() {
-  require( dirname( __FILE__ ).'/ajax-subscribe.php');
-  exit();
-}
-?>

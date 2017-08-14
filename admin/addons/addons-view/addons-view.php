@@ -89,7 +89,7 @@ $_POST = stripslashes_deep($_POST);
         <li class="postbox">
           <h3 class="hndle"><span>Scroll Box</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/scroll-box-screenshot.png"/>
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/scroll-box.jpg" />
             <p>This addon adds an email subscribe pop up to page so users can easily add their email to keep updated. <strong>Requires Hatchbuck API key.</strong></p>
             <div align="left">
               <form method="post">
@@ -107,9 +107,9 @@ $_POST = stripslashes_deep($_POST);
         </li>
 				
 				<li class="postbox">
-          <h3 class="hndle"><span>Side-wide Tracking</span></h3>
+          <h3 class="hndle"><span>Site-wide Tracking</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/site-wide-tracking.jpg" alt="Site-wide Tracking">
             <p>A better implementation of Hatchbuck's page tracking functionality. Now you only need one tracking code to track entire website.</p>
             <div align="left">
               <form method="post">
@@ -126,9 +126,9 @@ $_POST = stripslashes_deep($_POST);
         </li>
 				
 				<li class="postbox">
-          <h3 class="hndle"><span>Page Specific Tracking</span></h3>
+          <h3 class="hndle"><span>Page Specific Tracking (Legacy)</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/blank.png"/>
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/page-tracking.jpg" alt="Page Specific Tracking" />
             <p>This is the original page tracking feature, where you can place page tracking code on individual pages. If enabled, disables site-wide tracking.</p>
             <div align="left">
               <form method="post">

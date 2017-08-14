@@ -16,12 +16,10 @@ function scroll_box_page() {
 }
 
 function hb_script( ) {
-//        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
     wp_enqueue_script( 'jquery' );
 }
 
-function hb_iris_color_picker( ) {
+function hb_iris_color_picker($hook) {
     wp_enqueue_style( 'wp-color-picker' );
     wp_enqueue_script(
             'iris',
@@ -29,8 +27,10 @@ function hb_iris_color_picker( ) {
             array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
             false,
             1
-    );     
+    );
+    if($hook == 'admin_page_scroll-box-settings'){
     wp_enqueue_script( 'hb_scrollbox_admin_script', plugin_dir_url( __FILE__ ) . 'script/admin-script.js' );
+    }
 }
 
 function scroll_box_settings() {

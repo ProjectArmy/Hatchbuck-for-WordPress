@@ -2,7 +2,7 @@
 /*
 Plugin Name: Hatchbuck
 Plugin URI: https://www.projectarmy.net
-Description: Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. Plus, it makes it very easy to insert website tracking code on any page or post to enable tracking of these pages in Hatchbuck. ProjectArmy is an official Hatchbuck partner.      
+Description: Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. Also, includes page tracking and scroll box features. ProjectArmy is a certified Hatchbuck partner.      
 Version: 1.3
 Author: ProjectArmy
 Author URI: https://www.projectarmy.net
@@ -57,7 +57,7 @@ require( dirname( __FILE__ ) . '/hatchbuck-admin-menu.php' );
 /*********** Get Started link on the Plugins page *******************/
 
 function hatchbuck_add_settings_link( $links ) {
-    $tutorial_link = '<a href="admin.php?page=hatchbuck-tutorial">' . __( 'Tutorial' ) . '</a>';
+    $tutorial_link = '<a href="admin.php?page=hatchbuck-help">' . __( 'Tutorial' ) . '</a>';
 	$settings_link = '<a href="admin.php?page=hatchbuck-manage">' . __( 'Get Started &raquo;' ) . '</a>';
     array_push( $links, $tutorial_link, $settings_link );
   	return $links;

@@ -86,9 +86,9 @@ id="system_notice_area_dismiss">Dismiss</span>
 				<thead>
 					<tr>
 						<th scope="col" >Form Name</th>
-						<th scope="col" >Form Short Code</th>
+						<th scope="col" >Form Shortcode</th>
 						<th scope="col" >Status</th>
-						<th scope="col" colspan="3" style="text-align: center;">Action</th>
+						<th scope="col" >Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -100,59 +100,60 @@ id="system_notice_area_dismiss">Dismiss</span>
 							$class = ( $count % 2 == 0 ) ? ' class="alternate"' : '';
 							?>
 					<tr <?php echo $class; ?>>
-						<td><?php 
+						<td class="hb-td-12"><a
+							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-edit&snippetId='.$entry->id.'&pageno='.$pagenum); ?>' title="Edit Form"><?php 
 						echo esc_html($entry->title);
-						?></td>
-						<td><?php 
+                                                ?></a></td>
+						<td><div class="hb-shortcode-select"><?php 
 						if($entry->status == 2){echo 'NA';}
 						else
 						echo '[hatchbuck form="'.esc_html($entry->title).'"]';
-						?></td>
-						<td>
+                                                ?></div></td>
+						<td class="hb-td-12">
 							<?php 
 								if($entry->status == 2){
-									echo "Inactive";	
+									echo "<span class='hb-inactive'>Inactive</span>";	
 								}elseif ($entry->status == 1){
-								echo "Active";	
+								echo "<span class='hb-active'>Active</span>";	
 								}
 							
 							?>
 						</td>
-						<?php 
+                                                <td class="hb-td-12">
+                                                <div class="hb-actions">
+                                                <?php 
 								if($entry->status == 2){
 						?>
-						<td style="text-align: center;"><a
-							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=1&pageno='.$pagenum); ?>'><img
-								id="img" title="Activate"
-								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/activate.png')?>">
+						<a
+							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=1&pageno='.$pagenum); ?>' title="Activate Form">
+                                                        <span class="dashicons dashicons-visibility"></span>
 						</a>
-						</td>
+						
 							<?php 
 								}elseif ($entry->status == 1){
 								?>
-						<td style="text-align: center;"><a
-							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=2&pageno='.$pagenum); ?>'><img
-								id="img" title="Deactivate"
-								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/pause.png')?>">
+						<a
+							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-status&snippetId='.$entry->id.'&status=2&pageno='.$pagenum); ?>' title="Deactivate Form">
+                                                        <span class="dashicons dashicons-hidden"></span>
 						</a>
-						</td>		
+								
 								<?php 	
 								}
 							
 							?>
 						
-						<td style="text-align: center;"><a
-							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-edit&snippetId='.$entry->id.'&pageno='.$pagenum); ?>'><img
-								id="img" title="Edit Snippet"
-								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/edit.png')?>">
+						<a
+							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-edit&snippetId='.$entry->id.'&pageno='.$pagenum); ?>' title="Edit Form">
+                                                        <span class="dashicons dashicons-welcome-write-blog"></span>
 						</a>
-						</td>
-						<td style="text-align: center;" ><a
+						
+						<a
 							href='<?php echo admin_url('admin.php?page=hatchbuck-manage&action=snippet-delete&snippetId='.$entry->id.'&pageno='.$pagenum); ?>'
-							onclick="javascript: return confirm('Please click \'OK\' to confirm ');"><img
-								id="img" title="Delete Snippet"
-								src="<?php echo plugins_url(basename(dirname(dirname(__FILE__))).'/images/delete.png')?>">
-						</a></td>
+							onclick="javascript: return confirm('Please click \'OK\' to confirm deletion!');" title="Delete form">
+                                                        <span class="dashicons dashicons-trash"></span>
+						</a>
+                                                </div>
+                                                </td>
 					</tr>
 					<?php
 					$count++;

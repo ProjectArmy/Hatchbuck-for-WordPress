@@ -27,6 +27,7 @@ class hatchbuck_Insert_Html_TinyMCESelector{
 		$plugin_array[$this->buttonName] =get_site_url() . '/index.php?wp_ihs=editor_plugin_js';
 		if ( get_user_option('rich_editing') == 'true') 
 		 	//var_dump($plugin_array);
+                
 		return $plugin_array;
 	}
 }

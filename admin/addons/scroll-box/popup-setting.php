@@ -91,7 +91,7 @@ function hb_popup_html() {
                 <div class="hb_scroll_box_div" id="hatchbuck_scroll-box_result">
                 </div>
                 <div class="hb_scroll_box_div">
-                            <p class="hb_text hb_powered_by"><a target="_blank" href="https://www.projectarmy.net/" rel="external">Powered by ProjectArmy</a></p>
+                            <p class="hb_text hb_powered_by"><a target="_blank" href="https://www.projectarmy.net/" rel="external nofollow">Powered by ProjectArmy</a></p>
                 </div>
             </div>
         </form>
@@ -240,7 +240,7 @@ function hb_popup_css() {
     }
     
     .hatchbuck_error {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
         font-size: 14px;
         margin:0px !important;
         color: red;
@@ -248,7 +248,7 @@ function hb_popup_css() {
         padding:5px;
     }
     .hatchbuck_info {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
         font-size: 14px;
         margin:0px !important;
         color: green;
@@ -282,24 +282,24 @@ function hb_popup_css() {
     .hb_title {
         color: rgba(50,50,50,1);
         line-height:36px;
-        font-size:24px;
+        font-size:22px;
         font-weight: bold;
         text-align:left;
         margin: 16px 0 0 0;
         padding:0px;
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
     }
     
     .hb_desc {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
-        font-size: 16px;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 14px;
 		margin: 10px 0 0 0;
 		padding: 0px;
 		color: #666;
     }
     
     .hb_scroll_box_div input {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
         font-size: 13px;  
         margin: 10px 0 0 0;
         padding:0 5px 0 5px;
@@ -318,7 +318,7 @@ function hb_popup_css() {
     
     
     .hb_scroll_box_btn {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
         font-size: 14px;
         margin: 10px 0 10px 0;
         padding: 0px;
@@ -327,7 +327,8 @@ function hb_popup_css() {
         border: 1px solid <?php print $data['hb_btn_color']; ?>;
         border-radius: 5px !important;
         background:<?php print $data['hb_btn_color']; ?> !important;
-		color: #fff;
+	color: #fff;
+        font-weight: normal;
     }
     
     .hb_scroll_box_btn:hover {
@@ -335,17 +336,17 @@ function hb_popup_css() {
     }
     
     .hb_text {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
         font-size: 14px;
     }
     
     .hb_powered_by, .hb_powered_by a {
-        font-family: 'Source Sans Pro', Helvetica, sans-serif;
-        font-size: 12px; 
+        font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+        font-size: 11px; 
         margin-top:10px;
         text-align:center;  
-		color: #999 !important;
-		text-decoration: none !important;
+	color: #999 !important;
+	text-decoration: none !important;
     }
     </style>
     <?php    
