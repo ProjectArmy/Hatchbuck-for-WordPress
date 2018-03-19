@@ -10,11 +10,12 @@ class HatchbuckWidget extends WP_Widget {
  
  
     /** constructor -- name this the same as the class above */
-    function HatchbuckWidget() {
+    public function __construct() {
         //parent::WP_Widget(false, $name = 'Hatchbuck Forms');	
-        $widget_ops = array('classname' => 'HatchbuckWidget', 'description' => 'Adds Hatchbuck forms to your sidebar' );
-        $this->WP_Widget('HatchbuckWidget', 'Hatchbuck Forms', $widget_ops);
-
+        $widget_ops = array(
+            'classname' => 'HatchbuckWidget', 
+            'description' => 'Adds Hatchbuck forms to your sidebar' );
+        parent::__construct('HatchbuckWidget', 'Hatchbuck Forms', $widget_ops);
     }
  
     /** @see WP_Widget::widget -- do not rename this */
@@ -90,5 +91,13 @@ class HatchbuckWidget extends WP_Widget {
  
  
 } // end class HatchbuckWidget
-add_action('widgets_init', create_function('', 'return register_widget("HatchbuckWidget");'));
+
+if ( ! version_compare( PHP_VERSION, '5.3.0', '>=' ) ) {
+    $func_value = create_function( '', 'return register_widget("HatchbuckWidget");');
+}else{
+    $func_value = function(){
+        return register_widget("HatchbuckWidget");
+    };
+}
+add_action('widgets_init', $func_value);
 ?>

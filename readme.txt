@@ -3,8 +3,8 @@ Contributors: projectarmy,viktorix,supporthero
 Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales,leadgen,lead generation,pop ups,scroll box
 Donate link: https://www.projectarmy.net
 Requires at least: 3.0
-Tested up to: 4.8.2
-Stable tag: 1.3.1
+Tested up to: 4.9.4
+Stable tag: 1.3.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -85,6 +85,11 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 4. Scroll box addon settings page and scroll box screenshot.
 
 == Changelog ==
+
+= 1.3.2 =
+* wp_enqueue_script/style was called incorrectly in admin/menu.php (Bug #9)
+* WP Widget uses __construct now to improve compatability
+* Improved compatability with PHP 7.2, older PHP versions will still use create_function
 
 = 1.3.1 =
 * Fixed PHP notice issue
