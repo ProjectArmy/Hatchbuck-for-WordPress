@@ -12,6 +12,9 @@ $_POST = stripslashes_deep($_POST);
         case 'form-widget':
             update_option('hatchbuck_addons_form-widget',1);
             break;
+        case 'gutenberg-form-block':
+            update_option('hatchbuck_addons_gutenberg-form-block',1);
+            break;
         case 'scroll-box':
             update_option('hatchbuck_addons_scroll-box',1);
             break;        
@@ -31,6 +34,9 @@ $_POST = stripslashes_deep($_POST);
     switch ($_POST['addon']) {
         case 'form-widget':
             update_option('hatchbuck_addons_form-widget',null);
+            break;
+        case 'gutenberg-form-block':
+            update_option('hatchbuck_addons_gutenberg-form-block',null);
             break;
         case 'scroll-box':
             update_option('hatchbuck_addons_scroll-box',null);
@@ -79,6 +85,25 @@ $_POST = stripslashes_deep($_POST);
                 <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
               <?php else: ?>
                 <input type="hidden" name="addon" value="form-widget"/>
+                <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
+              <?php endif; ?>
+              </form>
+            </div>
+          </div><!-- inside -->
+        </li>
+		
+		        <li class="postbox">
+          <h3 class="hndle"><span>Gutenberg Form Block</span></h3>
+          <div class="inside">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/form-widget-screenshot.png"/>
+            <p>This addon adds  Gutenberg block, so users can drop it into Gutenberg and select which form to display.</p>
+            <div align="left">
+              <form method="post">
+              <?php if(get_option('hatchbuck_addons_gutenberg-form-block')): ?>
+                <input type="hidden" name="addon" value="gutenberg-form-block"/>
+                <input type="Submit" name="deactivate" class="button button-secondary button-large" value="Deactivate">
+              <?php else: ?>
+                <input type="hidden" name="addon" value="gutenberg-form-block"/>
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
               <?php endif; ?>
               </form>
