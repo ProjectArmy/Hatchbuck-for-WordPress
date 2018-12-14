@@ -65,4 +65,10 @@ function hatchbuck_add_settings_link( $links ) {
 $plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin", 'hatchbuck_add_settings_link' );
 
+/*********** Disable Display of any kinds of errors and warnings *******************/
+//Errors will be logged on Hatchbuck-for-WordPress/debug.log
+error_reporting( E_ALL );
+ini_set( 'display_errors', 0 );
+ini_set( 'log_errors', 1 );
+ini_set( 'error_log', dirname( __FILE__ ) . '/debug.log' );
 ?>
