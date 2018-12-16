@@ -1,33 +1,30 @@
 === Hatchbuck ===
 Contributors: projectarmy,viktorix,supporthero
-Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales,leadgen,lead generation,pop ups,scroll box
+Tags: hatchbuck,crm,marketing automation,forms,website tracking,projectarmy,embed forms,sales,leadgen,lead generation,pop ups,scroll box,classicpress,gutenberg
 Donate link: https://www.projectarmy.net
-Requires at least: 3.0
-Tested up to: 4.9.4
-Stable tag: 1.3.2
+Requires at least: 4.0
+Tested up to: 5.0.1
+Stable tag: 1.4.0
+Requires PHP: 5.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Integrate Hatchbuck with your WordPress website to capture and nurture more leads.
 
 == Description ==
-Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. It makes it very easy to insert website tracking code on any page, post or site-wide. We've added some extra tools to help Hatchbuckers capture more leads and build their email lists. **ProjectArmy is a certified Hatchbuck partner.**
+Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. It makes it very easy to insert website tracking code on any page, post or site-wide. We've added some extra tools to help Hatchbuckers capture more leads and build their email lists.
 
 = Features =
 Current version includes:
 
+* Gutenberg form block to easily insert forms in your layouts [NEW]
 * Embed Hatchbuck forms with shortcodes anywhere in WordPress
 * Insert website tracking code on any page, post or site-wide
 * Admin toolbar shortcuts to your Hatchbuck app
-* Scroll box to capture more leads (NEW)
+* Scroll box to capture more leads
 * Addons to extend plugin's functionality
-
-= Todo =
-This is what we got so far on our road map:
-
-* Gravity Forms integration
-* Additional lead generation tools
-* Possibly form analytics
+* Compatible with Classic Editor plugin
+* Compatible with ClassicPress
 
 = Support =
 Submit your issues, feedback, and suggestions in the WordPress support forum.
@@ -51,6 +48,10 @@ This plugin is based on [Insert HTML Snippet](https://wordpress.org/plugins/inse
 Plugin includes a video tutorials. Visit "Help" tab to watch them. You can find all video on our [Youtube channel](https://www.youtube.com/channel/UCMtWvpEKuxpy-c5mHTLSF4g).
 
 == Frequently Asked Questions ==
+= Where do I find Gutenberg block? =
+
+If you want to use Gutenberg block, you'll need to activate this addon under Hatchbuck > Addons. Remember, you need WordPress version 5.0 and up to use Gutenberg block.
+
 = How do I embed form shortcode into my template file? =
 
 Please use `do_shortcode()` function. For example: `<?php echo do_shortcode('[hatchbuck form="HTML-form"]'); ?>`
@@ -85,6 +86,13 @@ Visit plugin's [GitHub page](https://github.com/ProjectArmy/Hatchbuck-for-WordPr
 4. Scroll box addon settings page and scroll box screenshot.
 
 == Changelog ==
+
+= 1.4.0 =
+* Added Gutenberg form block to insert forms
+* Verified Classic Editor plugin compatability
+* Verified ClassicPress compatability
+* Bummed required versions
+* Added debug.log in case of any errors
 
 = 1.3.2 =
 * wp_enqueue_script/style was called incorrectly in admin/menu.php (Bug #9)

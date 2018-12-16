@@ -78,7 +78,7 @@ $_POST = stripslashes_deep($_POST);
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/form-widget-screenshot.png"/>
             <p>This addon adds a form widget, so you can easily include your Hatchbuck forms in your sidebars or on pages with Page Builder plugin.</p>
-            <div align="left">
+            <div style="text-align:left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_form-widget')): ?>
                 <input type="hidden" name="addon" value="form-widget"/>
@@ -95,9 +95,14 @@ $_POST = stripslashes_deep($_POST);
 		        <li class="postbox">
           <h3 class="hndle"><span>Gutenberg Form Block</span></h3>
           <div class="inside">
-            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/form-widget-screenshot.png"/>
-            <p>This addon adds  Gutenberg block, so users can drop it into Gutenberg and select which form to display.</p>
-            <div align="left">
+            <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/gutenberg-block.png" />
+            <p>This addon adds Gutenberg form block, so users can drop it into Gutenberg and select which form to display. Requires WordPress 5.0 and up.</p>
+            <div style="text-align:left">
+              <?php if ( function_exists( 'classicpress_version' ) ): ?>
+                <p class="notcompatible">Not compatible with ClassicPress.</p>
+              <?php elseif( version_compare( $GLOBALS['wp_version'], '3.7', '<' ) ): ?>
+              <p class="notcompatible">Gutenberg not available.</p>
+              <?php else: ?>
               <form method="post">
               <?php if(get_option('hatchbuck_addons_gutenberg-form-block')): ?>
                 <input type="hidden" name="addon" value="gutenberg-form-block"/>
@@ -107,6 +112,7 @@ $_POST = stripslashes_deep($_POST);
                 <input type="Submit" name="activate" class="button button-primary button-large" value="Activate">
               <?php endif; ?>
               </form>
+              <?php endif; ?>
             </div>
           </div><!-- inside -->
         </li>
@@ -116,7 +122,7 @@ $_POST = stripslashes_deep($_POST);
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/scroll-box.jpg" />
             <p>This addon adds an email subscribe pop up to page so users can easily add their email to keep updated. <strong>Requires Hatchbuck API key.</strong></p>
-            <div align="left">
+            <div style="text-align:left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_scroll-box')): ?>
                 <input type="hidden" name="addon" value="scroll-box"/>
@@ -136,7 +142,7 @@ $_POST = stripslashes_deep($_POST);
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/site-wide-tracking.jpg" alt="Site-wide Tracking">
             <p>A better implementation of Hatchbuck's page tracking functionality. Now you only need one tracking code to track entire website.</p>
-            <div align="left">
+            <div style="text-align:left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_side-wide')): ?>
                 <input type="hidden" name="addon" value="side-wide"/>
@@ -155,7 +161,7 @@ $_POST = stripslashes_deep($_POST);
           <div class="inside">
             <img src="<?php echo plugin_dir_url( __FILE__ ); ?>image/page-tracking.jpg" alt="Page Specific Tracking" />
             <p>This is the original page tracking feature, where you can place page tracking code on individual pages. If enabled, disables site-wide tracking.</p>
-            <div align="left">
+            <div style="text-align:left">
               <form method="post">
               <?php if(get_option('hatchbuck_addons_metabox')): ?>
                 <input type="hidden" name="addon" value="metabox"/>

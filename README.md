@@ -9,8 +9,10 @@ Current version includes:
 	- Embed Hatchbuck forms with shortcodes anywhere in WordPress
 	- Insert website tracking code on any page, post or site-wide
 	- Admin toolbar shortcuts to your Hatchbuck app
-	- Scroll box to capture more leads (NEW)
+	- Scroll box to capture more leads
 	- Addons to extend plugin's functionality
+	- Gutenberg block to insert forms [NEW]
+	- Compatible with ClassicPress
 
 Download Plugin:
 ----

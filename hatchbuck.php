@@ -3,7 +3,7 @@
 Plugin Name: Hatchbuck
 Plugin URI: https://www.projectarmy.net
 Description: Hatchbuck for WordPress allows you to easily embed Hatchbuck forms inside any pages or posts using simple shortcodes. Also, includes page tracking and scroll box features.     
-Version: 1.3.2
+Version: 1.4.0
 Author: ProjectArmy
 Author URI: https://www.projectarmy.net
 Text Domain: Hatchbuck
@@ -31,7 +31,7 @@ ob_start();
 // error_reporting(E_ALL);
 define('PLUGIN_NAME','Hatchbuck');
 define('HATCHBUCK_PLUGIN_FILE',__FILE__);
-define('HATCHBUCK_VERSION','1.3.2');
+define('HATCHBUCK_VERSION','1.4.0');
 define('HATCHBUCK_TABLE','hatchbuck_shortcode');
 
 require( dirname( __FILE__ ) . '/hatchbuck-functions.php' );
@@ -66,7 +66,7 @@ $plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin", 'hatchbuck_add_settings_link' );
 
 /*********** Disable Display of any kinds of errors and warnings *******************/
-//Errors will be logged on Hatchbuck-for-WordPress/debug.log
+//Errors will be logged in hatchbuck/debug.log
 error_reporting( E_ALL );
 ini_set( 'display_errors', 0 );
 ini_set( 'log_errors', 1 );
